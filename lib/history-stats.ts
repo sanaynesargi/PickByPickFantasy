@@ -14,7 +14,8 @@ export type FlatRecord = {
   wins: number;
   losses: number;
   ties: number;
-  rank: number;
+  rank: number; // regular-season finish
+  po?: number; // playoff finish
   pf?: number;
   pa?: number;
   pd?: number;
@@ -38,6 +39,7 @@ export function flatten(): FlatRecord[] {
         losses: st.losses,
         ties: st.ties,
         rank: st.rank,
+        po: st.playoffRank,
         pf,
         pa,
         pd: pf !== undefined && pa !== undefined ? pf - pa : undefined,
@@ -57,10 +59,12 @@ export type Career = {
   losses: number;
   ties: number;
   winPct: number;
-  avgFinish: number;
+  avgFinish: number; // regular-season
+  avgPlayoff?: number; // playoff finish (undefined if no playoff data)
   avgPick: number;
   bestFinish: number;
   firsts: number; // regular-season 1st-place finishes
+  titles: number; // playoff championships (playoff finish === 1)
 };
 
 export function careers(): Career[] {
@@ -75,6 +79,7 @@ export function careers(): Career[] {
     const wins = sum(rs.map((r) => r.wins));
     const losses = sum(rs.map((r) => r.losses));
     const ties = sum(rs.map((r) => r.ties));
+    const pos = rs.map((r) => r.po).filter((v): v is number => v !== undefined);
     res.push({
       manager,
       seasons: rs.length,
@@ -83,9 +88,11 @@ export function careers(): Career[] {
       ties,
       winPct: winPct({ wins, losses, ties }),
       avgFinish: avg(rs.map((r) => r.rank)),
+      avgPlayoff: pos.length ? avg(pos) : undefined,
       avgPick: avg(rs.map((r) => r.pick)),
       bestFinish: Math.min(...rs.map((r) => r.rank)),
       firsts: rs.filter((r) => r.rank === 1).length,
+      titles: rs.filter((r) => r.po === 1).length,
     });
   }
   return res.sort((a, b) => b.winPct - a.winPct || a.avgFinish - b.avgFinish);
@@ -95,7 +102,8 @@ export type PickAvg = {
   pick: number;
   n: number; // team-seasons drafted at this slot
   avgWins: number;
-  avgFinish: number;
+  avgFinish: number; // regular-season
+  avgPlayoff?: number; // playoff finish
   nPts: number; // seasons with points data
   avgPf?: number;
   avgPa?: number;
@@ -108,11 +116,13 @@ export function perPick(): PickAvg[] {
   return picks.map((pick) => {
     const rs = recs.filter((r) => r.pick === pick);
     const pts = rs.filter((r) => r.pd !== undefined);
+    const pos = rs.map((r) => r.po).filter((v): v is number => v !== undefined);
     return {
       pick,
       n: rs.length,
       avgWins: avg(rs.map((r) => r.wins)),
       avgFinish: avg(rs.map((r) => r.rank)),
+      avgPlayoff: pos.length ? avg(pos) : undefined,
       nPts: pts.length,
       avgPf: pts.length ? avg(pts.map((r) => r.pf!)) : undefined,
       avgPa: pts.length ? avg(pts.map((r) => r.pa!)) : undefined,

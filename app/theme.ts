@@ -16,13 +16,13 @@ const body = 'var(--font-body), "Hanken Grotesk", system-ui, sans-serif';
 const theme = createTheme({
   palette: {
     mode: "dark",
-    primary: { main: "#ff6a1a", light: "#ff8c45", contrastText: INK },
-    secondary: { main: "#ffb020", contrastText: INK },
-    background: { default: "#0d0b09", paper: "#151210" },
-    success: { main: "#37b981" },
-    error: { main: "#e5533d" },
-    text: { primary: "#f4efe8", secondary: "#a89e91" },
-    divider: "rgba(255,255,255,0.08)",
+    primary: { main: "#ff7a30", light: "#ff9a5a", contrastText: INK },
+    secondary: { main: "#ffbc3d", contrastText: INK },
+    background: { default: "#1a1611", paper: "#242019" },
+    success: { main: "#46c48c" },
+    error: { main: "#ec6650" },
+    text: { primary: "#f6f1ea", secondary: "#bcb2a4" },
+    divider: "rgba(255,255,255,0.11)",
   },
   shape: { borderRadius: 14 },
   typography: {
@@ -52,7 +52,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           backgroundImage: "none",
-          border: "1px solid rgba(255,255,255,0.07)",
+          border: "1px solid rgba(255,255,255,0.10)",
         },
       },
     },
@@ -60,8 +60,8 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           backgroundImage: "none",
-          backgroundColor: "rgba(255,255,255,0.02)",
-          border: "1px solid rgba(255,255,255,0.07)",
+          backgroundColor: "rgba(255,255,255,0.045)",
+          border: "1px solid rgba(255,255,255,0.10)",
           transition: "border-color .18s ease, background-color .18s ease",
         },
       },

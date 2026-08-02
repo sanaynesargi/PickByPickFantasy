@@ -85,7 +85,7 @@ export default function HistoryPage() {
   return (
     <Box sx={{ minHeight: "100dvh", pb: 7 }}>
       <AppBar position="sticky" color="transparent" elevation={0}
-        sx={{ backdropFilter: "blur(14px)", borderBottom: "1px solid rgba(255,255,255,0.07)", bgcolor: "rgba(13,11,9,0.72)" }}>
+        sx={{ backdropFilter: "blur(14px)", borderBottom: "1px solid rgba(255,255,255,0.07)", bgcolor: "rgba(26,22,17,0.7)" }}>
         <Toolbar sx={{ gap: 1 }}>
           <IconButton component={Link} href="/" color="inherit" edge="start">
             <ArrowBackIcon />
@@ -234,8 +234,11 @@ function AllTimeView() {
   return (
     <>
       <Box>
-        <Typography variant="overline" sx={{ color: "primary.main", display: "block", mb: 1 }}>
+        <Typography variant="overline" sx={{ color: "primary.main", display: "block" }}>
           Career by person
+        </Typography>
+        <Typography variant="caption" color="text.secondary" sx={{ display: "block", mb: 1 }}>
+          reg fin = regular-season finish · PO fin = playoff finish · 🏆 = title
         </Typography>
         <Stack spacing={1}>
           {people.map((c, i) => (
@@ -250,12 +253,13 @@ function AllTimeView() {
               </Typography>
               <Box sx={{ flexGrow: 1, minWidth: 0 }}>
                 <Typography noWrap sx={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 16 }}>
-                  {c.manager}
+                  {c.manager}{c.titles > 0 ? ` ${"🏆".repeat(c.titles)}` : ""}
                 </Typography>
-                <Typography variant="caption" color="text.secondary" noWrap component="div">
-                  {c.seasons} {c.seasons === 1 ? "season" : "seasons"} · avg pick{" "}
-                  <span className="num">{c.avgPick.toFixed(1)}</span> · avg finish{" "}
-                  <span className="num">{c.avgFinish.toFixed(1)}</span>
+                <Typography variant="caption" color="text.secondary" component="div">
+                  {c.seasons} {c.seasons === 1 ? "season" : "seasons"} · pick{" "}
+                  <span className="num">{c.avgPick.toFixed(1)}</span> · reg fin{" "}
+                  <span className="num">{c.avgFinish.toFixed(1)}</span> · PO fin{" "}
+                  <span className="num">{c.avgPlayoff !== undefined ? c.avgPlayoff.toFixed(1) : "·"}</span>
                 </Typography>
               </Box>
               <Box sx={{ textAlign: "right", flexShrink: 0 }}>
@@ -263,7 +267,7 @@ function AllTimeView() {
                   {recStr(c)}
                 </Typography>
                 <Typography variant="caption" color="text.secondary" component="div" className="num">
-                  {pct3(c.winPct)}{c.firsts > 0 ? ` · 🥇${c.firsts}` : ""}
+                  {pct3(c.winPct)}
                 </Typography>
               </Box>
             </Card>

@@ -32,12 +32,13 @@ export default function PickAverages({ highlight }: { highlight?: number }) {
 
   return (
     <Box sx={{ overflowX: "auto" }}>
-      <Box component="table" sx={{ width: "100%", borderCollapse: "collapse", minWidth: 320 }}>
+      <Box component="table" sx={{ width: "100%", borderCollapse: "collapse", minWidth: 380 }}>
         <Box component="thead">
           <Box component="tr">
             <Box component="th" sx={{ ...th, textAlign: "left" }}>Pick</Box>
             <Box component="th" sx={th}>Avg W</Box>
-            <Box component="th" sx={th}>Avg fin</Box>
+            <Box component="th" sx={th}>Reg fin</Box>
+            <Box component="th" sx={th}>PO fin</Box>
             <Box component="th" sx={th}>PF</Box>
             <Box component="th" sx={th}>PA</Box>
             <Box component="th" sx={th}>PD</Box>
@@ -57,6 +58,7 @@ export default function PickAverages({ highlight }: { highlight?: number }) {
                 </Box>
                 <Box component="td" sx={td}>{num(r.avgWins)}</Box>
                 <Box component="td" sx={td}>{num(r.avgFinish)}</Box>
+                <Box component="td" sx={td}>{num(r.avgPlayoff)}</Box>
                 <Box component="td" sx={td}>{num(r.avgPf, 0)}</Box>
                 <Box component="td" sx={td}>{num(r.avgPa, 0)}</Box>
                 <Box component="td" sx={{
