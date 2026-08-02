@@ -1,5 +1,5 @@
 // Derived analytics over the static HISTORY archive. All computed from
-// lib/history-data.ts — add a season there and these update automatically.
+// lib/history-data.ts: add a season there and these update automatically.
 //
 // Records and points (PF/PA, and therefore point-differential) exist for every
 // season (2022-2025). Sample sizes are still surfaced in the UI.
@@ -32,7 +32,7 @@ export function flatten(): FlatRecord[] {
       out.push({
         season: s.season,
         pick: p.pick,
-        manager: p.manager ?? "—",
+        manager: p.manager ?? "unknown",
         team: p.team,
         wins: st.wins,
         losses: st.losses,

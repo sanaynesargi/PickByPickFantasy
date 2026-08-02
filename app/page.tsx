@@ -116,7 +116,7 @@ export default function Home() {
   return (
     <Box sx={{ minHeight: "100dvh", pb: 6 }}>
       <AppBar position="sticky" color="transparent" elevation={0}
-        sx={{ backdropFilter: "blur(10px)", borderBottom: "1px solid rgba(255,255,255,0.06)", bgcolor: "rgba(10,10,10,0.8)" }}>
+        sx={{ backdropFilter: "blur(14px)", borderBottom: "1px solid rgba(255,255,255,0.06)", bgcolor: "rgba(13,11,9,0.72)" }}>
         <Toolbar sx={{ gap: 1 }}>
           <SportsFootballIcon color="primary" />
           <Box sx={{ flexGrow: 1, lineHeight: 1 }}>
@@ -186,9 +186,7 @@ export default function Home() {
                 <Card sx={{
                   position: "relative", overflow: "hidden",
                   border: "1px solid", borderColor: myTurn ? "primary.main" : "rgba(255,255,255,0.12)",
-                  background: myTurn
-                    ? "linear-gradient(160deg, rgba(255,122,24,0.20), rgba(255,122,24,0.04))"
-                    : "linear-gradient(160deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01))",
+                  bgcolor: myTurn ? "rgba(255,106,26,0.10)" : "rgba(255,255,255,0.02)",
                 }}>
                   <CardContent>
                     <Typography variant="overline" color="primary" fontWeight={800}>
@@ -222,10 +220,10 @@ export default function Home() {
                           ))}
                         </Box>
                         <Box sx={{ mt: 2.5 }}>
-                          <Typography variant="subtitle2" color="text.secondary" gutterBottom>
-                            History by slot — averages
+                          <Typography variant="overline" color="text.secondary" sx={{ display: "block", mb: 1 }}>
+                            Slot averages · all seasons
                           </Typography>
-                          <PickAverages />
+                          <PickAverages highlight={undefined} />
                         </Box>
                       </>
                     ) : (
@@ -277,8 +275,8 @@ export default function Home() {
                     <Stack key={id} direction="row" alignItems="center" spacing={1}
                       sx={{
                         px: 1.5, py: 1, borderRadius: 2,
-                        bgcolor: isNow ? "rgba(255,122,24,0.12)" : "transparent",
-                        border: isNow ? "1px solid rgba(255,122,24,0.5)" : "1px solid transparent",
+                        bgcolor: isNow ? "rgba(255,106,26,0.12)" : "transparent",
+                        border: isNow ? "1px solid rgba(255,106,26,0.5)" : "1px solid transparent",
                       }}>
                       <Typography variant="body2" color="text.secondary" sx={{ width: 24 }}>
                         {i + 1}.
@@ -394,7 +392,7 @@ function SlotRow(props: {
         borderColor: props.mine
           ? "primary.main"
           : props.filled
-          ? "rgba(255,122,24,0.4)"
+          ? "rgba(255,106,26,0.4)"
           : undefined,
       }}>
       <Box sx={{

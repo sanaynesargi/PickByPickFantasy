@@ -4,7 +4,7 @@ import { teams as teamsTable, picks as picksTable } from "@/lib/schema";
 
 export const dynamic = "force-dynamic";
 
-// "No Punt Intended" — 2025 final regular-season standings (ESPN export).
+// "No Punt Intended": 2025 final regular-season standings (ESPN export).
 // finishRank is the real standing (ESPN has no points-for to tie-break the
 // five 7-7 teams, so we store the order directly). The draft reverses it.
 const LEAGUE_TEAMS = [

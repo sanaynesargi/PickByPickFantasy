@@ -31,7 +31,7 @@ async function createDb() {
 
 async function init() {
   const db = await createDb();
-  // Idempotent schema creation — keeps first-run setup simple without a
+  // Idempotent schema creation keeps first-run setup simple without a
   // separate migration step. Safe to run on every cold start.
   await db.execute(sql`
     CREATE TABLE IF NOT EXISTS teams (

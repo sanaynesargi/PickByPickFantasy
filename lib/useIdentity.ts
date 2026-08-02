@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 
 // Name-only "login": each person claims a team on their own device. The claim
-// is just the team id kept in localStorage — no password, trusted-league style.
+// is just the team id kept in localStorage, with no password, trusted-league style.
 const KEY = "pfp_team_id";
 
 export function useIdentity() {

@@ -125,7 +125,7 @@ export default function Admin() {
   return (
     <Box sx={{ minHeight: "100dvh", pb: 6 }}>
       <AppBar position="sticky" color="transparent" elevation={0}
-        sx={{ backdropFilter: "blur(10px)", borderBottom: "1px solid rgba(255,255,255,0.06)", bgcolor: "rgba(10,10,10,0.8)" }}>
+        sx={{ backdropFilter: "blur(14px)", borderBottom: "1px solid rgba(255,255,255,0.06)", bgcolor: "rgba(13,11,9,0.72)" }}>
         <Toolbar sx={{ gap: 1 }}>
           <IconButton component={Link} href="/" color="inherit" edge="start">
             <ArrowBackIcon />
@@ -139,7 +139,7 @@ export default function Admin() {
 
       <Container maxWidth="sm" sx={{ pt: 3 }}>
         <Stack spacing={3}>
-          <Card variant="outlined" sx={{ borderColor: "rgba(255,122,24,0.4)" }}>
+          <Card variant="outlined" sx={{ borderColor: "rgba(255,106,26,0.4)" }}>
             <CardContent sx={{ py: 2 }}>
               <Typography variant="subtitle1" fontWeight={800} gutterBottom>
                 Enter last year&apos;s standings
@@ -147,8 +147,8 @@ export default function Admin() {
               <Typography variant="body2" color="text.secondary">
                 Add each team and its final record from last season (currently
                 seeded with <b>2025</b>). The draft order is these standings
-                <b> reversed</b> — last place picks first. Set <b>Finish</b> (1 =
-                1st) to lock the exact order when records tie.
+                <b> reversed</b>, so last place picks first. Set <b>Finish</b> (1
+                = 1st) to lock the exact order when records tie.
               </Typography>
             </CardContent>
           </Card>
@@ -156,7 +156,7 @@ export default function Admin() {
           {draftStarted && (
             <Alert severity="info" variant="outlined">
               The draft has started. Editing records won&apos;t change slots already
-              claimed — reset the draft on the home screen to re-run it.
+              claimed; reset the draft on the home screen to re-run it.
             </Alert>
           )}
 
@@ -201,7 +201,7 @@ export default function Admin() {
             </CardContent>
           </Card>
 
-          {/* Standings — order = last year's finish. Draft runs in reverse. */}
+          {/* Standings ordered by last year's finish. Draft runs in reverse. */}
           <Box>
             <Stack direction="row" alignItems="center" sx={{ mb: 1 }}>
               <Typography variant="h6" sx={{ flexGrow: 1 }}>
@@ -226,7 +226,7 @@ export default function Admin() {
                         <Box sx={{
                           width: 28, height: 28, borderRadius: "50%", flexShrink: 0,
                           display: "grid", placeItems: "center", fontWeight: 800, fontSize: 13,
-                          bgcolor: "rgba(255,122,24,0.15)", color: "primary.main",
+                          bgcolor: "rgba(255,106,26,0.15)", color: "primary.main",
                         }}>
                           {t.rank}
                         </Box>

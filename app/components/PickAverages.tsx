@@ -7,21 +7,25 @@ import { perPick } from "@/lib/history-stats";
 // inform which slot to claim) and in the all-time history view.
 export default function PickAverages({ highlight }: { highlight?: number }) {
   const rows = perPick();
-  const num = (v: number | undefined, d = 1) => (v === undefined ? "—" : v.toFixed(d));
+  const num = (v: number | undefined, d = 1) => (v === undefined ? "·" : v.toFixed(d));
 
   const th = {
     textAlign: "right" as const,
-    padding: "4px 8px",
-    fontSize: 11,
+    padding: "5px 8px",
+    fontSize: 10,
+    fontFamily: "var(--font-display)",
     fontWeight: 700,
+    letterSpacing: "0.08em",
+    textTransform: "uppercase" as const,
     color: "text.secondary",
     whiteSpace: "nowrap" as const,
     borderBottom: "1px solid rgba(255,255,255,0.12)",
   };
   const td = {
     textAlign: "right" as const,
-    padding: "5px 8px",
-    fontSize: 13,
+    padding: "6px 8px",
+    fontSize: 13.5,
+    fontVariantNumeric: "tabular-nums",
     whiteSpace: "nowrap" as const,
     borderBottom: "1px solid rgba(255,255,255,0.05)",
   };
@@ -44,18 +48,21 @@ export default function PickAverages({ highlight }: { highlight?: number }) {
             const on = highlight === r.pick;
             return (
               <Box component="tr" key={r.pick}
-                sx={{ bgcolor: on ? "rgba(255,122,24,0.14)" : "transparent" }}>
-                <Box component="td" sx={{ ...td, textAlign: "left", fontWeight: 700,
-                  color: on ? "primary.main" : "text.primary" }}>
-                  #{r.pick}
+                sx={{ bgcolor: on ? "rgba(255,106,26,0.14)" : "transparent" }}>
+                <Box component="td" sx={{
+                  ...td, textAlign: "left", fontFamily: "var(--font-display)", fontWeight: 800,
+                  color: on ? "primary.light" : "text.primary",
+                }}>
+                  {r.pick}
                 </Box>
                 <Box component="td" sx={td}>{num(r.avgWins)}</Box>
                 <Box component="td" sx={td}>{num(r.avgFinish)}</Box>
                 <Box component="td" sx={td}>{num(r.avgPf, 0)}</Box>
                 <Box component="td" sx={td}>{num(r.avgPa, 0)}</Box>
-                <Box component="td" sx={{ ...td,
-                  color: r.avgPd === undefined ? "text.secondary"
-                    : r.avgPd >= 0 ? "success.main" : "error.main" }}>
+                <Box component="td" sx={{
+                  ...td, fontWeight: 700,
+                  color: r.avgPd === undefined ? "text.secondary" : r.avgPd >= 0 ? "success.main" : "error.main",
+                }}>
                   {r.avgPd !== undefined && r.avgPd > 0 ? "+" : ""}{num(r.avgPd, 0)}
                 </Box>
               </Box>
