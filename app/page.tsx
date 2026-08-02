@@ -31,6 +31,7 @@ import HourglassEmptyIcon from "@mui/icons-material/HourglassEmpty";
 import { api, type DraftState, type StandingTeam } from "@/lib/api";
 import { useIdentity } from "@/lib/useIdentity";
 import { INK } from "./theme";
+import PickAverages from "./components/PickAverages";
 
 function record(t: StandingTeam) {
   return t.ties > 0 ? `${t.wins}-${t.losses}-${t.ties}` : `${t.wins}-${t.losses}`;
@@ -219,6 +220,12 @@ export default function Home() {
                               #{n}
                             </Button>
                           ))}
+                        </Box>
+                        <Box sx={{ mt: 2.5 }}>
+                          <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+                            History by slot — averages
+                          </Typography>
+                          <PickAverages />
                         </Box>
                       </>
                     ) : (
