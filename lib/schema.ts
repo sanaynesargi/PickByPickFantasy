@@ -17,6 +17,10 @@ export const teams = pgTable("teams", {
   ties: integer("ties").notNull().default(0),
   pointsFor: doublePrecision("points_for").notNull().default(0),
   pointsAgainst: doublePrecision("points_against").notNull().default(0),
+  // Explicit final regular-season standing (1 = champion). When every team has
+  // one it is authoritative for ordering — needed when records tie and no
+  // points-for is available (e.g. the 2025 ESPN export). 0 = unset.
+  finishRank: integer("finish_rank").notNull().default(0),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });
 

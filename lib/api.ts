@@ -27,6 +27,7 @@ export const api = {
     ties: number;
     pointsFor?: number;
     pointsAgainst?: number;
+    finishRank?: number;
   }) =>
     fetch("/api/teams", {
       method: "POST",
@@ -43,6 +44,7 @@ export const api = {
       ties: number;
       pointsFor: number;
       pointsAgainst: number;
+      finishRank: number;
     }>
   ) =>
     fetch(`/api/teams/${id}`, {

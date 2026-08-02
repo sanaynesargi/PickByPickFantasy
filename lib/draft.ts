@@ -21,17 +21,26 @@ function points(t: Team) {
   return t.wins + t.ties * 0.5;
 }
 
-// Standings: best record first. More W/L points wins; then higher points-for
-// (the usual fantasy tiebreaker); then fewer losses; then name for stability.
+// Standings order. If every team has an explicit finishRank (the real final
+// standing), that is authoritative. Otherwise compute: more W/L points, then
+// higher points-for (usual fantasy tiebreaker), then fewer losses, then name.
 export function rankTeams(teams: Team[]): StandingTeam[] {
+  const allSeeded = teams.length > 0 && teams.every((t) => t.finishRank > 0);
+
   const sorted = [...teams].sort((a, b) => {
+    if (allSeeded) return a.finishRank - b.finishRank;
     const pd = points(b) - points(a);
     if (pd !== 0) return pd;
     if (b.pointsFor !== a.pointsFor) return b.pointsFor - a.pointsFor;
     if (a.losses !== b.losses) return a.losses - b.losses;
     return a.name.localeCompare(b.name);
   });
-  return sorted.map((t, i) => ({ ...t, rank: i + 1, points: points(t) }));
+
+  return sorted.map((t, i) => ({
+    ...t,
+    rank: allSeeded ? t.finishRank : i + 1,
+    points: points(t),
+  }));
 }
 
 export function computeState(teams: Team[], picks: Pick[]): DraftState {

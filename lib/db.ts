@@ -43,6 +43,7 @@ async function init() {
       ties INTEGER NOT NULL DEFAULT 0,
       points_for DOUBLE PRECISION NOT NULL DEFAULT 0,
       points_against DOUBLE PRECISION NOT NULL DEFAULT 0,
+      finish_rank INTEGER NOT NULL DEFAULT 0,
       created_at TIMESTAMPTZ NOT NULL DEFAULT now()
     );
   `);
@@ -50,6 +51,7 @@ async function init() {
   await db.execute(sql`ALTER TABLE teams ADD COLUMN IF NOT EXISTS owner TEXT NOT NULL DEFAULT '';`);
   await db.execute(sql`ALTER TABLE teams ADD COLUMN IF NOT EXISTS points_for DOUBLE PRECISION NOT NULL DEFAULT 0;`);
   await db.execute(sql`ALTER TABLE teams ADD COLUMN IF NOT EXISTS points_against DOUBLE PRECISION NOT NULL DEFAULT 0;`);
+  await db.execute(sql`ALTER TABLE teams ADD COLUMN IF NOT EXISTS finish_rank INTEGER NOT NULL DEFAULT 0;`);
   await db.execute(sql`
     CREATE TABLE IF NOT EXISTS picks (
       id SERIAL PRIMARY KEY,

@@ -35,7 +35,7 @@ export default function Admin() {
   const [busy, setBusy] = useState(false);
   const [toast, setToast] = useState<{ msg: string; sev: "success" | "error" } | null>(null);
   const [form, setForm] = useState({
-    name: "", owner: "", wins: "", losses: "", ties: "", pf: "", pa: "",
+    name: "", owner: "", wins: "", losses: "", ties: "", pf: "", pa: "", finish: "",
   });
 
   const load = useCallback(async () => {
@@ -67,8 +67,9 @@ export default function Admin() {
         ties: Number(form.ties) || 0,
         pointsFor: Number(form.pf) || 0,
         pointsAgainst: Number(form.pa) || 0,
+        finishRank: Number(form.finish) || 0,
       });
-      setForm({ name: "", owner: "", wins: "", losses: "", ties: "", pf: "", pa: "" });
+      setForm({ name: "", owner: "", wins: "", losses: "", ties: "", pf: "", pa: "", finish: "" });
       await load();
       setToast({ msg: "Team added.", sev: "success" });
     } catch (e) {
@@ -79,7 +80,7 @@ export default function Admin() {
   }
 
   type EditableField =
-    | "owner" | "wins" | "losses" | "ties" | "pointsFor" | "pointsAgainst";
+    | "owner" | "wins" | "losses" | "ties" | "pointsFor" | "pointsAgainst" | "finishRank";
 
   async function patch(id: number, field: EditableField, value: string) {
     const v: string | number =
@@ -144,9 +145,10 @@ export default function Admin() {
                 Enter last year&apos;s standings
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Add each team and its final record from last season. The draft
-                order is these standings <b>reversed</b> — the team that finished
-                last picks first.
+                Add each team and its final record from last season (currently
+                seeded with <b>2025</b>). The draft order is these standings
+                <b> reversed</b> — last place picks first. Set <b>Finish</b> (1 =
+                1st) to lock the exact order when records tie.
               </Typography>
             </CardContent>
           </Card>
@@ -186,6 +188,10 @@ export default function Admin() {
                   <TextField label="Points against" size="small" type="number" value={form.pa}
                     onChange={(e) => setForm({ ...form, pa: e.target.value })}
                     inputProps={{ min: 0, step: "0.01" }} sx={{ flex: 1 }} />
+                  <TextField label="Finish" size="small" type="number" value={form.finish}
+                    onChange={(e) => setForm({ ...form, finish: e.target.value })}
+                    inputProps={{ min: 0 }} sx={{ flex: 1 }}
+                    helperText="1 = 1st" />
                 </Stack>
                 <Button variant="contained" color="primary" startIcon={<AddIcon />}
                   onClick={addTeam} disabled={busy} sx={{ color: INK, alignSelf: "flex-start" }}>
@@ -261,6 +267,9 @@ export default function Admin() {
                         <TextField label="Points against" size="small" type="number" defaultValue={t.pointsAgainst}
                           onBlur={(e) => patch(t.id, "pointsAgainst", e.target.value)}
                           inputProps={{ min: 0, step: "0.01" }} sx={{ flex: 1 }} />
+                        <TextField label="Finish" size="small" type="number" defaultValue={t.finishRank || ""}
+                          onBlur={(e) => patch(t.id, "finishRank", e.target.value)}
+                          inputProps={{ min: 0 }} sx={{ flex: 1 }} />
                       </Stack>
                     </Box>
                   </Card>
