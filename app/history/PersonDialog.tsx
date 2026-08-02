@@ -9,7 +9,7 @@ import {
   Divider,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import { personSeasons, careers, medalTally } from "@/lib/history-stats";
+import { personSeasons, careers } from "@/lib/history-stats";
 
 const REG = "#ff7a30"; // regular-season finish (brand orange)
 const PO = "#4f9dd6"; // playoff finish (CVD-safe blue)
@@ -127,10 +127,13 @@ export default function PersonDialog({
           <Stack direction="row" alignItems="flex-start">
             <Box sx={{ flexGrow: 1 }}>
               <Typography sx={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 26, lineHeight: 1 }}>
-                {manager}{medalTally(c) ? ` ${medalTally(c)}` : ""}
+                {manager}
               </Typography>
               <Typography variant="body2" color="text.secondary" className="num">
                 {rec(c)} · {c.winPct.toFixed(3).replace(/^0/, "")} · {c.seasons} {c.seasons === 1 ? "season" : "seasons"}
+              </Typography>
+              <Typography variant="body2" className="num" sx={{ mt: 0.5 }}>
+                🏆 {c.titles} · 🥈 {c.seconds} · 🥉 {c.thirds}
               </Typography>
             </Box>
             <IconButton onClick={onClose} size="small" edge="end"><CloseIcon /></IconButton>

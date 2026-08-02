@@ -52,13 +52,11 @@ export function flatten(): FlatRecord[] {
 const avg = (xs: number[]) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 0);
 const sum = (xs: number[]) => xs.reduce((a, b) => a + b, 0);
 
-// Compact podium tally, e.g. "🏆2 🥈1 🥉". Count shown only when > 1.
+// Podium tally as repeated medals, e.g. "🏆🏆 🥉".
 export function medalTally(c: { titles: number; seconds: number; thirds: number }): string {
-  const parts: string[] = [];
-  if (c.titles) parts.push(`🏆${c.titles > 1 ? c.titles : ""}`);
-  if (c.seconds) parts.push(`🥈${c.seconds > 1 ? c.seconds : ""}`);
-  if (c.thirds) parts.push(`🥉${c.thirds > 1 ? c.thirds : ""}`);
-  return parts.join(" ");
+  return ["🏆".repeat(c.titles), "🥈".repeat(c.seconds), "🥉".repeat(c.thirds)]
+    .filter(Boolean)
+    .join(" ");
 }
 
 // All of one person's team-seasons, oldest first (for the per-player timeline).
