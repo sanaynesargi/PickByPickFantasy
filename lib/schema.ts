@@ -21,6 +21,10 @@ export const teams = pgTable("teams", {
   // one, it is authoritative for ordering; needed when records tie and no
   // points-for is available, e.g. the 2025 ESPN export. 0 = unset.
   finishRank: integer("finish_rank").notNull().default(0),
+  // Optional draft-slot override, independent of standings. When set (>0) the
+  // team is pinned to that pick and everyone else fills the remaining slots in
+  // reverse-standings order. Used for one-off exceptions (roster changes). 0 = auto.
+  draftPick: integer("draft_pick").notNull().default(0),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });
 

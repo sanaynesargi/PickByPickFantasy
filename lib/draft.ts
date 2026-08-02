@@ -45,8 +45,26 @@ export function rankTeams(teams: Team[]): StandingTeam[] {
 
 export function computeState(teams: Team[], picks: Pick[]): DraftState {
   const ranked = rankTeams(teams);
+  const total = teams.length;
   // Reverse standings: the worst team from last year selects first.
-  const selectionOrder = [...ranked].reverse().map((t) => t.id);
+  let selectionOrder = [...ranked].reverse().map((t) => t.id);
+
+  // Apply explicit draft-slot overrides (roster-change exceptions). A team with
+  // draftPick > 0 is pinned to that slot; everyone else keeps their relative
+  // reverse-standings order and fills the remaining slots around them.
+  const overrides = teams.filter((t) => t.draftPick > 0 && t.draftPick <= total);
+  if (overrides.length) {
+    const bySlot = new Map(overrides.map((t) => [t.draftPick, t.id]));
+    const pinned = new Set(overrides.map((t) => t.id));
+    const rest = selectionOrder.filter((id) => !pinned.has(id));
+    const result: number[] = [];
+    let ri = 0;
+    for (let slot = 1; slot <= total; slot++) {
+      const pin = bySlot.get(slot);
+      result.push(pin !== undefined ? pin : rest[ri++]);
+    }
+    selectionOrder = result;
+  }
 
   const picksByTeam: Record<number, number> = {};
   const takenSlots = new Set<number>();
@@ -55,7 +73,6 @@ export function computeState(teams: Team[], picks: Pick[]): DraftState {
     takenSlots.add(p.pickNumber);
   }
 
-  const total = teams.length;
   const availableSlots: number[] = [];
   for (let n = 1; n <= total; n++) {
     if (!takenSlots.has(n)) availableSlots.push(n);

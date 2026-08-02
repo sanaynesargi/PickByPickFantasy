@@ -28,6 +28,7 @@ export const api = {
     pointsFor?: number;
     pointsAgainst?: number;
     finishRank?: number;
+    draftPick?: number;
   }) =>
     fetch("/api/teams", {
       method: "POST",
@@ -45,6 +46,7 @@ export const api = {
       pointsFor: number;
       pointsAgainst: number;
       finishRank: number;
+      draftPick: number;
     }>
   ) =>
     fetch(`/api/teams/${id}`, {

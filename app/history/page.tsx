@@ -18,7 +18,7 @@ import {
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import HistoryIcon from "@mui/icons-material/History";
 import { HISTORY, winPct, recordStr, type StandingRow } from "@/lib/history-data";
-import { careers, correlations } from "@/lib/history-stats";
+import { careers, correlations, medalTally } from "@/lib/history-stats";
 import { MEDAL } from "../theme";
 import PickAverages from "../components/PickAverages";
 import PersonDialog from "./PersonDialog";
@@ -268,7 +268,7 @@ function AllTimeView({ onPerson }: { onPerson: (m: string) => void }) {
               </Typography>
               <Box sx={{ flexGrow: 1, minWidth: 0 }}>
                 <Typography noWrap sx={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 16 }}>
-                  {c.manager}{c.titles > 0 ? ` ${"🏆".repeat(c.titles)}` : ""}
+                  {c.manager}{medalTally(c) ? ` ${medalTally(c)}` : ""}
                 </Typography>
                 <Typography variant="caption" color="text.secondary" component="div">
                   {c.seasons} {c.seasons === 1 ? "season" : "seasons"} · pick{" "}

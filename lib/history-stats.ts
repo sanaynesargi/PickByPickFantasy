@@ -52,6 +52,15 @@ export function flatten(): FlatRecord[] {
 const avg = (xs: number[]) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 0);
 const sum = (xs: number[]) => xs.reduce((a, b) => a + b, 0);
 
+// Compact podium tally, e.g. "🏆2 🥈1 🥉". Count shown only when > 1.
+export function medalTally(c: { titles: number; seconds: number; thirds: number }): string {
+  const parts: string[] = [];
+  if (c.titles) parts.push(`🏆${c.titles > 1 ? c.titles : ""}`);
+  if (c.seconds) parts.push(`🥈${c.seconds > 1 ? c.seconds : ""}`);
+  if (c.thirds) parts.push(`🥉${c.thirds > 1 ? c.thirds : ""}`);
+  return parts.join(" ");
+}
+
 // All of one person's team-seasons, oldest first (for the per-player timeline).
 export function personSeasons(manager: string): FlatRecord[] {
   return flatten()
@@ -72,6 +81,8 @@ export type Career = {
   bestFinish: number;
   firsts: number; // regular-season 1st-place finishes
   titles: number; // playoff championships (playoff finish === 1)
+  seconds: number; // playoff runner-up (=== 2)
+  thirds: number; // playoff third (=== 3)
 };
 
 export function careers(): Career[] {
@@ -100,6 +111,8 @@ export function careers(): Career[] {
       bestFinish: Math.min(...rs.map((r) => r.rank)),
       firsts: rs.filter((r) => r.rank === 1).length,
       titles: rs.filter((r) => r.po === 1).length,
+      seconds: rs.filter((r) => r.po === 2).length,
+      thirds: rs.filter((r) => r.po === 3).length,
     });
   }
   return res.sort((a, b) => b.winPct - a.winPct || a.avgFinish - b.avgFinish);

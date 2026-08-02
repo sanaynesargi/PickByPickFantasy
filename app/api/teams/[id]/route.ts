@@ -22,6 +22,7 @@ export async function PATCH(
   if (body.pointsFor !== undefined) update.pointsFor = Math.max(0, Number(body.pointsFor) || 0);
   if (body.pointsAgainst !== undefined) update.pointsAgainst = Math.max(0, Number(body.pointsAgainst) || 0);
   if (body.finishRank !== undefined) update.finishRank = Math.max(0, Number(body.finishRank) || 0);
+  if (body.draftPick !== undefined) update.draftPick = Math.max(0, Number(body.draftPick) || 0);
 
   if (Object.keys(update).length === 0) {
     return NextResponse.json({ error: "Nothing to update." }, { status: 400 });
