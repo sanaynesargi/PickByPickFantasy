@@ -145,9 +145,7 @@ function SeasonView({ data }: { data: (typeof HISTORY)[number] }) {
 
       <Typography variant="caption" color="text.secondary">
         Rows are in draft-pick order; the record &amp; rank on the right are that
-        team&apos;s <b>regular-season</b> finish. &ldquo;—&rdquo; = past team not
-        yet mapped to a person. PF/PA only exported for 2024; playoff finishes
-        (🏆) added later.
+        team&apos;s <b>regular-season</b> finish. Playoff finishes (🏆) added later.
       </Typography>
     </>
   );
@@ -225,8 +223,7 @@ function AllTimeView() {
         <Typography variant="h6" gutterBottom>Average by draft slot</Typography>
         <PickAverages />
         <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1 }}>
-          Wins &amp; finish average all seasons; PF/PA/PD from 2024 only (the one
-          season with points data).
+          Averages across all four seasons (2022–2025).
         </Typography>
       </Box>
     </>

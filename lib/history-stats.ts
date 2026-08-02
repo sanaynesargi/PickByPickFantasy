@@ -1,9 +1,8 @@
 // Derived analytics over the static HISTORY archive. All computed from
 // lib/history-data.ts — add a season there and these update automatically.
 //
-// Note on samples: wins/records exist for every season; points-for/against
-// (and therefore point-differential) were only exported for 2024, so PF/PA/PD
-// stats are drawn from that season alone. Sample sizes are surfaced in the UI.
+// Records and points (PF/PA, and therefore point-differential) exist for every
+// season (2022-2025). Sample sizes are still surfaced in the UI.
 
 import { HISTORY, winPct } from "./history-data";
 

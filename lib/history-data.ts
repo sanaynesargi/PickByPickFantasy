@@ -2,9 +2,9 @@
 // league exports in /images. Extend by adding a season object below.
 //
 // `manager` is the stable identity across seasons (team names change yearly).
-// Where a past team couldn't be mapped to a person with confidence it's left
-// undefined and shown as "—" (fill these in as they're confirmed).
-// pointsFor/Against only exist for seasons exported from Sleeper (2024).
+// Manager per team-season is taken from each season's ESPN/Sleeper "Final
+// Standings" export (authoritative — team names get reused across people).
+// pointsFor/Against are the full regular-season totals for every season.
 
 export type DraftPick = { pick: number; team: string; manager?: string };
 
@@ -59,16 +59,16 @@ export const HISTORY: HistorySeason[] = [
       { pick: 10, team: "Project X", manager: "Aarav" },
     ],
     standings: [
-      { rank: 1, team: "Teeth", manager: "Viraaj", wins: 9, losses: 5, ties: 0 },
-      { rank: 2, team: "Dat N*bba", manager: "Ahan", wins: 8, losses: 6, ties: 0 },
-      { rank: 3, team: "Saquons Big Fat Brock", manager: "Arav", wins: 8, losses: 6, ties: 0 },
-      { rank: 4, team: "Chris olave", manager: "Charles", wins: 7, losses: 7, ties: 0 },
-      { rank: 5, team: "Mr. Morningstar", manager: "Sanay", wins: 7, losses: 7, ties: 0 },
-      { rank: 6, team: "Lil Fetus Fantasy", manager: "Sami", wins: 7, losses: 7, ties: 0 },
-      { rank: 7, team: "Last Place Race", manager: "Cyrus", wins: 7, losses: 7, ties: 0 },
-      { rank: 8, team: "Olive Garden", manager: "Jai", wins: 7, losses: 7, ties: 0 },
-      { rank: 9, team: "Ceedeez Nuts", manager: "Ansuman", wins: 6, losses: 8, ties: 0 },
-      { rank: 10, team: "Project X", manager: "Aarav", wins: 4, losses: 10, ties: 0 },
+      { rank: 1, team: "Teeth", manager: "Viraaj", wins: 9, losses: 5, ties: 0, pointsFor: 1799.48, pointsAgainst: 1551.52 },
+      { rank: 2, team: "Dat N*bba", manager: "Ahan", wins: 8, losses: 6, ties: 0, pointsFor: 1894.94, pointsAgainst: 1830.5 },
+      { rank: 3, team: "Saquons Big Fat Brock", manager: "Arav", wins: 8, losses: 6, ties: 0, pointsFor: 1738.24, pointsAgainst: 1659.02 },
+      { rank: 4, team: "Chris olave", manager: "Charles", wins: 7, losses: 7, ties: 0, pointsFor: 1683.04, pointsAgainst: 1626.46 },
+      { rank: 5, team: "Mr. Morningstar", manager: "Sanay", wins: 7, losses: 7, ties: 0, pointsFor: 1662.34, pointsAgainst: 1489.9 },
+      { rank: 6, team: "Lil Fetus Fantasy", manager: "Sami", wins: 7, losses: 7, ties: 0, pointsFor: 1598.14, pointsAgainst: 1739.34 },
+      { rank: 7, team: "Last Place Race", manager: "Cyrus", wins: 7, losses: 7, ties: 0, pointsFor: 1574.24, pointsAgainst: 1627.76 },
+      { rank: 8, team: "Olive Garden", manager: "Jai", wins: 7, losses: 7, ties: 0, pointsFor: 1555.8, pointsAgainst: 1594.8 },
+      { rank: 9, team: "Ceedeez Nuts", manager: "Ansuman", wins: 6, losses: 8, ties: 0, pointsFor: 1486.28, pointsAgainst: 1655.98 },
+      { rank: 10, team: "Project X", manager: "Aarav", wins: 4, losses: 10, ties: 0, pointsFor: 1490.2, pointsAgainst: 1707.42 },
     ],
   },
   {
@@ -113,22 +113,22 @@ export const HISTORY: HistorySeason[] = [
       { pick: 4, team: "Team Patel", manager: "Vansh" },
       { pick: 5, team: "Dat N*bba", manager: "Ahan" },
       { pick: 6, team: "Just-In Case", manager: "Arav" },
-      { pick: 7, team: "Ceedeez Nuts", manager: "Ansuman" },
+      { pick: 7, team: "Ceedeez Nuts", manager: "Aarav" },
       { pick: 8, team: "Olive Garden", manager: "Jai" },
       { pick: 9, team: "Double D DeRozan", manager: "Sanay" },
       { pick: 10, team: "Chris olave ur face", manager: "Charles" },
     ],
     standings: [
-      { rank: 1, team: "Jit Tripping", manager: "Viraaj", wins: 10, losses: 4, ties: 0 },
-      { rank: 2, team: "Team Patel", manager: "Vansh", wins: 9, losses: 5, ties: 0 },
-      { rank: 3, team: "Double D DeRozan", manager: "Sanay", wins: 9, losses: 5, ties: 0 },
-      { rank: 4, team: "Ceedeez Nuts", manager: "Ansuman", wins: 7, losses: 7, ties: 0 },
-      { rank: 5, team: "Olive Garden", manager: "Jai", wins: 7, losses: 7, ties: 0 },
-      { rank: 6, team: "Just-In Case", manager: "Arav", wins: 7, losses: 7, ties: 0 },
-      { rank: 7, team: "Last Place Race", manager: "Cyrus", wins: 6, losses: 8, ties: 0 },
-      { rank: 8, team: "Chris olave ur face", manager: "Charles", wins: 6, losses: 8, ties: 0 },
-      { rank: 9, team: "Dat N*bba", manager: "Ahan", wins: 5, losses: 9, ties: 0 },
-      { rank: 10, team: "KC SingleSami", manager: "Sami", wins: 4, losses: 10, ties: 0 },
+      { rank: 1, team: "Jit Tripping", manager: "Viraaj", wins: 10, losses: 4, ties: 0, pointsFor: 1970.12, pointsAgainst: 1645.54 },
+      { rank: 2, team: "Team Patel", manager: "Vansh", wins: 9, losses: 5, ties: 0, pointsFor: 1666.7, pointsAgainst: 1625.92 },
+      { rank: 3, team: "Double D DeRozan", manager: "Sanay", wins: 9, losses: 5, ties: 0, pointsFor: 1793.5, pointsAgainst: 1711.9 },
+      { rank: 4, team: "Ceedeez Nuts", manager: "Aarav", wins: 7, losses: 7, ties: 0, pointsFor: 1782.6, pointsAgainst: 1733.6 },
+      { rank: 5, team: "Olive Garden", manager: "Jai", wins: 7, losses: 7, ties: 0, pointsFor: 1627.06, pointsAgainst: 1696.18 },
+      { rank: 6, team: "Just-In Case", manager: "Arav", wins: 7, losses: 7, ties: 0, pointsFor: 1772.42, pointsAgainst: 1716.48 },
+      { rank: 7, team: "Last Place Race", manager: "Cyrus", wins: 6, losses: 8, ties: 0, pointsFor: 1647.02, pointsAgainst: 1717.54 },
+      { rank: 8, team: "Chris olave ur face", manager: "Charles", wins: 6, losses: 8, ties: 0, pointsFor: 1435.78, pointsAgainst: 1597.88 },
+      { rank: 9, team: "Dat N*bba", manager: "Ahan", wins: 5, losses: 9, ties: 0, pointsFor: 1559.62, pointsAgainst: 1644.34 },
+      { rank: 10, team: "KC SingleSami", manager: "Sami", wins: 4, losses: 10, ties: 0, pointsFor: 1500.38, pointsAgainst: 1665.82 },
     ],
   },
   {
@@ -138,7 +138,7 @@ export const HISTORY: HistorySeason[] = [
     source: "ESPN",
     draftOrder: [
       { pick: 1, team: "Bang Bang", manager: "Sanay" },
-      { pick: 2, team: "Ceedeez Nuts", manager: "Ansuman" },
+      { pick: 2, team: "Ceedeez Nuts", manager: "Aarav" },
       { pick: 3, team: "Micah god 11 from heaven", manager: "Ahan" },
       { pick: 4, team: "Henry Ruggs Driving School", manager: "Arav" },
       { pick: 5, team: "Jit Tripping", manager: "Viraaj" },
@@ -149,16 +149,16 @@ export const HISTORY: HistorySeason[] = [
       { pick: 10, team: "Lower house Ben Dover", manager: "Vansh" },
     ],
     standings: [
-      { rank: 1, team: "Ceedeez Nuts", manager: "Ansuman", wins: 11, losses: 3, ties: 1, division: "East" },
-      { rank: 2, team: "Henry Ruggs Driving School", manager: "Arav", wins: 11, losses: 4, ties: 0, division: "East" },
-      { rank: 3, team: "Bang Bang", manager: "Sanay", wins: 10, losses: 5, ties: 0, division: "East" },
-      { rank: 4, team: "New England Jit", manager: "Charles", wins: 8, losses: 7, ties: 0, division: "West" },
-      { rank: 5, team: "Lower house Ben Dover", manager: "Vansh", wins: 7, losses: 7, ties: 1, division: "East" },
-      { rank: 6, team: "Jit Tripping", manager: "Viraaj", wins: 7, losses: 7, ties: 1, division: "East" },
-      { rank: 7, team: "W SuperCyrus", manager: "Cyrus", wins: 6, losses: 8, ties: 1, division: "West" },
-      { rank: 8, team: "Micah god 11 from heaven", manager: "Ahan", wins: 6, losses: 9, ties: 0, division: "West" },
-      { rank: 9, team: "Myagi Malladi", manager: "Adhi", wins: 6, losses: 9, ties: 0, division: "West" },
-      { rank: 10, team: "Team Cyril", manager: "Cyril", wins: 1, losses: 14, ties: 0, division: "West" },
+      { rank: 1, team: "Ceedeez Nuts", manager: "Aarav", wins: 11, losses: 3, ties: 1, division: "East", pointsFor: 1907.08, pointsAgainst: 1709.0 },
+      { rank: 2, team: "Henry Ruggs Driving School", manager: "Arav", wins: 11, losses: 4, ties: 0, division: "East", pointsFor: 2021.7, pointsAgainst: 1658.54 },
+      { rank: 3, team: "Bang Bang", manager: "Sanay", wins: 10, losses: 5, ties: 0, division: "East", pointsFor: 1962.36, pointsAgainst: 1825.84 },
+      { rank: 4, team: "New England Jit", manager: "Charles", wins: 8, losses: 7, ties: 0, division: "West", pointsFor: 1843.2, pointsAgainst: 1696.58 },
+      { rank: 5, team: "Lower house Ben Dover", manager: "Vansh", wins: 7, losses: 7, ties: 1, division: "East", pointsFor: 1805.3, pointsAgainst: 1746.96 },
+      { rank: 6, team: "Jit Tripping", manager: "Viraaj", wins: 7, losses: 7, ties: 1, division: "East", pointsFor: 1792.16, pointsAgainst: 1921.94 },
+      { rank: 7, team: "W SuperCyrus", manager: "Cyrus", wins: 6, losses: 8, ties: 1, division: "West", pointsFor: 1677.8, pointsAgainst: 1682.12 },
+      { rank: 8, team: "Micah god 11 from heaven", manager: "Ahan", wins: 6, losses: 9, ties: 0, division: "West", pointsFor: 1671.0, pointsAgainst: 1883.12 },
+      { rank: 9, team: "Myagi Malladi", manager: "Adhi", wins: 6, losses: 9, ties: 0, division: "West", pointsFor: 1713.58, pointsAgainst: 1808.32 },
+      { rank: 10, team: "Team Cyril", manager: "Cyril", wins: 1, losses: 14, ties: 0, division: "West", pointsFor: 1389.34, pointsAgainst: 1851.1 },
     ],
   },
 ];
