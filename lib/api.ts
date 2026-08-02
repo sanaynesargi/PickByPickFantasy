@@ -19,7 +19,15 @@ export const api = {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ teamId, pickNumber }),
     }).then((r) => json<DraftState>(r)),
-  addTeam: (t: { name: string; wins: number; losses: number; ties: number }) =>
+  addTeam: (t: {
+    name: string;
+    owner?: string;
+    wins: number;
+    losses: number;
+    ties: number;
+    pointsFor?: number;
+    pointsAgainst?: number;
+  }) =>
     fetch("/api/teams", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -27,7 +35,15 @@ export const api = {
     }).then((r) => json(r)),
   updateTeam: (
     id: number,
-    t: Partial<{ name: string; wins: number; losses: number; ties: number }>
+    t: Partial<{
+      name: string;
+      owner: string;
+      wins: number;
+      losses: number;
+      ties: number;
+      pointsFor: number;
+      pointsAgainst: number;
+    }>
   ) =>
     fetch(`/api/teams/${id}`, {
       method: "PATCH",

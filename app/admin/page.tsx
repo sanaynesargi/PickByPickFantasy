@@ -34,7 +34,9 @@ export default function Admin() {
   const [state, setState] = useState<DraftState | null>(null);
   const [busy, setBusy] = useState(false);
   const [toast, setToast] = useState<{ msg: string; sev: "success" | "error" } | null>(null);
-  const [form, setForm] = useState({ name: "", wins: "", losses: "", ties: "" });
+  const [form, setForm] = useState({
+    name: "", owner: "", wins: "", losses: "", ties: "", pf: "", pa: "",
+  });
 
   const load = useCallback(async () => {
     try {
@@ -59,11 +61,14 @@ export default function Admin() {
     try {
       await api.addTeam({
         name: form.name.trim(),
+        owner: form.owner.trim(),
         wins: Number(form.wins) || 0,
         losses: Number(form.losses) || 0,
         ties: Number(form.ties) || 0,
+        pointsFor: Number(form.pf) || 0,
+        pointsAgainst: Number(form.pa) || 0,
       });
-      setForm({ name: "", wins: "", losses: "", ties: "" });
+      setForm({ name: "", owner: "", wins: "", losses: "", ties: "", pf: "", pa: "" });
       await load();
       setToast({ msg: "Team added.", sev: "success" });
     } catch (e) {
@@ -73,15 +78,19 @@ export default function Admin() {
     }
   }
 
-  async function patch(id: number, field: "wins" | "losses" | "ties", value: string) {
-    const n = Math.max(0, Number(value) || 0);
+  type EditableField =
+    | "owner" | "wins" | "losses" | "ties" | "pointsFor" | "pointsAgainst";
+
+  async function patch(id: number, field: EditableField, value: string) {
+    const v: string | number =
+      field === "owner" ? value.trim() : Math.max(0, Number(value) || 0);
     setState((s) =>
       s
-        ? { ...s, teams: s.teams.map((t) => (t.id === id ? { ...t, [field]: n } : t)) }
+        ? { ...s, teams: s.teams.map((t) => (t.id === id ? { ...t, [field]: v } : t)) }
         : s
     );
     try {
-      await api.updateTeam(id, { [field]: n });
+      await api.updateTeam(id, { [field]: v });
     } catch {
       setToast({ msg: "Update failed.", sev: "error" });
       load();
@@ -104,7 +113,7 @@ export default function Admin() {
     try {
       await api.seed();
       await load();
-      setToast({ msg: "Loaded demo league.", sev: "success" });
+      setToast({ msg: "Loaded last year's standings.", sev: "success" });
     } finally {
       setBusy(false);
     }
@@ -157,6 +166,8 @@ export default function Admin() {
                 <TextField label="Team name" size="small" fullWidth value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   onKeyDown={(e) => e.key === "Enter" && addTeam()} />
+                <TextField label="Manager (optional)" size="small" fullWidth value={form.owner}
+                  onChange={(e) => setForm({ ...form, owner: e.target.value })} />
                 <Stack direction="row" spacing={1}>
                   <TextField label="Wins" size="small" type="number" value={form.wins}
                     onChange={(e) => setForm({ ...form, wins: e.target.value })}
@@ -167,6 +178,14 @@ export default function Admin() {
                   <TextField label="Ties" size="small" type="number" value={form.ties}
                     onChange={(e) => setForm({ ...form, ties: e.target.value })}
                     inputProps={{ min: 0 }} sx={{ flex: 1 }} />
+                </Stack>
+                <Stack direction="row" spacing={1}>
+                  <TextField label="Points for" size="small" type="number" value={form.pf}
+                    onChange={(e) => setForm({ ...form, pf: e.target.value })}
+                    inputProps={{ min: 0, step: "0.01" }} sx={{ flex: 1 }} />
+                  <TextField label="Points against" size="small" type="number" value={form.pa}
+                    onChange={(e) => setForm({ ...form, pa: e.target.value })}
+                    inputProps={{ min: 0, step: "0.01" }} sx={{ flex: 1 }} />
                 </Stack>
                 <Button variant="contained" color="primary" startIcon={<AddIcon />}
                   onClick={addTeam} disabled={busy} sx={{ color: INK, alignSelf: "flex-start" }}>
@@ -183,13 +202,14 @@ export default function Admin() {
                 Standings ({teams.length})
               </Typography>
               {teams.length === 0 && (
-                <Button size="small" onClick={seed} disabled={busy}>Load demo</Button>
+                <Button size="small" onClick={seed} disabled={busy}>Load our league</Button>
               )}
             </Stack>
 
             {teams.length === 0 ? (
               <Typography color="text.secondary">
-                No teams yet. Add one above or load the demo league.
+                No teams yet. Add one above, or load last year&apos;s
+                &ldquo;No Punt Intended&rdquo; standings.
               </Typography>
             ) : (
               <Stack spacing={1}>
@@ -204,9 +224,14 @@ export default function Admin() {
                         }}>
                           {t.rank}
                         </Box>
-                        <Typography noWrap fontWeight={700} sx={{ flexGrow: 1 }}>
-                          {t.name}
-                        </Typography>
+                        <Box sx={{ flexGrow: 1, minWidth: 0 }}>
+                          <Typography noWrap fontWeight={700}>{t.name}</Typography>
+                          {t.owner && (
+                            <Typography variant="caption" color="text.secondary" noWrap>
+                              {t.owner}
+                            </Typography>
+                          )}
+                        </Box>
                         <Typography variant="body2" color="text.secondary">
                           {record(t)}
                         </Typography>
@@ -216,7 +241,9 @@ export default function Admin() {
                           </IconButton>
                         </Tooltip>
                       </Stack>
-                      <Stack direction="row" spacing={1}>
+                      <TextField label="Manager" size="small" fullWidth defaultValue={t.owner}
+                        onBlur={(e) => patch(t.id, "owner", e.target.value)} sx={{ mb: 1 }} />
+                      <Stack direction="row" spacing={1} sx={{ mb: 1 }}>
                         <TextField label="W" size="small" type="number" defaultValue={t.wins}
                           onBlur={(e) => patch(t.id, "wins", e.target.value)}
                           inputProps={{ min: 0 }} sx={{ flex: 1 }} />
@@ -226,6 +253,14 @@ export default function Admin() {
                         <TextField label="T" size="small" type="number" defaultValue={t.ties}
                           onBlur={(e) => patch(t.id, "ties", e.target.value)}
                           inputProps={{ min: 0 }} sx={{ flex: 1 }} />
+                      </Stack>
+                      <Stack direction="row" spacing={1}>
+                        <TextField label="Points for" size="small" type="number" defaultValue={t.pointsFor}
+                          onBlur={(e) => patch(t.id, "pointsFor", e.target.value)}
+                          inputProps={{ min: 0, step: "0.01" }} sx={{ flex: 1 }} />
+                        <TextField label="Points against" size="small" type="number" defaultValue={t.pointsAgainst}
+                          onBlur={(e) => patch(t.id, "pointsAgainst", e.target.value)}
+                          inputProps={{ min: 0, step: "0.01" }} sx={{ flex: 1 }} />
                       </Stack>
                     </Box>
                   </Card>

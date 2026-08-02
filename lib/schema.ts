@@ -3,6 +3,7 @@ import {
   serial,
   text,
   integer,
+  doublePrecision,
   timestamp,
 } from "drizzle-orm/pg-core";
 
@@ -10,9 +11,12 @@ import {
 export const teams = pgTable("teams", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
+  owner: text("owner").notNull().default(""), // manager name
   wins: integer("wins").notNull().default(0),
   losses: integer("losses").notNull().default(0),
   ties: integer("ties").notNull().default(0),
+  pointsFor: doublePrecision("points_for").notNull().default(0),
+  pointsAgainst: doublePrecision("points_against").notNull().default(0),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });
 

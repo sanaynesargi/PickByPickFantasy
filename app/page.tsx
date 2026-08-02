@@ -91,7 +91,7 @@ export default function Home() {
     try {
       await api.seed();
       await load();
-      setToast({ msg: "Loaded the 8-team demo league.", sev: "success" });
+      setToast({ msg: "Loaded last year's standings.", sev: "success" });
     } finally {
       setBusy(false);
     }
@@ -190,6 +190,11 @@ export default function Home() {
                     <Typography variant="h4" fontWeight={800} sx={{ lineHeight: 1.1, mb: 0.5 }}>
                       {onClock.name}
                     </Typography>
+                    {onClock.owner && (
+                      <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                        {onClock.owner}
+                      </Typography>
+                    )}
                     <Stack direction="row" spacing={1} sx={{ mb: 2.5 }}>
                       <Chip size="small" label={`Finished ${ordinal(onClock.rank)} last year`} />
                       <Chip size="small" variant="outlined" label={record(onClock)} />
@@ -337,9 +342,17 @@ function JoinGate({
             .map((t) => (
               <Button key={t.id} onClick={() => onClaim(t.id)}
                 variant="outlined" color="inherit" size="large"
-                sx={{ justifyContent: "space-between", py: 1.25 }}
+                sx={{ justifyContent: "space-between", py: 1.25, textAlign: "left" }}
                 endIcon={<Chip size="small" variant="outlined" label={record(t)} />}>
-                {t.name}
+                <Box sx={{ minWidth: 0 }}>
+                  <Typography noWrap fontWeight={700}>{t.name}</Typography>
+                  {t.owner && (
+                    <Typography variant="caption" color="text.secondary" noWrap
+                      sx={{ display: "block", textTransform: "none", fontWeight: 400 }}>
+                      {t.owner}
+                    </Typography>
+                  )}
+                </Box>
               </Button>
             ))}
         </Stack>
@@ -410,12 +423,12 @@ function EmptyState({ onSeed, busy }: { onSeed: () => void; busy: boolean }) {
           No teams yet
         </Typography>
         <Typography color="text.secondary" sx={{ mb: 3, maxWidth: 360, mx: "auto" }}>
-          Load a sample league to try the draft, or add your own teams and last
-          year&apos;s records.
+          Load last year&apos;s &ldquo;No Punt Intended&rdquo; standings, or add
+          your own teams and records.
         </Typography>
         <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} justifyContent="center">
           <Button variant="contained" color="primary" onClick={onSeed} disabled={busy}>
-            Load demo league
+            Load last year&apos;s standings
           </Button>
           <Button component={Link} href="/admin" variant="outlined" color="inherit">
             Add teams manually

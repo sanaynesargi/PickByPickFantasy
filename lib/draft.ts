@@ -21,12 +21,13 @@ function points(t: Team) {
   return t.wins + t.ties * 0.5;
 }
 
-// Standings: best record first. More points wins; fewer losses breaks ties;
-// then name for a stable, deterministic order.
+// Standings: best record first. More W/L points wins; then higher points-for
+// (the usual fantasy tiebreaker); then fewer losses; then name for stability.
 export function rankTeams(teams: Team[]): StandingTeam[] {
   const sorted = [...teams].sort((a, b) => {
     const pd = points(b) - points(a);
     if (pd !== 0) return pd;
+    if (b.pointsFor !== a.pointsFor) return b.pointsFor - a.pointsFor;
     if (a.losses !== b.losses) return a.losses - b.losses;
     return a.name.localeCompare(b.name);
   });

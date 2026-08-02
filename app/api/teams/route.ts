@@ -13,11 +13,14 @@ export async function POST(req: Request) {
   const wins = Math.max(0, Number(body.wins) || 0);
   const losses = Math.max(0, Number(body.losses) || 0);
   const ties = Math.max(0, Number(body.ties) || 0);
+  const owner = String(body.owner ?? "").trim();
+  const pointsFor = Math.max(0, Number(body.pointsFor) || 0);
+  const pointsAgainst = Math.max(0, Number(body.pointsAgainst) || 0);
 
   const db = await getDb();
   const [created] = await db
     .insert(teamsTable)
-    .values({ name, wins, losses, ties })
+    .values({ name, owner, wins, losses, ties, pointsFor, pointsAgainst })
     .returning();
   return NextResponse.json(created, { status: 201 });
 }

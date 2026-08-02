@@ -37,12 +37,19 @@ async function init() {
     CREATE TABLE IF NOT EXISTS teams (
       id SERIAL PRIMARY KEY,
       name TEXT NOT NULL,
+      owner TEXT NOT NULL DEFAULT '',
       wins INTEGER NOT NULL DEFAULT 0,
       losses INTEGER NOT NULL DEFAULT 0,
       ties INTEGER NOT NULL DEFAULT 0,
+      points_for DOUBLE PRECISION NOT NULL DEFAULT 0,
+      points_against DOUBLE PRECISION NOT NULL DEFAULT 0,
       created_at TIMESTAMPTZ NOT NULL DEFAULT now()
     );
   `);
+  // Migrations for databases created before these columns existed.
+  await db.execute(sql`ALTER TABLE teams ADD COLUMN IF NOT EXISTS owner TEXT NOT NULL DEFAULT '';`);
+  await db.execute(sql`ALTER TABLE teams ADD COLUMN IF NOT EXISTS points_for DOUBLE PRECISION NOT NULL DEFAULT 0;`);
+  await db.execute(sql`ALTER TABLE teams ADD COLUMN IF NOT EXISTS points_against DOUBLE PRECISION NOT NULL DEFAULT 0;`);
   await db.execute(sql`
     CREATE TABLE IF NOT EXISTS picks (
       id SERIAL PRIMARY KEY,

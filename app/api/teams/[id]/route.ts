@@ -15,9 +15,12 @@ export async function PATCH(
 
   const update: Record<string, unknown> = {};
   if (typeof body.name === "string" && body.name.trim()) update.name = body.name.trim();
+  if (typeof body.owner === "string") update.owner = body.owner.trim();
   if (body.wins !== undefined) update.wins = Math.max(0, Number(body.wins) || 0);
   if (body.losses !== undefined) update.losses = Math.max(0, Number(body.losses) || 0);
   if (body.ties !== undefined) update.ties = Math.max(0, Number(body.ties) || 0);
+  if (body.pointsFor !== undefined) update.pointsFor = Math.max(0, Number(body.pointsFor) || 0);
+  if (body.pointsAgainst !== undefined) update.pointsAgainst = Math.max(0, Number(body.pointsAgainst) || 0);
 
   if (Object.keys(update).length === 0) {
     return NextResponse.json({ error: "Nothing to update." }, { status: 400 });
