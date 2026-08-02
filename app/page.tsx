@@ -22,6 +22,7 @@ import {
 } from "@mui/material";
 import SportsFootballIcon from "@mui/icons-material/SportsFootball";
 import SettingsIcon from "@mui/icons-material/Settings";
+import HistoryIcon from "@mui/icons-material/History";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
@@ -132,6 +133,11 @@ export default function Home() {
                 sx={{ maxWidth: 160, mr: 0.5 }} />
             </Tooltip>
           )}
+          <Tooltip title="League history">
+            <IconButton component={Link} href="/history" color="inherit">
+              <HistoryIcon />
+            </IconButton>
+          </Tooltip>
           <Tooltip title="Manage teams & standings">
             <IconButton component={Link} href="/admin" color="inherit" edge="end">
               <SettingsIcon />
