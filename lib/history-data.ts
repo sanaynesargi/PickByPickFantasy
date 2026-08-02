@@ -107,7 +107,7 @@ export const HISTORY: HistorySeason[] = [
     format: "Snake · 10 teams · 14 games",
     source: "ESPN",
     draftOrder: [
-      { pick: 1, team: "KC SingleSami", manager: "Sami" }, // guess (Sami)
+      { pick: 1, team: "KC SingleSami", manager: "Sami" },
       { pick: 2, team: "Jit Tripping", manager: "Viraaj" },
       { pick: 3, team: "Last Place Race", manager: "Cyrus" },
       { pick: 4, team: "Team Patel", manager: "Vansh" },
@@ -128,7 +128,7 @@ export const HISTORY: HistorySeason[] = [
       { rank: 7, team: "Last Place Race", manager: "Cyrus", wins: 6, losses: 8, ties: 0 },
       { rank: 8, team: "Chris olave ur face", manager: "Charles", wins: 6, losses: 8, ties: 0 },
       { rank: 9, team: "Dat N*bba", manager: "Ahan", wins: 5, losses: 9, ties: 0 },
-      { rank: 10, team: "KC SingleSami", manager: "Sami", wins: 4, losses: 10, ties: 0 }, // guess
+      { rank: 10, team: "KC SingleSami", manager: "Sami", wins: 4, losses: 10, ties: 0 },
     ],
   },
   {
@@ -139,10 +139,10 @@ export const HISTORY: HistorySeason[] = [
     draftOrder: [
       { pick: 1, team: "Bang Bang", manager: "Sanay" },
       { pick: 2, team: "Ceedeez Nuts", manager: "Ansuman" },
-      { pick: 3, team: "Micah god 11 from heaven" },
+      { pick: 3, team: "Micah god 11 from heaven", manager: "Ahan" },
       { pick: 4, team: "Henry Ruggs Driving School", manager: "Arav" },
       { pick: 5, team: "Jit Tripping", manager: "Viraaj" },
-      { pick: 6, team: "New England Jit" },
+      { pick: 6, team: "New England Jit", manager: "Charles" },
       { pick: 7, team: "W SuperCyrus", manager: "Cyrus" },
       { pick: 8, team: "Myagi Malladi", manager: "Adhi" },
       { pick: 9, team: "Team Cyril", manager: "Cyril" },
@@ -152,11 +152,11 @@ export const HISTORY: HistorySeason[] = [
       { rank: 1, team: "Ceedeez Nuts", manager: "Ansuman", wins: 11, losses: 3, ties: 1, division: "East" },
       { rank: 2, team: "Henry Ruggs Driving School", manager: "Arav", wins: 11, losses: 4, ties: 0, division: "East" },
       { rank: 3, team: "Bang Bang", manager: "Sanay", wins: 10, losses: 5, ties: 0, division: "East" },
-      { rank: 4, team: "New England Jit", wins: 8, losses: 7, ties: 0, division: "West" },
+      { rank: 4, team: "New England Jit", manager: "Charles", wins: 8, losses: 7, ties: 0, division: "West" },
       { rank: 5, team: "Lower house Ben Dover", manager: "Vansh", wins: 7, losses: 7, ties: 1, division: "East" },
       { rank: 6, team: "Jit Tripping", manager: "Viraaj", wins: 7, losses: 7, ties: 1, division: "East" },
       { rank: 7, team: "W SuperCyrus", manager: "Cyrus", wins: 6, losses: 8, ties: 1, division: "West" },
-      { rank: 8, team: "Micah god 11 from heaven", wins: 6, losses: 9, ties: 0, division: "West" },
+      { rank: 8, team: "Micah god 11 from heaven", manager: "Ahan", wins: 6, losses: 9, ties: 0, division: "West" },
       { rank: 9, team: "Myagi Malladi", manager: "Adhi", wins: 6, losses: 9, ties: 0, division: "West" },
       { rank: 10, team: "Team Cyril", manager: "Cyril", wins: 1, losses: 14, ties: 0, division: "West" },
     ],
