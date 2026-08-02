@@ -52,6 +52,13 @@ export function flatten(): FlatRecord[] {
 const avg = (xs: number[]) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 0);
 const sum = (xs: number[]) => xs.reduce((a, b) => a + b, 0);
 
+// All of one person's team-seasons, oldest first (for the per-player timeline).
+export function personSeasons(manager: string): FlatRecord[] {
+  return flatten()
+    .filter((r) => r.manager === manager)
+    .sort((a, b) => a.season - b.season);
+}
+
 export type Career = {
   manager: string;
   seasons: number;

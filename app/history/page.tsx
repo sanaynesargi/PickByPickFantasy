@@ -21,6 +21,7 @@ import { HISTORY, winPct, recordStr, type StandingRow } from "@/lib/history-data
 import { careers, correlations } from "@/lib/history-stats";
 import { MEDAL } from "../theme";
 import PickAverages from "../components/PickAverages";
+import PersonDialog from "./PersonDialog";
 
 function pct3(n: number) {
   return n.toFixed(3).replace(/^0/, ""); // .643 style
@@ -78,6 +79,7 @@ function Tag({
 
 export default function HistoryPage() {
   const [view, setView] = useState<number | "all">("all");
+  const [person, setPerson] = useState<string | null>(null);
   const seasonData = typeof view === "number"
     ? HISTORY.find((h) => h.season === view) ?? HISTORY[0]
     : null;
@@ -118,14 +120,20 @@ export default function HistoryPage() {
             </ToggleButtonGroup>
           </Box>
 
-          {seasonData ? <SeasonView data={seasonData} /> : <AllTimeView />}
+          {seasonData ? (
+            <SeasonView data={seasonData} onPerson={setPerson} />
+          ) : (
+            <AllTimeView onPerson={setPerson} />
+          )}
         </Stack>
       </Container>
+
+      <PersonDialog manager={person} onClose={() => setPerson(null)} />
     </Box>
   );
 }
 
-function SeasonView({ data }: { data: (typeof HISTORY)[number] }) {
+function SeasonView({ data, onPerson }: { data: (typeof HISTORY)[number]; onPerson: (m: string) => void }) {
   const rows = data.draftOrder.map((p) => ({
     ...p,
     s: data.standings.find((st) => st.team === p.team),
@@ -166,10 +174,12 @@ function SeasonView({ data }: { data: (typeof HISTORY)[number] }) {
             const medal = medalColor(s?.playoffRank);
             return (
               <Card key={pick}
+                onClick={() => manager && onPerson(manager)}
                 sx={{
                   display: "flex", alignItems: "center", gap: 1.5, pr: 2, pl: 0,
-                  overflow: "hidden",
+                  overflow: "hidden", cursor: manager ? "pointer" : "default",
                   borderColor: medal ? `${medal}66` : undefined,
+                  "&:hover": manager ? { borderColor: "primary.main", bgcolor: "rgba(255,255,255,0.06)" } : undefined,
                 }}>
                 <Box sx={{ width: 4, alignSelf: "stretch", bgcolor: medal ?? "transparent" }} />
                 <Box sx={{
@@ -227,7 +237,7 @@ function SeasonView({ data }: { data: (typeof HISTORY)[number] }) {
   );
 }
 
-function AllTimeView() {
+function AllTimeView({ onPerson }: { onPerson: (m: string) => void }) {
   const people = careers();
   const corrs = correlations();
 
@@ -238,12 +248,17 @@ function AllTimeView() {
           Career by person
         </Typography>
         <Typography variant="caption" color="text.secondary" sx={{ display: "block", mb: 1 }}>
-          reg fin = regular-season finish · PO fin = playoff finish · 🏆 = title
+          Tap a name for their season-by-season timeline. reg fin = regular-season
+          · PO fin = playoff finish · 🏆 = title
         </Typography>
         <Stack spacing={1}>
           {people.map((c, i) => (
             <Card key={c.manager}
-              sx={{ display: "flex", alignItems: "center", gap: 1.5, px: 2, py: 1.2 }}>
+              onClick={() => onPerson(c.manager)}
+              sx={{
+                display: "flex", alignItems: "center", gap: 1.5, px: 2, py: 1.2, cursor: "pointer",
+                "&:hover": { borderColor: "primary.main", bgcolor: "rgba(255,255,255,0.06)" },
+              }}>
               <Typography className="num" sx={{
                 width: 26, textAlign: "center", flexShrink: 0,
                 fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 15,
