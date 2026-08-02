@@ -2,14 +2,17 @@
 
 import { createTheme } from "@mui/material/styles";
 
-// Dark, "under the Friday-night lights" palette. Green field + gold accent.
+// Orange & black. Vivid orange on near-black surfaces.
+export const INK = "#0a0a0a"; // near-black, used as text on orange fills
+
 const theme = createTheme({
   palette: {
     mode: "dark",
-    primary: { main: "#2e7d32" }, // field green
-    secondary: { main: "#ffc93c" }, // yardline gold
-    background: { default: "#0a0f0d", paper: "#121a16" },
-    success: { main: "#4caf50" },
+    primary: { main: "#ff7a18", contrastText: INK }, // orange
+    secondary: { main: "#ff9d3c", contrastText: INK }, // lighter orange accent
+    background: { default: "#0a0a0a", paper: "#161311" },
+    success: { main: "#ff7a18" },
+    text: { primary: "#f5f0ea", secondary: "#a99f95" },
   },
   shape: { borderRadius: 12 },
   typography: {

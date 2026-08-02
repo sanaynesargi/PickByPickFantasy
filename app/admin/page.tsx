@@ -24,6 +24,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import AddIcon from "@mui/icons-material/Add";
 import { api, type DraftState, type StandingTeam } from "@/lib/api";
+import { INK } from "../theme";
 
 function record(t: StandingTeam) {
   return t.ties > 0 ? `${t.wins}-${t.losses}-${t.ties}` : `${t.wins}-${t.losses}`;
@@ -114,7 +115,7 @@ export default function Admin() {
   return (
     <Box sx={{ minHeight: "100dvh", pb: 6 }}>
       <AppBar position="sticky" color="transparent" elevation={0}
-        sx={{ backdropFilter: "blur(10px)", borderBottom: "1px solid rgba(255,255,255,0.06)", bgcolor: "rgba(10,15,13,0.75)" }}>
+        sx={{ backdropFilter: "blur(10px)", borderBottom: "1px solid rgba(255,255,255,0.06)", bgcolor: "rgba(10,10,10,0.8)" }}>
         <Toolbar sx={{ gap: 1 }}>
           <IconButton component={Link} href="/" color="inherit" edge="start">
             <ArrowBackIcon />
@@ -123,11 +124,24 @@ export default function Admin() {
             Teams & Standings
           </Typography>
         </Toolbar>
-        {busy && <LinearProgress color="secondary" />}
+        {busy && <LinearProgress color="primary" />}
       </AppBar>
 
       <Container maxWidth="sm" sx={{ pt: 3 }}>
         <Stack spacing={3}>
+          <Card variant="outlined" sx={{ borderColor: "rgba(255,122,24,0.4)" }}>
+            <CardContent sx={{ py: 2 }}>
+              <Typography variant="subtitle1" fontWeight={800} gutterBottom>
+                Enter last year&apos;s standings
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Add each team and its final record from last season. The draft
+                order is these standings <b>reversed</b> — the team that finished
+                last picks first.
+              </Typography>
+            </CardContent>
+          </Card>
+
           {draftStarted && (
             <Alert severity="info" variant="outlined">
               The draft has started. Editing records won&apos;t change slots already
@@ -154,8 +168,8 @@ export default function Admin() {
                     onChange={(e) => setForm({ ...form, ties: e.target.value })}
                     inputProps={{ min: 0 }} sx={{ flex: 1 }} />
                 </Stack>
-                <Button variant="contained" color="secondary" startIcon={<AddIcon />}
-                  onClick={addTeam} disabled={busy} sx={{ color: "#0a0f0d", alignSelf: "flex-start" }}>
+                <Button variant="contained" color="primary" startIcon={<AddIcon />}
+                  onClick={addTeam} disabled={busy} sx={{ color: INK, alignSelf: "flex-start" }}>
                   Add team
                 </Button>
               </Stack>
@@ -186,7 +200,7 @@ export default function Admin() {
                         <Box sx={{
                           width: 28, height: 28, borderRadius: "50%", flexShrink: 0,
                           display: "grid", placeItems: "center", fontWeight: 800, fontSize: 13,
-                          bgcolor: "rgba(255,201,60,0.15)", color: "secondary.main",
+                          bgcolor: "rgba(255,122,24,0.15)", color: "primary.main",
                         }}>
                           {t.rank}
                         </Box>
@@ -223,8 +237,8 @@ export default function Admin() {
           {teams.length > 0 && (
             <>
               <Divider />
-              <Button component={Link} href="/" variant="contained" color="secondary"
-                sx={{ color: "#0a0f0d" }}>
+              <Button component={Link} href="/" variant="contained" color="primary"
+                sx={{ color: INK }}>
                 Go to the draft board
               </Button>
             </>
