@@ -119,26 +119,31 @@ export default function Home() {
         sx={{ backdropFilter: "blur(14px)", borderBottom: "1px solid rgba(255,255,255,0.06)", bgcolor: "rgba(26,22,17,0.7)" }}>
         <Toolbar sx={{ gap: 1 }}>
           <SportsFootballIcon color="primary" />
-          <Box sx={{ flexGrow: 1, lineHeight: 1 }}>
+          <Box sx={{ flexGrow: 1, lineHeight: 1, minWidth: 0 }}>
             <Typography variant="h6" component="h1" sx={{ lineHeight: 1.1 }}>
               Pick for Pick
             </Typography>
-            <Typography variant="caption" color="text.secondary">
-              Reverse-standings draft order
+            <Typography variant="caption" color="text.secondary" noWrap sx={{ display: "block" }}>
+              Drafting · League History
             </Typography>
           </Box>
           {myTeam && (
             <Tooltip title="Switch team">
-              <Chip color="primary" variant="outlined" onClick={release}
+              <Chip color="primary" variant="outlined" onClick={release} size="small"
                 icon={<SwitchAccountIcon />} label={myTeam.name}
-                sx={{ maxWidth: 160, mr: 0.5 }} />
+                sx={{ maxWidth: 120, mr: 0.5 }} />
             </Tooltip>
           )}
-          <Tooltip title="League history">
-            <IconButton component={Link} href="/history" color="inherit">
-              <HistoryIcon />
-            </IconButton>
-          </Tooltip>
+          <Button component={Link} href="/history" startIcon={<HistoryIcon />}
+            size="small"
+            sx={{
+              flexShrink: 0, color: "primary.light",
+              bgcolor: "rgba(255,106,26,0.14)",
+              border: "1px solid rgba(255,106,26,0.42)",
+              px: 1.25, "&:hover": { bgcolor: "rgba(255,106,26,0.24)" },
+            }}>
+            History
+          </Button>
           <Tooltip title="Manage teams & standings">
             <IconButton component={Link} href="/admin" color="inherit" edge="end">
               <SettingsIcon />
