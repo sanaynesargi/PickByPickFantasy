@@ -238,15 +238,36 @@ function SeasonView({ data, onPerson }: { data: (typeof HISTORY)[number]; onPers
 }
 
 function AllTimeView({ onPerson }: { onPerson: (m: string) => void }) {
-  const people = careers();
+  const [roster, setRoster] = useState<"active" | "all">("active");
   const corrs = correlations();
+  // "Active" = anyone in the most recent season's roster; the rest are former.
+  const activeSet = new Set(
+    HISTORY[0].standings.map((s) => s.manager).filter(Boolean) as string[]
+  );
+  const people = careers().filter((c) => roster === "all" || activeSet.has(c.manager));
 
   return (
     <>
       <Box>
-        <Typography variant="overline" sx={{ color: "primary.main", display: "block" }}>
-          Career by person
-        </Typography>
+        <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 0.5 }}>
+          <Typography variant="overline" sx={{ color: "primary.main", flexGrow: 1 }}>
+            Career by person
+          </Typography>
+          <ToggleButtonGroup exclusive value={roster} size="small"
+            onChange={(_, v) => v && setRoster(v)}
+            sx={{
+              "& .MuiToggleButton-root": {
+                border: "1px solid rgba(255,255,255,0.14)", borderRadius: "999px !important",
+                px: 1.4, py: 0.3, fontSize: 11.5, fontFamily: "var(--font-display)", fontWeight: 700,
+                textTransform: "none", lineHeight: 1.4,
+              },
+              "& .Mui-selected": { bgcolor: "primary.main !important", color: "#0c0a08 !important" },
+              gap: 0.5,
+            }}>
+            <ToggleButton value="active">Active</ToggleButton>
+            <ToggleButton value="all">All-time</ToggleButton>
+          </ToggleButtonGroup>
+        </Stack>
         <Typography variant="caption" color="text.secondary" sx={{ display: "block", mb: 1 }}>
           Tap a name for their season-by-season timeline. reg fin = regular-season
           · PO fin = playoff finish · 🏆 = title
@@ -267,9 +288,15 @@ function AllTimeView({ onPerson }: { onPerson: (m: string) => void }) {
                 {i + 1}
               </Typography>
               <Box sx={{ flexGrow: 1, minWidth: 0 }}>
-                <Typography noWrap sx={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 16 }}>
-                  {c.manager}{medalTally(c) ? ` ${medalTally(c)}` : ""}
-                </Typography>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 0.75, minWidth: 0 }}>
+                  <Typography noWrap sx={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 16 }}>
+                    {c.manager}{medalTally(c) ? ` ${medalTally(c)}` : ""}
+                  </Typography>
+                  {roster === "all" && !activeSet.has(c.manager) && (
+                    <Chip size="small" label="former" variant="outlined"
+                      sx={{ height: 16, fontSize: 9, flexShrink: 0 }} />
+                  )}
+                </Box>
                 <Typography variant="caption" color="text.secondary" component="div">
                   {c.seasons} {c.seasons === 1 ? "season" : "seasons"} · pick{" "}
                   <span className="num">{c.avgPick.toFixed(1)}</span> · reg fin{" "}
