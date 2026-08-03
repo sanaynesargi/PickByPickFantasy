@@ -17,7 +17,7 @@ import {
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import HistoryIcon from "@mui/icons-material/History";
-import { HISTORY, winPct, recordStr, type StandingRow } from "@/lib/history-data";
+import { HISTORY, ACTIVE_MANAGERS, winPct, recordStr, type StandingRow } from "@/lib/history-data";
 import { careers, correlations, medalTally } from "@/lib/history-stats";
 import { MEDAL } from "../theme";
 import PickAverages from "../components/PickAverages";
@@ -240,10 +240,8 @@ function SeasonView({ data, onPerson }: { data: (typeof HISTORY)[number]; onPers
 function AllTimeView({ onPerson }: { onPerson: (m: string) => void }) {
   const [roster, setRoster] = useState<"active" | "all">("active");
   const corrs = correlations();
-  // "Active" = anyone in the most recent season's roster; the rest are former.
-  const activeSet = new Set(
-    HISTORY[0].standings.map((s) => s.manager).filter(Boolean) as string[]
-  );
+  // "Active" = the current roster; everyone else (incl. archived Charles) is former.
+  const activeSet = new Set(ACTIVE_MANAGERS);
   const people = careers().filter((c) => roster === "all" || activeSet.has(c.manager));
 
   return (

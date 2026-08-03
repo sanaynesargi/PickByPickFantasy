@@ -39,6 +39,13 @@ export function recordStr(r: { wins: number; losses: number; ties: number }) {
   return r.ties > 0 ? `${r.wins}-${r.losses}-${r.ties}` : `${r.wins}-${r.losses}`;
 }
 
+// Current roster (2026). Drives the Active vs All-time toggle. Advik took over
+// Charles's team, so Charles is archived (former) and Advik is active. Advik has
+// no history yet, so he won't appear in the career list until he plays a season.
+export const ACTIVE_MANAGERS = [
+  "Sanay", "Viraaj", "Jai", "Cyrus", "Advik", "Ahan", "Aarav", "Arav", "Sami", "Ansuman",
+];
+
 // Most recent first.
 export const HISTORY: HistorySeason[] = [
   {
