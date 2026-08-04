@@ -174,15 +174,15 @@ function SeasonView({ data, onPerson }: { data: (typeof HISTORY)[number]; onPers
       </Box>
 
       {espn && (
-        <ToggleButtonGroup exclusive value={view} size="small"
+        <ToggleButtonGroup exclusive value={view} fullWidth
           onChange={(_, v) => v && setTab(v)}
           sx={{
             "& .MuiToggleButton-root": {
-              border: "1px solid rgba(255,255,255,0.14)", borderRadius: "999px !important",
-              px: 1.6, py: 0.4, fontSize: 12, fontFamily: "var(--font-display)", fontWeight: 700, textTransform: "none",
+              border: "1px solid rgba(255,255,255,0.14)", borderRadius: "12px !important",
+              py: 1.1, fontSize: 14, fontFamily: "var(--font-display)", fontWeight: 700, textTransform: "none",
             },
             "& .Mui-selected": { bgcolor: "primary.main !important", color: "#0c0a08 !important" },
-            gap: 0.6,
+            gap: 0.75,
           }}>
           <ToggleButton value="board">Board</ToggleButton>
           <ToggleButton value="draft">Full draft</ToggleButton>
@@ -419,6 +419,14 @@ function AllTimeView({ onPerson }: { onPerson: (m: string) => void }) {
 
   return (
     <>
+      <Box sx={{ px: 1.5, py: 1.25, borderRadius: 2, border: "1px solid rgba(255,106,26,0.28)", bgcolor: "rgba(255,106,26,0.06)" }}>
+        <Typography variant="body2" color="text.secondary">
+          <b style={{ color: "#ff9a5a" }}>Tap a year</b> above for that season&apos;s
+          full draft, weekly scores &amp; rosters. <b style={{ color: "#ff9a5a" }}>Tap a
+          name</b> below for their timeline, game log &amp; head-to-head.
+        </Typography>
+      </Box>
+
       <Box>
         <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 0.5 }}>
           <Typography variant="overline" sx={{ color: "primary.main", flexGrow: 1 }}>

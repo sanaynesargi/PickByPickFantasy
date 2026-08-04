@@ -94,6 +94,34 @@ export function headToHead(person: string): H2H[] {
   );
 }
 
+export type GameLog = {
+  season: number; week: number; isPlayoff: boolean;
+  pts: number; oppPts: number; opp: string; result: "W" | "L" | "T";
+};
+
+// One person's week-by-week game log across ESPN seasons (newest season first).
+export function gameLog(person: string): GameLog[] {
+  const out: GameLog[] = [];
+  for (const s of LEAGUE.seasons) {
+    const pById = new Map(s.teams.map((t) => [t.id, t.person]));
+    for (const g of s.schedule) {
+      if (g.winner === "UNDECIDED") continue;
+      const hp = pById.get(g.homeId);
+      const ap = pById.get(g.awayId);
+      let pts: number, oppPts: number, opp: string | undefined, result: "W" | "L" | "T";
+      if (hp === person) {
+        pts = g.homePts; oppPts = g.awayPts; opp = ap;
+        result = g.winner === "HOME" ? "W" : g.winner === "AWAY" ? "L" : "T";
+      } else if (ap === person) {
+        pts = g.awayPts; oppPts = g.homePts; opp = hp;
+        result = g.winner === "AWAY" ? "W" : g.winner === "HOME" ? "L" : "T";
+      } else continue;
+      out.push({ season: s.season, week: g.week, isPlayoff: g.isPlayoff, pts, oppPts, opp: opp || "?", result });
+    }
+  }
+  return out.sort((a, b) => b.season - a.season || a.week - b.week);
+}
+
 // All of one person's team-seasons, oldest first (for the per-player timeline).
 export function personSeasons(manager: string): FlatRecord[] {
   return flatten()
