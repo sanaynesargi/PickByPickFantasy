@@ -9,6 +9,7 @@ import { ACTIVE_MANAGERS } from "@/lib/history-data";
 import { careers, correlations, medalTally } from "@/lib/history-stats";
 import PickAverages from "../components/PickAverages";
 import HeadToHead from "../components/HeadToHead";
+import RivalryWeek from "../components/RivalryWeek";
 import PageNav from "../components/PageNav";
 import PersonDialog from "../history/PersonDialog";
 
@@ -47,6 +48,11 @@ export default function AllTimePage() {
               their career; tap a head-to-head cell for the full series.
             </Typography>
           </Box>
+
+          {/* Rivalry Week generator */}
+          <Card sx={{ p: 2, border: "1px solid rgba(255,106,26,0.28)", bgcolor: "rgba(255,106,26,0.03)" }}>
+            <RivalryWeek people={ACTIVE_MANAGERS} />
+          </Card>
 
           {/* Career leaderboard */}
           <Box>

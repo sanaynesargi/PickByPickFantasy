@@ -131,6 +131,55 @@ export function rivalry(a: string, b: string): Rivalry {
   return { a, b, aWins, bWins, ties, aPf, bPf, games };
 }
 
+export type Matchup = {
+  a: string; b: string; aWins: number; bWins: number; games: number;
+  gap: number; isNew: boolean;
+};
+
+// Build the most balanced set of matchups: a min-cost perfect matching where a
+// pair's cost is its head-to-head record gap (plus a small points-gap term).
+// People with no shared history (e.g. a new manager) cost ~0 and absorb the
+// leftover slot. Brute force over the 9!!=945 pairings — trivially small.
+export function rivalryWeek(people: string[]): Matchup[] {
+  const key = (a: string, b: string) => (a < b ? `${a}|${b}` : `${b}|${a}`);
+  const R = new Map<string, Rivalry>();
+  for (let i = 0; i < people.length; i++)
+    for (let j = i + 1; j < people.length; j++)
+      R.set(key(people[i], people[j]), rivalry(people[i], people[j]));
+  const cost = (a: string, b: string) => {
+    const r = R.get(key(a, b))!;
+    const n = r.games.length;
+    if (n === 0) return 0.0001;
+    const wGap = Math.abs(r.aWins - r.bWins);
+    const pGap = Math.abs(r.aPf - r.bPf) / n; // avg points gap
+    return wGap + pGap / 40;
+  };
+
+  // Holder object so TS keeps `best`'s type across the recurse closure.
+  const state = { best: [] as [string, string][], cost: Infinity };
+  const recurse = (rem: string[], pairs: [string, string][], acc: number) => {
+    if (rem.length === 0) {
+      if (acc < state.cost) { state.cost = acc; state.best = pairs.slice(); }
+      return;
+    }
+    if (acc >= state.cost) return; // prune (costs are non-negative)
+    const first = rem[0];
+    for (let i = 1; i < rem.length; i++) {
+      const partner = rem[i];
+      const next = rem.filter((_, j) => j !== 0 && j !== i);
+      recurse(next, [...pairs, [first, partner]], acc + cost(first, partner));
+    }
+  };
+  recurse(people, [], 0);
+
+  return state.best
+    .map(([a, b]) => {
+      const r = rivalry(a, b); // re-orient to (a, b) order
+      return { a, b, aWins: r.aWins, bWins: r.bWins, games: r.games.length, gap: Math.abs(r.aWins - r.bWins), isNew: r.games.length === 0 };
+    })
+    .sort((x, y) => Number(x.isNew) - Number(y.isNew) || x.gap - y.gap || y.games - x.games);
+}
+
 export type GameLog = {
   season: number; week: number; isPlayoff: boolean;
   pts: number; oppPts: number; opp: string; result: "W" | "L" | "T";
