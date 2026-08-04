@@ -134,16 +134,17 @@ export default function Home() {
                 sx={{ maxWidth: 120, mr: 0.5 }} />
             </Tooltip>
           )}
-          <Button component={Link} href="/history" startIcon={<HistoryIcon />}
-            size="small"
-            sx={{
-              flexShrink: 0, color: "primary.light",
-              bgcolor: "rgba(255,106,26,0.14)",
-              border: "1px solid rgba(255,106,26,0.42)",
-              px: 1.25, "&:hover": { bgcolor: "rgba(255,106,26,0.24)" },
-            }}>
-            History
-          </Button>
+          {[{ href: "/history", label: "Seasons" }, { href: "/all-time", label: "All-Time" }].map((t) => (
+            <Button key={t.href} component={Link} href={t.href} size="small"
+              sx={{
+                flexShrink: 0, color: "primary.light",
+                bgcolor: "rgba(255,106,26,0.14)",
+                border: "1px solid rgba(255,106,26,0.42)",
+                px: 1.25, "&:hover": { bgcolor: "rgba(255,106,26,0.24)" },
+              }}>
+              {t.label}
+            </Button>
+          ))}
           <Tooltip title="Manage teams & standings">
             <IconButton component={Link} href="/admin" color="inherit" edge="end">
               <SettingsIcon />

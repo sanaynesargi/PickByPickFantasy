@@ -94,6 +94,43 @@ export function headToHead(person: string): H2H[] {
   );
 }
 
+export type RivalryGame = {
+  season: number; week: number; isPlayoff: boolean;
+  aPts: number; bPts: number; winner: "A" | "B" | "T";
+};
+export type Rivalry = {
+  a: string; b: string;
+  aWins: number; bWins: number; ties: number; aPf: number; bPf: number;
+  games: RivalryGame[];
+};
+
+// Full head-to-head series between two people (newest game first).
+export function rivalry(a: string, b: string): Rivalry {
+  const games: RivalryGame[] = [];
+  let aWins = 0, bWins = 0, ties = 0, aPf = 0, bPf = 0;
+  for (const s of LEAGUE.seasons) {
+    const pById = new Map(s.teams.map((t) => [t.id, t.person]));
+    for (const g of s.schedule) {
+      if (g.winner === "UNDECIDED") continue;
+      const hp = pById.get(g.homeId);
+      const ap = pById.get(g.awayId);
+      let aPts: number, bPts: number, winner: "A" | "B" | "T";
+      if (hp === a && ap === b) {
+        aPts = g.homePts; bPts = g.awayPts;
+        winner = g.winner === "HOME" ? "A" : g.winner === "AWAY" ? "B" : "T";
+      } else if (hp === b && ap === a) {
+        aPts = g.awayPts; bPts = g.homePts;
+        winner = g.winner === "AWAY" ? "A" : g.winner === "HOME" ? "B" : "T";
+      } else continue;
+      games.push({ season: s.season, week: g.week, isPlayoff: g.isPlayoff, aPts, bPts, winner });
+      aPf += aPts; bPf += bPts;
+      if (winner === "A") aWins++; else if (winner === "B") bWins++; else ties++;
+    }
+  }
+  games.sort((x, y) => y.season - x.season || x.week - y.week);
+  return { a, b, aWins, bWins, ties, aPf, bPf, games };
+}
+
 export type GameLog = {
   season: number; week: number; isPlayoff: boolean;
   pts: number; oppPts: number; opp: string; result: "W" | "L" | "T";

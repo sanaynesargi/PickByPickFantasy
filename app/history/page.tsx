@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import {
   AppBar,
   Toolbar,
@@ -11,21 +10,14 @@ import {
   Typography,
   Stack,
   Chip,
-  IconButton,
   ToggleButton,
   ToggleButtonGroup,
 } from "@mui/material";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import HistoryIcon from "@mui/icons-material/History";
-import { HISTORY, ACTIVE_MANAGERS, leagueSeason, winPct, recordStr, type StandingRow, type LeagueSeason } from "@/lib/history-data";
-import { careers, correlations, medalTally } from "@/lib/history-stats";
+import { HISTORY, leagueSeason, recordStr, type StandingRow, type LeagueSeason } from "@/lib/history-data";
 import { MEDAL } from "../theme";
-import PickAverages from "../components/PickAverages";
+import PageNav from "../components/PageNav";
 import PersonDialog from "./PersonDialog";
 
-function pct3(n: number) {
-  return n.toFixed(3).replace(/^0/, ""); // .643 style
-}
 function ordinal(n: number) {
   const s = ["th", "st", "nd", "rd"];
   const v = n % 100;
@@ -36,9 +28,6 @@ function medalColor(rank?: number): string | null {
   if (rank === 2) return MEDAL.silver;
   if (rank === 3) return MEDAL.bronze;
   return null;
-}
-function recStr(c: { wins: number; losses: number; ties: number }) {
-  return c.ties > 0 ? `${c.wins}-${c.losses}-${c.ties}` : `${c.wins}-${c.losses}`;
 }
 
 // Small squared pill used for the reg / playoff finish tags.
@@ -78,32 +67,24 @@ function Tag({
 }
 
 export default function HistoryPage() {
-  const [view, setView] = useState<number | "all">("all");
+  const [season, setSeason] = useState<number>(HISTORY[0].season);
   const [person, setPerson] = useState<string | null>(null);
-  const seasonData = typeof view === "number"
-    ? HISTORY.find((h) => h.season === view) ?? HISTORY[0]
-    : null;
+  const seasonData = HISTORY.find((h) => h.season === season) ?? HISTORY[0];
 
   return (
     <Box sx={{ minHeight: "100dvh", pb: 7 }}>
       <AppBar position="sticky" color="transparent" elevation={0}
         sx={{ backdropFilter: "blur(14px)", borderBottom: "1px solid rgba(255,255,255,0.07)", bgcolor: "rgba(26,22,17,0.7)" }}>
         <Toolbar sx={{ gap: 1 }}>
-          <IconButton component={Link} href="/" color="inherit" edge="start">
-            <ArrowBackIcon />
-          </IconButton>
-          <HistoryIcon sx={{ color: "primary.main" }} />
-          <Typography variant="h6" component="h1" sx={{ flexGrow: 1 }}>
-            League History
-          </Typography>
+          <PageNav />
         </Toolbar>
       </AppBar>
 
       <Container maxWidth="sm" sx={{ pt: 3 }}>
         <Stack spacing={3}>
           <Box sx={{ overflowX: "auto", pb: 0.5, mx: -0.5, px: 0.5 }}>
-            <ToggleButtonGroup exclusive value={view} color="primary"
-              onChange={(_, v) => v != null && setView(v)} size="small"
+            <ToggleButtonGroup exclusive value={season} color="primary"
+              onChange={(_, v) => v != null && setSeason(v)} size="small"
               sx={{
                 gap: 0.75,
                 "& .MuiToggleButton-root": {
@@ -113,18 +94,13 @@ export default function HistoryPage() {
                 },
                 "& .Mui-selected": { bgcolor: "primary.main !important", color: "#0c0a08 !important" },
               }}>
-              <ToggleButton value="all">All-time</ToggleButton>
               {HISTORY.map((h) => (
                 <ToggleButton key={h.season} value={h.season} className="num">{h.season}</ToggleButton>
               ))}
             </ToggleButtonGroup>
           </Box>
 
-          {seasonData ? (
-            <SeasonView data={seasonData} onPerson={setPerson} />
-          ) : (
-            <AllTimeView onPerson={setPerson} />
-          )}
+          <SeasonView data={seasonData} onPerson={setPerson} />
         </Stack>
       </Container>
 
@@ -407,132 +383,5 @@ function SeasonScores({ season, onPerson }: { season: LeagueSeason; onPerson: (m
         })}
       </Stack>
     </Box>
-  );
-}
-
-function AllTimeView({ onPerson }: { onPerson: (m: string) => void }) {
-  const [roster, setRoster] = useState<"active" | "all">("active");
-  const corrs = correlations();
-  // "Active" = the current roster; everyone else (incl. archived Charles) is former.
-  const activeSet = new Set(ACTIVE_MANAGERS);
-  const people = careers().filter((c) => roster === "all" || activeSet.has(c.manager));
-
-  return (
-    <>
-      <Box sx={{ px: 1.5, py: 1.25, borderRadius: 2, border: "1px solid rgba(255,106,26,0.28)", bgcolor: "rgba(255,106,26,0.06)" }}>
-        <Typography variant="body2" color="text.secondary">
-          <b style={{ color: "#ff9a5a" }}>Tap a year</b> above for that season&apos;s
-          full draft, weekly scores &amp; rosters. <b style={{ color: "#ff9a5a" }}>Tap a
-          name</b> below for their timeline, game log &amp; head-to-head.
-        </Typography>
-      </Box>
-
-      <Box>
-        <Stack direction="row" alignItems="center" spacing={1} sx={{ mb: 0.5 }}>
-          <Typography variant="overline" sx={{ color: "primary.main", flexGrow: 1 }}>
-            Career by person
-          </Typography>
-          <ToggleButtonGroup exclusive value={roster} size="small"
-            onChange={(_, v) => v && setRoster(v)}
-            sx={{
-              "& .MuiToggleButton-root": {
-                border: "1px solid rgba(255,255,255,0.14)", borderRadius: "999px !important",
-                px: 1.4, py: 0.3, fontSize: 11.5, fontFamily: "var(--font-display)", fontWeight: 700,
-                textTransform: "none", lineHeight: 1.4,
-              },
-              "& .Mui-selected": { bgcolor: "primary.main !important", color: "#0c0a08 !important" },
-              gap: 0.5,
-            }}>
-            <ToggleButton value="active">Active</ToggleButton>
-            <ToggleButton value="all">All-time</ToggleButton>
-          </ToggleButtonGroup>
-        </Stack>
-        <Typography variant="caption" color="text.secondary" sx={{ display: "block", mb: 1 }}>
-          Tap a name for their season-by-season timeline. reg fin = regular-season
-          · PO fin = playoff finish · 🏆 = title
-        </Typography>
-        <Stack spacing={1}>
-          {people.map((c, i) => (
-            <Card key={c.manager}
-              onClick={() => onPerson(c.manager)}
-              sx={{
-                display: "flex", alignItems: "center", gap: 1.5, px: 2, py: 1.2, cursor: "pointer",
-                "&:hover": { borderColor: "primary.main", bgcolor: "rgba(255,255,255,0.06)" },
-              }}>
-              <Typography className="num" sx={{
-                width: 26, textAlign: "center", flexShrink: 0,
-                fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 15,
-                color: i === 0 ? "primary.light" : "text.secondary",
-              }}>
-                {i + 1}
-              </Typography>
-              <Box sx={{ flexGrow: 1, minWidth: 0 }}>
-                <Box sx={{ display: "flex", alignItems: "center", gap: 0.75, minWidth: 0 }}>
-                  <Typography noWrap sx={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 16 }}>
-                    {c.manager}{medalTally(c) ? ` ${medalTally(c)}` : ""}
-                  </Typography>
-                  {roster === "all" && !activeSet.has(c.manager) && (
-                    <Chip size="small" label="former" variant="outlined"
-                      sx={{ height: 16, fontSize: 9, flexShrink: 0 }} />
-                  )}
-                </Box>
-                <Typography variant="caption" color="text.secondary" component="div">
-                  {c.seasons} {c.seasons === 1 ? "season" : "seasons"} · pick{" "}
-                  <span className="num">{c.avgPick.toFixed(1)}</span> · reg fin{" "}
-                  <span className="num">{c.avgFinish.toFixed(1)}</span> · PO fin{" "}
-                  <span className="num">{c.avgPlayoff !== undefined ? c.avgPlayoff.toFixed(1) : "·"}</span>
-                </Typography>
-              </Box>
-              <Box sx={{ textAlign: "right", flexShrink: 0 }}>
-                <Typography className="num" sx={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 16, lineHeight: 1 }}>
-                  {recStr(c)}
-                </Typography>
-                <Typography variant="caption" color="text.secondary" component="div" className="num">
-                  {pct3(c.winPct)}
-                </Typography>
-              </Box>
-            </Card>
-          ))}
-        </Stack>
-      </Box>
-
-      <Box>
-        <Typography variant="overline" sx={{ color: "primary.main", display: "block" }}>
-          Draft pick vs. outcome
-        </Typography>
-        <Typography variant="caption" color="text.secondary" sx={{ display: "block", mb: 1.5 }}>
-          Pearson r between draft-slot number and each stat. Negative means earlier
-          picks (lower number) tend to do better.
-        </Typography>
-        <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1 }}>
-          {corrs.map((c) => (
-            <Card key={c.label} sx={{ px: 1.75, py: 1.4 }}>
-              <Typography variant="caption" color="text.secondary" noWrap>{c.label}</Typography>
-              <Stack direction="row" alignItems="baseline" spacing={0.75}>
-                <Typography className="num" sx={{
-                  fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 26, lineHeight: 1,
-                  color: c.r == null ? "text.secondary" : c.r < 0 ? "success.main" : "error.main",
-                }}>
-                  {c.r == null ? "n/a" : (c.r > 0 ? "+" : "") + c.r.toFixed(2)}
-                </Typography>
-                <Typography variant="caption" color="text.secondary" className="num">n={c.n}</Typography>
-              </Stack>
-            </Card>
-          ))}
-        </Box>
-      </Box>
-
-      <Box>
-        <Typography variant="overline" sx={{ color: "primary.main", display: "block", mb: 1 }}>
-          Average by draft slot
-        </Typography>
-        <Card sx={{ px: 1.5, py: 1 }}>
-          <PickAverages />
-        </Card>
-        <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1 }}>
-          Averages across all four seasons, 2022 to 2025.
-        </Typography>
-      </Box>
-    </>
   );
 }

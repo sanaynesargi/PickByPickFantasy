@@ -11,7 +11,7 @@ import {
   ToggleButtonGroup,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import { personSeasons, careers, headToHead, gameLog } from "@/lib/history-stats";
+import { personSeasons, careers, headToHead } from "@/lib/history-stats";
 
 const REG = "#ff7a30"; // regular-season finish (brand orange)
 const PO = "#4f9dd6"; // playoff finish (CVD-safe blue)
@@ -124,16 +124,13 @@ export default function PersonDialog({
   manager: string | null;
   onClose: () => void;
 }) {
-  const [tab, setTab] = useState<"overview" | "games" | "h2h">("overview");
+  const [tab, setTab] = useState<"overview" | "h2h">("overview");
   useEffect(() => setTab("overview"), [manager]); // reset when a new player opens
 
   const open = manager !== null;
   const seasons = manager ? personSeasons(manager) : [];
   const c = manager ? careers().find((x) => x.manager === manager) : undefined;
   const h2h = manager ? headToHead(manager) : [];
-  const games = manager ? gameLog(manager) : [];
-
-  const resultColor = (r: "W" | "L" | "T") => (r === "W" ? "success.main" : r === "L" ? "error.main" : "text.secondary");
 
   return (
     <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm"
@@ -165,7 +162,6 @@ export default function PersonDialog({
                 gap: 0.6,
               }}>
               <ToggleButton value="overview">Overview</ToggleButton>
-              <ToggleButton value="games">Games</ToggleButton>
               <ToggleButton value="h2h">Head-to-head</ToggleButton>
             </ToggleButtonGroup>
           </Box>
@@ -212,48 +208,6 @@ export default function PersonDialog({
                   </Box>
                 </Box>
               </>
-            )}
-
-            {tab === "games" && (
-              games.length === 0 ? (
-                <Typography color="text.secondary" variant="body2">No game scores available (ESPN seasons only).</Typography>
-              ) : (
-                <Stack spacing={0.5}>
-                  {games.map((g, i) => {
-                    const newSeason = i === 0 || games[i - 1].season !== g.season;
-                    return (
-                      <Box key={`${g.season}-${g.week}`}>
-                        {newSeason && (
-                          <Typography variant="overline" sx={{ color: "primary.main", display: "block", mt: i ? 1.5 : 0 }} className="num">
-                            {g.season}
-                          </Typography>
-                        )}
-                        <Box sx={{ display: "flex", alignItems: "center", gap: 1, py: 0.9, borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-                          <Typography sx={{ width: 48, flexShrink: 0, fontSize: 11, color: g.isPlayoff ? "primary.light" : "text.secondary", fontFamily: "var(--font-display)", fontWeight: 700 }}>
-                            {g.isPlayoff ? "PO " : "WK "}{g.week}
-                          </Typography>
-                          <Box sx={{
-                            width: 22, height: 22, borderRadius: 1, flexShrink: 0, display: "grid", placeItems: "center",
-                            fontSize: 11, fontWeight: 800, color: "#0c0a08",
-                            bgcolor: g.result === "W" ? "success.main" : g.result === "L" ? "error.main" : "text.secondary",
-                          }}>
-                            {g.result}
-                          </Box>
-                          <Typography className="num" sx={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 15, width: 52, flexShrink: 0 }}>
-                            {g.pts.toFixed(1)}
-                          </Typography>
-                          <Typography noWrap sx={{ flexGrow: 1, fontSize: 13, color: "text.secondary", minWidth: 0 }}>
-                            vs {g.opp}
-                          </Typography>
-                          <Typography className="num" sx={{ fontSize: 13, color: "text.secondary", flexShrink: 0 }}>
-                            {g.oppPts.toFixed(1)}
-                          </Typography>
-                        </Box>
-                      </Box>
-                    );
-                  })}
-                </Stack>
-              )
             )}
 
             {tab === "h2h" && (
