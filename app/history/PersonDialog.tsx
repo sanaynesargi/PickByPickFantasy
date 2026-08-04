@@ -243,7 +243,7 @@ export default function PersonDialog({
                     </Box>
                   </Box>
                   <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1.5 }}>
-                    From ESPN seasons with game scores (2022, 2023, 2025).
+                    From seasons with game scores (2022 to 2025).
                   </Typography>
                 </>
               )

@@ -64,9 +64,10 @@ export function recordStr(r: { wins: number; losses: number; ties: number }) {
   return r.ties > 0 ? `${r.wins}-${r.losses}-${r.ties}` : `${r.wins}-${r.losses}`;
 }
 
-// Look up the rich ESPN season (for player/score views); undefined for 2024.
+// Look up a rich season (for score/player views). Includes the ESPN seasons
+// plus the hand-built Sleeper 2024 (weekly scores, no player-level draft).
 export function leagueSeason(season: number): LeagueSeason | undefined {
-  return LEAGUE.seasons.find((s) => s.season === season);
+  return RICH_SEASONS.find((s) => s.season === season);
 }
 
 function fromEspn(s: LeagueSeason): HistorySeason {
@@ -131,3 +132,50 @@ export const HISTORY: HistorySeason[] = [
   ...LEAGUE.seasons.map(fromEspn),
   SLEEPER_2024,
 ].sort((a, b) => b.season - a.season);
+
+// 2024 rich data (Sleeper). Weekly scores manually transcribed from the league
+// screenshots (weeks 5 and 13 weren't captured). No player-level draft on
+// Sleeper, so draftPicks is empty and 2024 shows Board + Scores (no Full draft).
+const g = (week: number, homeId: number, homePts: number, awayId: number, awayPts: number): LeagueGame => ({
+  week, isPlayoff: false, homeId, homePts, awayId, awayPts,
+  winner: homePts > awayPts ? "HOME" : awayPts > homePts ? "AWAY" : "TIE",
+});
+// person -> team id: Ahan 1, Ansuman 2, Viraaj 3, Jai 4, Aarav 5, Charles 6,
+// Sami 7, Sanay 8, Cyrus 9, Arav 10.
+const SLEEPER_2024_RICH: LeagueSeason = {
+  season: 2024,
+  league: "No Punt Intended",
+  size: 10,
+  regWeeks: 14,
+  divisions: [],
+  teams: [
+    { id: 1, name: "Dat N*bba", abbrev: "", person: "Ahan", regRank: 1, playoffRank: 1, wins: 10, losses: 4, ties: 0, pointsFor: 1792.38, pointsAgainst: 1539.7 },
+    { id: 2, name: "Ceedeez Nuts", abbrev: "", person: "Ansuman", regRank: 2, playoffRank: 2, wins: 9, losses: 5, ties: 0, pointsFor: 1699.94, pointsAgainst: 1590.42 },
+    { id: 3, name: "Teeth", abbrev: "", person: "Viraaj", regRank: 3, playoffRank: 6, wins: 8, losses: 6, ties: 0, pointsFor: 1759.76, pointsAgainst: 1746.6 },
+    { id: 4, name: "Olive Garden", abbrev: "", person: "Jai", regRank: 4, playoffRank: 3, wins: 7, losses: 7, ties: 0, pointsFor: 1732.12, pointsAgainst: 1725.36 },
+    { id: 5, name: "Project X", abbrev: "", person: "Aarav", regRank: 5, playoffRank: 5, wins: 7, losses: 7, ties: 0, pointsFor: 1728.86, pointsAgainst: 1723.08 },
+    { id: 6, name: "Team 7", abbrev: "", person: "Charles", regRank: 6, playoffRank: 4, wins: 7, losses: 7, ties: 0, pointsFor: 1612.5, pointsAgainst: 1695.22 },
+    { id: 7, name: "Lil Fetus Fantasy", abbrev: "", person: "Sami", regRank: 7, playoffRank: 7, wins: 7, losses: 7, ties: 0, pointsFor: 1605.7, pointsAgainst: 1678.36 },
+    { id: 8, name: "Mr. Morningstar", abbrev: "", person: "Sanay", regRank: 8, playoffRank: 8, wins: 6, losses: 8, ties: 0, pointsFor: 1677.28, pointsAgainst: 1705.76 },
+    { id: 9, name: "Last Place Race", abbrev: "", person: "Cyrus", regRank: 9, playoffRank: 9, wins: 5, losses: 9, ties: 0, pointsFor: 1450.46, pointsAgainst: 1604.12 },
+    { id: 10, name: "Saquons Big Fat Brock", abbrev: "", person: "Arav", regRank: 10, playoffRank: 10, wins: 4, losses: 10, ties: 0, pointsFor: 1729.08, pointsAgainst: 1779.46 },
+  ],
+  draftPicks: [],
+  schedule: [
+    g(1, 8, 130.26, 6, 131.28), g(1, 1, 145.66, 10, 116.48), g(1, 9, 117.30, 3, 124.64), g(1, 4, 153.72, 5, 105.88), g(1, 7, 77.66, 2, 85.82),
+    g(2, 8, 112.00, 2, 117.42), g(2, 1, 114.42, 3, 106.74), g(2, 9, 116.96, 10, 138.46), g(2, 6, 160.36, 5, 150.04), g(2, 4, 116.58, 7, 107.32),
+    g(3, 8, 106.30, 5, 89.68), g(3, 1, 107.26, 9, 67.82), g(3, 10, 125.38, 3, 129.90), g(3, 4, 137.68, 2, 111.24), g(3, 6, 139.32, 7, 95.16),
+    g(4, 8, 114.60, 7, 112.98), g(4, 1, 133.54, 5, 88.88), g(4, 4, 113.24, 10, 89.84), g(4, 6, 118.70, 3, 141.80), g(4, 2, 139.60, 9, 127.22),
+    g(6, 8, 142.38, 10, 131.10), g(6, 1, 97.92, 6, 97.40), g(6, 7, 95.32, 3, 145.30), g(6, 4, 103.92, 9, 124.22), g(6, 2, 117.88, 5, 128.46),
+    g(7, 8, 81.04, 1, 115.02), g(7, 7, 101.94, 10, 166.76), g(7, 2, 133.36, 3, 129.56), g(7, 9, 78.90, 5, 104.00), g(7, 4, 120.84, 6, 90.54),
+    g(8, 8, 138.10, 4, 115.46), g(8, 1, 134.82, 7, 150.96), g(8, 2, 131.84, 10, 115.12), g(8, 3, 141.38, 5, 120.08), g(8, 6, 143.24, 9, 106.04),
+    g(9, 8, 111.14, 9, 118.30), g(9, 1, 135.70, 2, 146.50), g(9, 6, 114.36, 10, 108.50), g(9, 4, 125.70, 3, 133.92), g(9, 7, 115.74, 5, 91.36),
+    g(10, 8, 111.28, 6, 97.38), g(10, 1, 130.90, 10, 94.84), g(10, 9, 86.00, 3, 91.74), g(10, 4, 121.90, 5, 134.64), g(10, 7, 137.02, 2, 113.28),
+    g(11, 8, 120.08, 2, 136.34), g(11, 1, 150.48, 3, 107.84), g(11, 9, 105.68, 10, 101.50), g(11, 6, 91.84, 5, 159.98), g(11, 4, 117.38, 7, 120.74),
+    g(12, 8, 105.28, 5, 134.00), g(12, 1, 87.88, 9, 88.66), g(12, 10, 124.18, 3, 124.06), g(12, 4, 112.48, 2, 109.46), g(12, 6, 129.70, 7, 114.28),
+    g(14, 8, 152.80, 3, 163.60), g(14, 1, 183.38, 4, 132.42), g(14, 10, 128.38, 5, 158.96), g(14, 7, 103.04, 9, 92.70), g(14, 6, 43.10, 2, 118.32),
+  ],
+};
+
+// All seasons with rich (schedule/player) data: ESPN + Sleeper 2024.
+export const RICH_SEASONS: LeagueSeason[] = [...LEAGUE.seasons, SLEEPER_2024_RICH];

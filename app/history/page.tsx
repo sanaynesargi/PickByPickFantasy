@@ -121,9 +121,11 @@ function SeasonView({ data, onPerson }: { data: (typeof HISTORY)[number]; onPers
     drafted: r1.get(p.pick),
   }));
   const champ = data.standings.find((s) => s.playoffRank === 1);
-  const espn = leagueSeason(data.season); // rich ESPN data (undefined for Sleeper 2024)
+  const espn = leagueSeason(data.season); // rich data (schedule/players)
+  const hasDraft = !!espn && espn.draftPicks.length > 0;
+  const hasScores = !!espn && espn.schedule.length > 0;
   const [tab, setTab] = useState<"board" | "draft" | "scores">("board");
-  const view = espn ? tab : "board";
+  const view = tab === "draft" && hasDraft ? "draft" : tab === "scores" && hasScores ? "scores" : "board";
 
   return (
     <>
@@ -149,7 +151,7 @@ function SeasonView({ data, onPerson }: { data: (typeof HISTORY)[number]; onPers
         </Typography>
       </Box>
 
-      {espn && (
+      {(hasDraft || hasScores) && (
         <ToggleButtonGroup exclusive value={view} fullWidth
           onChange={(_, v) => v && setTab(v)}
           sx={{
@@ -161,8 +163,8 @@ function SeasonView({ data, onPerson }: { data: (typeof HISTORY)[number]; onPers
             gap: 0.75,
           }}>
           <ToggleButton value="board">Board</ToggleButton>
-          <ToggleButton value="draft">Full draft</ToggleButton>
-          <ToggleButton value="scores">Scores</ToggleButton>
+          {hasDraft && <ToggleButton value="draft">Full draft</ToggleButton>}
+          {hasScores && <ToggleButton value="scores">Scores</ToggleButton>}
         </ToggleButtonGroup>
       )}
 

@@ -4,7 +4,7 @@
 // Records and points (PF/PA, and therefore point-differential) exist for every
 // season (2022-2025). Sample sizes are still surfaced in the UI.
 
-import { HISTORY, LEAGUE, winPct } from "./history-data";
+import { HISTORY, RICH_SEASONS, winPct } from "./history-data";
 
 export type FlatRecord = {
   season: number;
@@ -68,7 +68,7 @@ export type H2H = {
 // One person's all-time head-to-head vs every opponent (ESPN seasons w/ scores).
 export function headToHead(person: string): H2H[] {
   const acc = new Map<string, H2H>();
-  for (const s of LEAGUE.seasons) {
+  for (const s of RICH_SEASONS) {
     const personByTeam = new Map(s.teams.map((t) => [t.id, t.person]));
     for (const g of s.schedule) {
       if (g.winner === "UNDECIDED") continue;
@@ -108,7 +108,7 @@ export type Rivalry = {
 export function rivalry(a: string, b: string): Rivalry {
   const games: RivalryGame[] = [];
   let aWins = 0, bWins = 0, ties = 0, aPf = 0, bPf = 0;
-  for (const s of LEAGUE.seasons) {
+  for (const s of RICH_SEASONS) {
     const pById = new Map(s.teams.map((t) => [t.id, t.person]));
     for (const g of s.schedule) {
       if (g.winner === "UNDECIDED") continue;
@@ -139,7 +139,7 @@ export type GameLog = {
 // One person's week-by-week game log across ESPN seasons (newest season first).
 export function gameLog(person: string): GameLog[] {
   const out: GameLog[] = [];
-  for (const s of LEAGUE.seasons) {
+  for (const s of RICH_SEASONS) {
     const pById = new Map(s.teams.map((t) => [t.id, t.person]));
     for (const g of s.schedule) {
       if (g.winner === "UNDECIDED") continue;

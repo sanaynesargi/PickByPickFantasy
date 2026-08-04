@@ -32,7 +32,7 @@ export default function HeadToHead({ people }: { people: string[] }) {
         Head-to-head
       </Typography>
       <Typography variant="caption" color="text.secondary" sx={{ display: "block", mb: 1 }}>
-        Row&apos;s record vs column. Tap any cell for the full series. ESPN seasons (2022, 2023, 2025).
+        Row&apos;s record vs column. Tap any cell for the full series. Seasons with game scores (2022 to 2025).
       </Typography>
       <Box sx={{ overflowX: "auto", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 2 }}>
         <Box component="table" sx={{ borderCollapse: "collapse" }}>
