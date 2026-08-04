@@ -9,7 +9,7 @@ import {
   Divider,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import { personSeasons, careers } from "@/lib/history-stats";
+import { personSeasons, careers, headToHead } from "@/lib/history-stats";
 
 const REG = "#ff7a30"; // regular-season finish (brand orange)
 const PO = "#4f9dd6"; // playoff finish (CVD-safe blue)
@@ -118,6 +118,7 @@ export default function PersonDialog({
   const open = manager !== null;
   const seasons = manager ? personSeasons(manager) : [];
   const c = manager ? careers().find((x) => x.manager === manager) : undefined;
+  const h2h = manager ? headToHead(manager) : [];
 
   return (
     <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm"
@@ -181,6 +182,45 @@ export default function PersonDialog({
               </Box>
             </Box>
           </Box>
+
+          {h2h.length > 0 && (
+            <>
+              <Divider sx={{ my: 2 }} />
+              <Typography variant="overline" sx={{ color: "primary.main", display: "block", mb: 0.5 }}>
+                Head-to-head (all-time)
+              </Typography>
+              <Box sx={{ overflowX: "auto" }}>
+                <Box component="table" sx={{ width: "100%", borderCollapse: "collapse", minWidth: 320, "& td, & th": { whiteSpace: "nowrap", fontVariantNumeric: "tabular-nums" } }}>
+                  <Box component="thead">
+                    <Box component="tr" sx={{ "& th": { fontSize: 10, fontFamily: "var(--font-display)", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: "text.secondary", textAlign: "right", padding: "4px 7px", borderBottom: "1px solid rgba(255,255,255,0.12)" } }}>
+                      <Box component="th" sx={{ textAlign: "left !important" }}>Vs</Box>
+                      <Box component="th">Record</Box>
+                      <Box component="th">Diff</Box>
+                      <Box component="th">PF/g</Box>
+                    </Box>
+                  </Box>
+                  <Box component="tbody">
+                    {h2h.map((h) => {
+                      const diff = h.wins - h.losses;
+                      return (
+                        <Box component="tr" key={h.opponent} sx={{ "& td": { fontSize: 13, textAlign: "right", padding: "6px 7px", borderBottom: "1px solid rgba(255,255,255,0.05)" } }}>
+                          <Box component="td" sx={{ textAlign: "left !important", fontWeight: 700 }}>{h.opponent}</Box>
+                          <Box component="td">{h.wins}-{h.losses}{h.ties ? `-${h.ties}` : ""}</Box>
+                          <Box component="td" sx={{ color: diff > 0 ? "success.main" : diff < 0 ? "error.main" : "text.secondary", fontWeight: 700 }}>
+                            {diff > 0 ? "+" : ""}{diff}
+                          </Box>
+                          <Box component="td">{(h.pointsFor / h.games).toFixed(0)}</Box>
+                        </Box>
+                      );
+                    })}
+                  </Box>
+                </Box>
+              </Box>
+              <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1 }}>
+                From ESPN seasons with game scores (2022, 2023, 2025).
+              </Typography>
+            </>
+          )}
         </Box>
       )}
     </Dialog>

@@ -4,7 +4,7 @@
 // Records and points (PF/PA, and therefore point-differential) exist for every
 // season (2022-2025). Sample sizes are still surfaced in the UI.
 
-import { HISTORY, winPct } from "./history-data";
+import { HISTORY, LEAGUE, winPct } from "./history-data";
 
 export type FlatRecord = {
   season: number;
@@ -57,6 +57,41 @@ export function medalTally(c: { titles: number; seconds: number; thirds: number 
   return ["🏆".repeat(c.titles), "🥈".repeat(c.seconds), "🥉".repeat(c.thirds)]
     .filter(Boolean)
     .join(" ");
+}
+
+export type H2H = {
+  opponent: string;
+  wins: number; losses: number; ties: number;
+  pointsFor: number; pointsAgainst: number; games: number;
+};
+
+// One person's all-time head-to-head vs every opponent (ESPN seasons w/ scores).
+export function headToHead(person: string): H2H[] {
+  const acc = new Map<string, H2H>();
+  for (const s of LEAGUE.seasons) {
+    const personByTeam = new Map(s.teams.map((t) => [t.id, t.person]));
+    for (const g of s.schedule) {
+      if (g.winner === "UNDECIDED") continue;
+      const hp = personByTeam.get(g.homeId);
+      const ap = personByTeam.get(g.awayId);
+      if (!hp || !ap) continue;
+      let opp: string, myPts: number, oppPts: number, res: "W" | "L" | "T";
+      if (hp === person) {
+        opp = ap; myPts = g.homePts; oppPts = g.awayPts;
+        res = g.winner === "HOME" ? "W" : g.winner === "AWAY" ? "L" : "T";
+      } else if (ap === person) {
+        opp = hp; myPts = g.awayPts; oppPts = g.homePts;
+        res = g.winner === "AWAY" ? "W" : g.winner === "HOME" ? "L" : "T";
+      } else continue;
+      const e = acc.get(opp) || { opponent: opp, wins: 0, losses: 0, ties: 0, pointsFor: 0, pointsAgainst: 0, games: 0 };
+      e.games++; e.pointsFor += myPts; e.pointsAgainst += oppPts;
+      if (res === "W") e.wins++; else if (res === "L") e.losses++; else e.ties++;
+      acc.set(opp, e);
+    }
+  }
+  return [...acc.values()].sort(
+    (a, b) => b.wins - b.losses - (a.wins - a.losses) || b.games - a.games || a.opponent.localeCompare(b.opponent)
+  );
 }
 
 // All of one person's team-seasons, oldest first (for the per-player timeline).
