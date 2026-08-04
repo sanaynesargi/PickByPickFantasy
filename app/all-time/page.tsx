@@ -8,7 +8,6 @@ import {
 import { ACTIVE_MANAGERS } from "@/lib/history-data";
 import { careers, correlations, medalTally } from "@/lib/history-stats";
 import PickAverages from "../components/PickAverages";
-import HeadToHead from "../components/HeadToHead";
 import PageNav from "../components/PageNav";
 import PersonDialog from "../history/PersonDialog";
 
@@ -25,15 +24,12 @@ export default function AllTimePage() {
   const activeSet = new Set(ACTIVE_MANAGERS);
   const people = careers().filter((c) => roster === "all" || activeSet.has(c.manager));
   const corrs = correlations();
-  const matrixPeople = careers()
-    .filter((c) => activeSet.has(c.manager))
-    .map((c) => c.manager);
 
   return (
     <Box sx={{ minHeight: "100dvh", pb: 7 }}>
       <AppBar position="sticky" color="transparent" elevation={0}
         sx={{ backdropFilter: "blur(14px)", borderBottom: "1px solid rgba(255,255,255,0.07)", bgcolor: "rgba(26,22,17,0.7)" }}>
-        <Toolbar sx={{ gap: 1 }}>
+        <Toolbar sx={{ gap: 1, px: { xs: 1.5, sm: 3 } }}>
           <PageNav />
         </Toolbar>
       </AppBar>
@@ -43,8 +39,8 @@ export default function AllTimePage() {
           <Box>
             <Typography variant="h4" sx={{ mb: 0.5 }}>All-Time</Typography>
             <Typography variant="body2" color="text.secondary">
-              Careers, rivalries and draft trends across every season. Tap a name for
-              their career; tap a head-to-head cell for the full series.
+              Careers and draft trends across every season. Tap a name for their full
+              career. Head-to-head records live on their own tab.
             </Typography>
           </Box>
 
@@ -99,9 +95,6 @@ export default function AllTimePage() {
               reg fin = regular-season finish · PO fin = playoff finish · 🏆/🥈/🥉 = playoff podiums
             </Typography>
           </Box>
-
-          {/* Interactive head-to-head */}
-          <HeadToHead people={matrixPeople} />
 
           {/* Draft-pick correlations */}
           <Box>

@@ -134,7 +134,7 @@ export default function Home() {
                 sx={{ maxWidth: 120, mr: 0.5 }} />
             </Tooltip>
           )}
-          {[{ href: "/history", label: "Seasons" }, { href: "/all-time", label: "All-Time" }].map((t) => (
+          {[{ href: "/history", label: "Seasons" }, { href: "/all-time", label: "All-Time" }, { href: "/head-to-head", label: "H2H" }].map((t) => (
             <Button key={t.href} component={Link} href={t.href} size="small"
               sx={{
                 flexShrink: 0, color: "primary.light",
