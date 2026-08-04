@@ -1,0 +1,7271 @@
+{
+  "generatedFrom": "ESPN v3 API",
+  "leagueId": 1732369750,
+  "currentSeason": 2026,
+  "activeManagers": [
+    "Sanay",
+    "Viraaj",
+    "Jai",
+    "Cyrus",
+    "Advik",
+    "Ahan",
+    "Aarav",
+    "Arav",
+    "Sami",
+    "Ansuman"
+  ],
+  "seasons": [
+    {
+      "season": 2022,
+      "league": "Guess who's Dak",
+      "size": 10,
+      "regWeeks": 15,
+      "divisions": [
+        "East",
+        "West"
+      ],
+      "teams": [
+        {
+          "id": 1,
+          "name": "Bang Bang 🔥 ",
+          "abbrev": "BANG",
+          "person": "Sanay",
+          "regRank": 4,
+          "playoffRank": 1,
+          "wins": 10,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 1962.36,
+          "pointsAgainst": 1825.84,
+          "division": "East"
+        },
+        {
+          "id": 4,
+          "name": "Jit Tripping",
+          "abbrev": "Jit",
+          "person": "Viraaj",
+          "regRank": 6,
+          "playoffRank": 6,
+          "wins": 7,
+          "losses": 7,
+          "ties": 1,
+          "pointsFor": 1792.16,
+          "pointsAgainst": 1921.94,
+          "division": "East"
+        },
+        {
+          "id": 5,
+          "name": "Team Cyril",
+          "abbrev": "C",
+          "person": "Cyril",
+          "regRank": 10,
+          "playoffRank": 10,
+          "wins": 1,
+          "losses": 14,
+          "ties": 0,
+          "pointsFor": 1389.34,
+          "pointsAgainst": 1851.1,
+          "division": "West"
+        },
+        {
+          "id": 6,
+          "name": "W SuperCyrus",
+          "abbrev": "SC",
+          "person": "Cyrus",
+          "regRank": 7,
+          "playoffRank": 8,
+          "wins": 6,
+          "losses": 8,
+          "ties": 1,
+          "pointsFor": 1677.8,
+          "pointsAgainst": 1682.12,
+          "division": "West"
+        },
+        {
+          "id": 7,
+          "name": "Myagi Malladi ",
+          "abbrev": "MALL",
+          "person": "Adhi",
+          "regRank": 9,
+          "playoffRank": 9,
+          "wins": 6,
+          "losses": 9,
+          "ties": 0,
+          "pointsFor": 1713.58,
+          "pointsAgainst": 1808.32,
+          "division": "West"
+        },
+        {
+          "id": 8,
+          "name": "Lower house Ben Dover ",
+          "abbrev": "BD",
+          "person": "Vansh",
+          "regRank": 5,
+          "playoffRank": 7,
+          "wins": 7,
+          "losses": 7,
+          "ties": 1,
+          "pointsFor": 1805.3,
+          "pointsAgainst": 1746.96,
+          "division": "East"
+        },
+        {
+          "id": 9,
+          "name": "Micah god 11 from heaven",
+          "abbrev": "11 ",
+          "person": "Ahan",
+          "regRank": 8,
+          "playoffRank": 3,
+          "wins": 6,
+          "losses": 9,
+          "ties": 0,
+          "pointsFor": 1671,
+          "pointsAgainst": 1883.12,
+          "division": "West"
+        },
+        {
+          "id": 10,
+          "name": "Ceedeez Nuts",
+          "abbrev": "AERO",
+          "person": "Aarav",
+          "regRank": 1,
+          "playoffRank": 5,
+          "wins": 11,
+          "losses": 3,
+          "ties": 1,
+          "pointsFor": 1907.08,
+          "pointsAgainst": 1709,
+          "division": "East"
+        },
+        {
+          "id": 11,
+          "name": "Henry Ruggs Driving School",
+          "abbrev": "256",
+          "person": "Arav",
+          "regRank": 3,
+          "playoffRank": 2,
+          "wins": 11,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 2021.7,
+          "pointsAgainst": 1658.54,
+          "division": "East"
+        },
+        {
+          "id": 12,
+          "name": "New England Jit",
+          "abbrev": "NE",
+          "person": "Charles",
+          "regRank": 2,
+          "playoffRank": 4,
+          "wins": 8,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1843.2,
+          "pointsAgainst": 1696.58,
+          "division": "West"
+        }
+      ],
+      "draftPicks": [
+        {
+          "round": 1,
+          "overall": 1,
+          "teamId": 1,
+          "team": "Bang Bang 🔥 ",
+          "person": "Sanay",
+          "player": "Jonathan Taylor",
+          "pos": "RB"
+        },
+        {
+          "round": 1,
+          "overall": 2,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Justin Jefferson",
+          "pos": "WR"
+        },
+        {
+          "round": 1,
+          "overall": 3,
+          "teamId": 9,
+          "team": "Micah god 11 from heaven",
+          "person": "Ahan",
+          "player": "Cooper Kupp",
+          "pos": "WR"
+        },
+        {
+          "round": 1,
+          "overall": 4,
+          "teamId": 11,
+          "team": "Henry Ruggs Driving School",
+          "person": "Arav",
+          "player": "Christian McCaffrey",
+          "pos": "RB"
+        },
+        {
+          "round": 1,
+          "overall": 5,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Austin Ekeler",
+          "pos": "RB"
+        },
+        {
+          "round": 1,
+          "overall": 6,
+          "teamId": 12,
+          "team": "New England Jit",
+          "person": "Charles",
+          "player": "Ja'Marr Chase",
+          "pos": "WR"
+        },
+        {
+          "round": 1,
+          "overall": 7,
+          "teamId": 6,
+          "team": "W SuperCyrus",
+          "person": "Cyrus",
+          "player": "Derrick Henry",
+          "pos": "RB"
+        },
+        {
+          "round": 1,
+          "overall": 8,
+          "teamId": 7,
+          "team": "Myagi Malladi ",
+          "person": "Adhi",
+          "player": "Dalvin Cook",
+          "pos": "RB"
+        },
+        {
+          "round": 1,
+          "overall": 9,
+          "teamId": 5,
+          "team": "Team Cyril",
+          "person": "Cyril",
+          "player": "Najee Harris",
+          "pos": "RB"
+        },
+        {
+          "round": 1,
+          "overall": 10,
+          "teamId": 8,
+          "team": "Lower house Ben Dover ",
+          "person": "Vansh",
+          "player": "Davante Adams",
+          "pos": "WR"
+        },
+        {
+          "round": 2,
+          "overall": 11,
+          "teamId": 8,
+          "team": "Lower house Ben Dover ",
+          "person": "Vansh",
+          "player": "Stefon Diggs",
+          "pos": "WR"
+        },
+        {
+          "round": 2,
+          "overall": 12,
+          "teamId": 5,
+          "team": "Team Cyril",
+          "person": "Cyril",
+          "player": "Deebo Samuel",
+          "pos": "WR"
+        },
+        {
+          "round": 2,
+          "overall": 13,
+          "teamId": 7,
+          "team": "Myagi Malladi ",
+          "person": "Adhi",
+          "player": "Alvin Kamara",
+          "pos": "RB"
+        },
+        {
+          "round": 2,
+          "overall": 14,
+          "teamId": 6,
+          "team": "W SuperCyrus",
+          "person": "Cyrus",
+          "player": "Joe Mixon",
+          "pos": "RB"
+        },
+        {
+          "round": 2,
+          "overall": 15,
+          "teamId": 12,
+          "team": "New England Jit",
+          "person": "Charles",
+          "player": "CeeDee Lamb",
+          "pos": "WR"
+        },
+        {
+          "round": 2,
+          "overall": 16,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Tyreek Hill",
+          "pos": "WR"
+        },
+        {
+          "round": 2,
+          "overall": 17,
+          "teamId": 11,
+          "team": "Henry Ruggs Driving School",
+          "person": "Arav",
+          "player": "Travis Kelce",
+          "pos": "TE"
+        },
+        {
+          "round": 2,
+          "overall": 18,
+          "teamId": 9,
+          "team": "Micah god 11 from heaven",
+          "person": "Ahan",
+          "player": "D'Andre Swift",
+          "pos": "RB"
+        },
+        {
+          "round": 2,
+          "overall": 19,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Mark Andrews",
+          "pos": "TE"
+        },
+        {
+          "round": 2,
+          "overall": 20,
+          "teamId": 1,
+          "team": "Bang Bang 🔥 ",
+          "person": "Sanay",
+          "player": "Tee Higgins",
+          "pos": "WR"
+        },
+        {
+          "round": 3,
+          "overall": 21,
+          "teamId": 1,
+          "team": "Bang Bang 🔥 ",
+          "person": "Sanay",
+          "player": "Josh Allen",
+          "pos": "QB"
+        },
+        {
+          "round": 3,
+          "overall": 22,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Aaron Jones",
+          "pos": "RB"
+        },
+        {
+          "round": 3,
+          "overall": 23,
+          "teamId": 9,
+          "team": "Micah god 11 from heaven",
+          "person": "Ahan",
+          "player": "Leonard Fournette",
+          "pos": "RB"
+        },
+        {
+          "round": 3,
+          "overall": 24,
+          "teamId": 11,
+          "team": "Henry Ruggs Driving School",
+          "person": "Arav",
+          "player": "Keenan Allen",
+          "pos": "WR"
+        },
+        {
+          "round": 3,
+          "overall": 25,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Mike Evans",
+          "pos": "WR"
+        },
+        {
+          "round": 3,
+          "overall": 26,
+          "teamId": 12,
+          "team": "New England Jit",
+          "person": "Charles",
+          "player": "James Conner",
+          "pos": "RB"
+        },
+        {
+          "round": 3,
+          "overall": 27,
+          "teamId": 6,
+          "team": "W SuperCyrus",
+          "person": "Cyrus",
+          "player": "Terry McLaurin",
+          "pos": "WR"
+        },
+        {
+          "round": 3,
+          "overall": 28,
+          "teamId": 7,
+          "team": "Myagi Malladi ",
+          "person": "Adhi",
+          "player": "Saquon Barkley",
+          "pos": "RB"
+        },
+        {
+          "round": 3,
+          "overall": 29,
+          "teamId": 5,
+          "team": "Team Cyril",
+          "person": "Cyril",
+          "player": "Javonte Williams",
+          "pos": "RB"
+        },
+        {
+          "round": 3,
+          "overall": 30,
+          "teamId": 8,
+          "team": "Lower house Ben Dover ",
+          "person": "Vansh",
+          "player": "George Kittle",
+          "pos": "TE"
+        },
+        {
+          "round": 4,
+          "overall": 31,
+          "teamId": 8,
+          "team": "Lower house Ben Dover ",
+          "person": "Vansh",
+          "player": "Cam Akers",
+          "pos": "RB"
+        },
+        {
+          "round": 4,
+          "overall": 32,
+          "teamId": 5,
+          "team": "Team Cyril",
+          "person": "Cyril",
+          "player": "Michael Pittman Jr.",
+          "pos": "WR"
+        },
+        {
+          "round": 4,
+          "overall": 33,
+          "teamId": 7,
+          "team": "Myagi Malladi ",
+          "person": "Adhi",
+          "player": "DJ Moore",
+          "pos": "WR"
+        },
+        {
+          "round": 4,
+          "overall": 34,
+          "teamId": 6,
+          "team": "W SuperCyrus",
+          "person": "Cyrus",
+          "player": "Kyle Pitts",
+          "pos": "TE"
+        },
+        {
+          "round": 4,
+          "overall": 35,
+          "teamId": 12,
+          "team": "New England Jit",
+          "person": "Charles",
+          "player": "Nick Chubb",
+          "pos": "RB"
+        },
+        {
+          "round": 4,
+          "overall": 36,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Patrick Mahomes",
+          "pos": "QB"
+        },
+        {
+          "round": 4,
+          "overall": 37,
+          "teamId": 11,
+          "team": "Henry Ruggs Driving School",
+          "person": "Arav",
+          "player": "Ezekiel Elliott",
+          "pos": "RB"
+        },
+        {
+          "round": 4,
+          "overall": 38,
+          "teamId": 9,
+          "team": "Micah god 11 from heaven",
+          "person": "Ahan",
+          "player": "Jaylen Waddle",
+          "pos": "WR"
+        },
+        {
+          "round": 4,
+          "overall": 39,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Justin Herbert",
+          "pos": "QB"
+        },
+        {
+          "round": 4,
+          "overall": 40,
+          "teamId": 1,
+          "team": "Bang Bang 🔥 ",
+          "person": "Sanay",
+          "player": "A.J. Brown",
+          "pos": "WR"
+        },
+        {
+          "round": 5,
+          "overall": 41,
+          "teamId": 1,
+          "team": "Bang Bang 🔥 ",
+          "person": "Sanay",
+          "player": "David Montgomery",
+          "pos": "RB"
+        },
+        {
+          "round": 5,
+          "overall": 42,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Travis Etienne Jr.",
+          "pos": "RB"
+        },
+        {
+          "round": 5,
+          "overall": 43,
+          "teamId": 9,
+          "team": "Micah god 11 from heaven",
+          "person": "Ahan",
+          "player": "Lamar Jackson",
+          "pos": "QB"
+        },
+        {
+          "round": 5,
+          "overall": 44,
+          "teamId": 11,
+          "team": "Henry Ruggs Driving School",
+          "person": "Arav",
+          "player": "Courtland Sutton",
+          "pos": "WR"
+        },
+        {
+          "round": 5,
+          "overall": 45,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Mike Williams",
+          "pos": "WR"
+        },
+        {
+          "round": 5,
+          "overall": 46,
+          "teamId": 12,
+          "team": "New England Jit",
+          "person": "Charles",
+          "player": "Brandin Cooks",
+          "pos": "WR"
+        },
+        {
+          "round": 5,
+          "overall": 47,
+          "teamId": 6,
+          "team": "W SuperCyrus",
+          "person": "Cyrus",
+          "player": "Marquise Brown",
+          "pos": "WR"
+        },
+        {
+          "round": 5,
+          "overall": 48,
+          "teamId": 7,
+          "team": "Myagi Malladi ",
+          "person": "Adhi",
+          "player": "Diontae Johnson",
+          "pos": "WR"
+        },
+        {
+          "round": 5,
+          "overall": 49,
+          "teamId": 5,
+          "team": "Team Cyril",
+          "person": "Cyril",
+          "player": "Jerry Jeudy",
+          "pos": "WR"
+        },
+        {
+          "round": 5,
+          "overall": 50,
+          "teamId": 8,
+          "team": "Lower house Ben Dover ",
+          "person": "Vansh",
+          "player": "Dalton Schultz",
+          "pos": "TE"
+        },
+        {
+          "round": 6,
+          "overall": 51,
+          "teamId": 8,
+          "team": "Lower house Ben Dover ",
+          "person": "Vansh",
+          "player": "Cowboys D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 6,
+          "overall": 52,
+          "teamId": 5,
+          "team": "Team Cyril",
+          "person": "Cyril",
+          "player": "J.K. Dobbins",
+          "pos": "RB"
+        },
+        {
+          "round": 6,
+          "overall": 53,
+          "teamId": 7,
+          "team": "Myagi Malladi ",
+          "person": "Adhi",
+          "player": "Darren Waller",
+          "pos": "TE"
+        },
+        {
+          "round": 6,
+          "overall": 54,
+          "teamId": 6,
+          "team": "W SuperCyrus",
+          "person": "Cyrus",
+          "player": "Breece Hall",
+          "pos": "RB"
+        },
+        {
+          "round": 6,
+          "overall": 55,
+          "teamId": 12,
+          "team": "New England Jit",
+          "person": "Charles",
+          "player": "DK Metcalf",
+          "pos": "WR"
+        },
+        {
+          "round": 6,
+          "overall": 56,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Amari Cooper",
+          "pos": "WR"
+        },
+        {
+          "round": 6,
+          "overall": 57,
+          "teamId": 11,
+          "team": "Henry Ruggs Driving School",
+          "person": "Arav",
+          "player": "Josh Jacobs",
+          "pos": "RB"
+        },
+        {
+          "round": 6,
+          "overall": 58,
+          "teamId": 9,
+          "team": "Micah god 11 from heaven",
+          "person": "Ahan",
+          "player": "Elijah Mitchell",
+          "pos": "RB"
+        },
+        {
+          "round": 6,
+          "overall": 59,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Darnell Mooney",
+          "pos": "WR"
+        },
+        {
+          "round": 6,
+          "overall": 60,
+          "teamId": 1,
+          "team": "Bang Bang 🔥 ",
+          "person": "Sanay",
+          "player": "T.J. Hockenson",
+          "pos": "TE"
+        },
+        {
+          "round": 7,
+          "overall": 61,
+          "teamId": 1,
+          "team": "Bang Bang 🔥 ",
+          "person": "Sanay",
+          "player": "Chris Godwin",
+          "pos": "WR"
+        },
+        {
+          "round": 7,
+          "overall": 62,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Amon-Ra St. Brown",
+          "pos": "WR"
+        },
+        {
+          "round": 7,
+          "overall": 63,
+          "teamId": 9,
+          "team": "Micah god 11 from heaven",
+          "person": "Ahan",
+          "player": "Gabe Davis",
+          "pos": "WR"
+        },
+        {
+          "round": 7,
+          "overall": 64,
+          "teamId": 11,
+          "team": "Henry Ruggs Driving School",
+          "person": "Arav",
+          "player": "Michael Thomas",
+          "pos": "WR"
+        },
+        {
+          "round": 7,
+          "overall": 65,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Kyler Murray",
+          "pos": "QB"
+        },
+        {
+          "round": 7,
+          "overall": 66,
+          "teamId": 12,
+          "team": "New England Jit",
+          "person": "Charles",
+          "player": "Jalen Hurts",
+          "pos": "QB"
+        },
+        {
+          "round": 7,
+          "overall": 67,
+          "teamId": 6,
+          "team": "W SuperCyrus",
+          "person": "Cyrus",
+          "player": "Christian Kirk",
+          "pos": "WR"
+        },
+        {
+          "round": 7,
+          "overall": 68,
+          "teamId": 7,
+          "team": "Myagi Malladi ",
+          "person": "Adhi",
+          "player": "Allen Robinson II",
+          "pos": "WR"
+        },
+        {
+          "round": 7,
+          "overall": 69,
+          "teamId": 5,
+          "team": "Team Cyril",
+          "person": "Cyril",
+          "player": "Tom Brady",
+          "pos": "QB"
+        },
+        {
+          "round": 7,
+          "overall": 70,
+          "teamId": 8,
+          "team": "Lower house Ben Dover ",
+          "person": "Vansh",
+          "player": "Clyde Edwards-Helaire",
+          "pos": "RB"
+        },
+        {
+          "round": 8,
+          "overall": 71,
+          "teamId": 8,
+          "team": "Lower house Ben Dover ",
+          "person": "Vansh",
+          "player": "Dak Prescott",
+          "pos": "QB"
+        },
+        {
+          "round": 8,
+          "overall": 72,
+          "teamId": 5,
+          "team": "Team Cyril",
+          "person": "Cyril",
+          "player": "Zach Ertz",
+          "pos": "TE"
+        },
+        {
+          "round": 8,
+          "overall": 73,
+          "teamId": 7,
+          "team": "Myagi Malladi ",
+          "person": "Adhi",
+          "player": "Joe Burrow",
+          "pos": "QB"
+        },
+        {
+          "round": 8,
+          "overall": 74,
+          "teamId": 6,
+          "team": "W SuperCyrus",
+          "person": "Cyrus",
+          "player": "Aaron Rodgers",
+          "pos": "QB"
+        },
+        {
+          "round": 8,
+          "overall": 75,
+          "teamId": 12,
+          "team": "New England Jit",
+          "person": "Charles",
+          "player": "Devin Singletary",
+          "pos": "RB"
+        },
+        {
+          "round": 8,
+          "overall": 76,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Dallas Goedert",
+          "pos": "TE"
+        },
+        {
+          "round": 8,
+          "overall": 77,
+          "teamId": 11,
+          "team": "Henry Ruggs Driving School",
+          "person": "Arav",
+          "player": "Trey Lance",
+          "pos": "QB"
+        },
+        {
+          "round": 8,
+          "overall": 78,
+          "teamId": 9,
+          "team": "Micah god 11 from heaven",
+          "person": "Ahan",
+          "player": "Russell Wilson",
+          "pos": "QB"
+        },
+        {
+          "round": 8,
+          "overall": 79,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "JuJu Smith-Schuster",
+          "pos": "WR"
+        },
+        {
+          "round": 8,
+          "overall": 80,
+          "teamId": 1,
+          "team": "Bang Bang 🔥 ",
+          "person": "Sanay",
+          "player": "Adam Thielen",
+          "pos": "WR"
+        },
+        {
+          "round": 9,
+          "overall": 81,
+          "teamId": 1,
+          "team": "Bang Bang 🔥 ",
+          "person": "Sanay",
+          "player": "Dameon Pierce",
+          "pos": "RB"
+        },
+        {
+          "round": 9,
+          "overall": 82,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Rashaad Penny",
+          "pos": "RB"
+        },
+        {
+          "round": 9,
+          "overall": 83,
+          "teamId": 9,
+          "team": "Micah god 11 from heaven",
+          "person": "Ahan",
+          "player": "Drake London",
+          "pos": "WR"
+        },
+        {
+          "round": 9,
+          "overall": 84,
+          "teamId": 11,
+          "team": "Henry Ruggs Driving School",
+          "person": "Arav",
+          "player": "Antonio Gibson",
+          "pos": "RB"
+        },
+        {
+          "round": 9,
+          "overall": 85,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Bills D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 9,
+          "overall": 86,
+          "teamId": 12,
+          "team": "New England Jit",
+          "person": "Charles",
+          "player": "Hunter Renfrow",
+          "pos": "WR"
+        },
+        {
+          "round": 9,
+          "overall": 87,
+          "teamId": 6,
+          "team": "W SuperCyrus",
+          "person": "Cyrus",
+          "player": "Evan McPherson",
+          "pos": "K"
+        },
+        {
+          "round": 9,
+          "overall": 88,
+          "teamId": 7,
+          "team": "Myagi Malladi ",
+          "person": "Adhi",
+          "player": "Rhamondre Stevenson",
+          "pos": "RB"
+        },
+        {
+          "round": 9,
+          "overall": 89,
+          "teamId": 5,
+          "team": "Team Cyril",
+          "person": "Cyril",
+          "player": "Packers D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 9,
+          "overall": 90,
+          "teamId": 8,
+          "team": "Lower house Ben Dover ",
+          "person": "Vansh",
+          "player": "Miles Sanders",
+          "pos": "RB"
+        },
+        {
+          "round": 10,
+          "overall": 91,
+          "teamId": 8,
+          "team": "Lower house Ben Dover ",
+          "person": "Vansh",
+          "player": "Rashod Bateman",
+          "pos": "WR"
+        },
+        {
+          "round": 10,
+          "overall": 92,
+          "teamId": 5,
+          "team": "Team Cyril",
+          "person": "Cyril",
+          "player": "Justin Tucker",
+          "pos": "K"
+        },
+        {
+          "round": 10,
+          "overall": 93,
+          "teamId": 7,
+          "team": "Myagi Malladi ",
+          "person": "Adhi",
+          "player": "Brandon Aiyuk",
+          "pos": "WR"
+        },
+        {
+          "round": 10,
+          "overall": 94,
+          "teamId": 6,
+          "team": "W SuperCyrus",
+          "person": "Cyrus",
+          "player": "Ravens D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 10,
+          "overall": 95,
+          "teamId": 12,
+          "team": "New England Jit",
+          "person": "Charles",
+          "player": "Tyler Lockett",
+          "pos": "WR"
+        },
+        {
+          "round": 10,
+          "overall": 96,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Tony Pollard",
+          "pos": "RB"
+        },
+        {
+          "round": 10,
+          "overall": 97,
+          "teamId": 11,
+          "team": "Henry Ruggs Driving School",
+          "person": "Arav",
+          "player": "Elijah Moore",
+          "pos": "WR"
+        },
+        {
+          "round": 10,
+          "overall": 98,
+          "teamId": 9,
+          "team": "Micah god 11 from heaven",
+          "person": "Ahan",
+          "player": "DeVonta Smith",
+          "pos": "WR"
+        },
+        {
+          "round": 10,
+          "overall": 99,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Kareem Hunt",
+          "pos": "RB"
+        },
+        {
+          "round": 10,
+          "overall": 100,
+          "teamId": 1,
+          "team": "Bang Bang 🔥 ",
+          "person": "Sanay",
+          "player": "Tua Tagovailoa",
+          "pos": "QB"
+        },
+        {
+          "round": 11,
+          "overall": 101,
+          "teamId": 1,
+          "team": "Bang Bang 🔥 ",
+          "person": "Sanay",
+          "player": "Matt Gay",
+          "pos": "K"
+        },
+        {
+          "round": 11,
+          "overall": 102,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Daniel Carlson",
+          "pos": "K"
+        },
+        {
+          "round": 11,
+          "overall": 103,
+          "teamId": 9,
+          "team": "Micah god 11 from heaven",
+          "person": "Ahan",
+          "player": "Damien Harris",
+          "pos": "RB"
+        },
+        {
+          "round": 11,
+          "overall": 104,
+          "teamId": 11,
+          "team": "Henry Ruggs Driving School",
+          "person": "Arav",
+          "player": "Chase Edmonds",
+          "pos": "RB"
+        },
+        {
+          "round": 11,
+          "overall": 105,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Harrison Butker",
+          "pos": "K"
+        },
+        {
+          "round": 11,
+          "overall": 106,
+          "teamId": 12,
+          "team": "New England Jit",
+          "person": "Charles",
+          "player": "Cordarrelle Patterson",
+          "pos": "RB"
+        },
+        {
+          "round": 11,
+          "overall": 107,
+          "teamId": 6,
+          "team": "W SuperCyrus",
+          "person": "Cyrus",
+          "player": "Dawson Knox",
+          "pos": "TE"
+        },
+        {
+          "round": 11,
+          "overall": 108,
+          "teamId": 7,
+          "team": "Myagi Malladi ",
+          "person": "Adhi",
+          "player": "AJ Dillon",
+          "pos": "RB"
+        },
+        {
+          "round": 11,
+          "overall": 109,
+          "teamId": 5,
+          "team": "Team Cyril",
+          "person": "Cyril",
+          "player": "Matthew Stafford",
+          "pos": "QB"
+        },
+        {
+          "round": 11,
+          "overall": 110,
+          "teamId": 8,
+          "team": "Lower house Ben Dover ",
+          "person": "Vansh",
+          "player": "Kadarius Toney",
+          "pos": "WR"
+        },
+        {
+          "round": 12,
+          "overall": 111,
+          "teamId": 8,
+          "team": "Lower house Ben Dover ",
+          "person": "Vansh",
+          "player": "Allen Lazard",
+          "pos": "WR"
+        },
+        {
+          "round": 12,
+          "overall": 112,
+          "teamId": 5,
+          "team": "Team Cyril",
+          "person": "Cyril",
+          "player": "Robert Woods",
+          "pos": "WR"
+        },
+        {
+          "round": 12,
+          "overall": 113,
+          "teamId": 7,
+          "team": "Myagi Malladi ",
+          "person": "Adhi",
+          "player": "Cole Kmet",
+          "pos": "TE"
+        },
+        {
+          "round": 12,
+          "overall": 114,
+          "teamId": 6,
+          "team": "W SuperCyrus",
+          "person": "Cyrus",
+          "player": "Michael Carter",
+          "pos": "RB"
+        },
+        {
+          "round": 12,
+          "overall": 115,
+          "teamId": 12,
+          "team": "New England Jit",
+          "person": "Charles",
+          "player": "Pat Freiermuth",
+          "pos": "TE"
+        },
+        {
+          "round": 12,
+          "overall": 116,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Trevor Lawrence",
+          "pos": "QB"
+        },
+        {
+          "round": 12,
+          "overall": 117,
+          "teamId": 11,
+          "team": "Henry Ruggs Driving School",
+          "person": "Arav",
+          "player": "DeAndre Hopkins",
+          "pos": "WR"
+        },
+        {
+          "round": 12,
+          "overall": 118,
+          "teamId": 9,
+          "team": "Micah god 11 from heaven",
+          "person": "Ahan",
+          "player": "Chase Claypool",
+          "pos": "WR"
+        },
+        {
+          "round": 12,
+          "overall": 119,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Saints D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 12,
+          "overall": 120,
+          "teamId": 1,
+          "team": "Bang Bang 🔥 ",
+          "person": "Sanay",
+          "player": "49ers D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 13,
+          "overall": 121,
+          "teamId": 1,
+          "team": "Bang Bang 🔥 ",
+          "person": "Sanay",
+          "player": "Garrett Wilson",
+          "pos": "WR"
+        },
+        {
+          "round": 13,
+          "overall": 122,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Chris Olave",
+          "pos": "WR"
+        },
+        {
+          "round": 13,
+          "overall": 123,
+          "teamId": 9,
+          "team": "Micah god 11 from heaven",
+          "person": "Ahan",
+          "player": "Hunter Henry",
+          "pos": "TE"
+        },
+        {
+          "round": 13,
+          "overall": 124,
+          "teamId": 11,
+          "team": "Henry Ruggs Driving School",
+          "person": "Arav",
+          "player": "James Robinson",
+          "pos": "RB"
+        },
+        {
+          "round": 13,
+          "overall": 125,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Marquez Valdes-Scantling",
+          "pos": "WR"
+        },
+        {
+          "round": 13,
+          "overall": 126,
+          "teamId": 12,
+          "team": "New England Jit",
+          "person": "Charles",
+          "player": "Buccaneers D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 13,
+          "overall": 127,
+          "teamId": 6,
+          "team": "W SuperCyrus",
+          "person": "Cyrus",
+          "player": "Melvin Gordon III",
+          "pos": "RB"
+        },
+        {
+          "round": 13,
+          "overall": 128,
+          "teamId": 7,
+          "team": "Myagi Malladi ",
+          "person": "Adhi",
+          "player": "Kirk Cousins",
+          "pos": "QB"
+        },
+        {
+          "round": 13,
+          "overall": 129,
+          "teamId": 5,
+          "team": "Team Cyril",
+          "person": "Cyril",
+          "player": "Jakobi Meyers",
+          "pos": "WR"
+        },
+        {
+          "round": 13,
+          "overall": 130,
+          "teamId": 8,
+          "team": "Lower house Ben Dover ",
+          "person": "Vansh",
+          "player": "Russell Gage",
+          "pos": "WR"
+        },
+        {
+          "round": 14,
+          "overall": 131,
+          "teamId": 8,
+          "team": "Lower house Ben Dover ",
+          "person": "Vansh",
+          "player": "Tyler Boyd",
+          "pos": "WR"
+        },
+        {
+          "round": 14,
+          "overall": 132,
+          "teamId": 5,
+          "team": "Team Cyril",
+          "person": "Cyril",
+          "player": "DJ Chark",
+          "pos": "WR"
+        },
+        {
+          "round": 14,
+          "overall": 133,
+          "teamId": 7,
+          "team": "Myagi Malladi ",
+          "person": "Adhi",
+          "player": "Dustin Hopkins",
+          "pos": "K"
+        },
+        {
+          "round": 14,
+          "overall": 134,
+          "teamId": 6,
+          "team": "W SuperCyrus",
+          "person": "Cyrus",
+          "player": "Nick Folk",
+          "pos": "K"
+        },
+        {
+          "round": 14,
+          "overall": 135,
+          "teamId": 12,
+          "team": "New England Jit",
+          "person": "Charles",
+          "player": "Matt Prater",
+          "pos": "K"
+        },
+        {
+          "round": 14,
+          "overall": 136,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Mike Gesicki",
+          "pos": "TE"
+        },
+        {
+          "round": 14,
+          "overall": 137,
+          "teamId": 11,
+          "team": "Henry Ruggs Driving School",
+          "person": "Arav",
+          "player": "Jameis Winston",
+          "pos": "QB"
+        },
+        {
+          "round": 14,
+          "overall": 138,
+          "teamId": 9,
+          "team": "Micah god 11 from heaven",
+          "person": "Ahan",
+          "player": "Brandon McManus",
+          "pos": "K"
+        },
+        {
+          "round": 14,
+          "overall": 139,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Derek Carr",
+          "pos": "QB"
+        },
+        {
+          "round": 14,
+          "overall": 140,
+          "teamId": 1,
+          "team": "Bang Bang 🔥 ",
+          "person": "Sanay",
+          "player": "Noah Fant",
+          "pos": "TE"
+        },
+        {
+          "round": 15,
+          "overall": 141,
+          "teamId": 1,
+          "team": "Bang Bang 🔥 ",
+          "person": "Sanay",
+          "player": "Michael Gallup",
+          "pos": "WR"
+        },
+        {
+          "round": 15,
+          "overall": 142,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Treylon Burks",
+          "pos": "WR"
+        },
+        {
+          "round": 15,
+          "overall": 143,
+          "teamId": 9,
+          "team": "Micah god 11 from heaven",
+          "person": "Ahan",
+          "player": "Steelers D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 15,
+          "overall": 144,
+          "teamId": 11,
+          "team": "Henry Ruggs Driving School",
+          "person": "Arav",
+          "player": "Jake Elliott",
+          "pos": "K"
+        },
+        {
+          "round": 15,
+          "overall": 145,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Jarvis Landry",
+          "pos": "WR"
+        },
+        {
+          "round": 15,
+          "overall": 146,
+          "teamId": 12,
+          "team": "New England Jit",
+          "person": "Charles",
+          "player": "Justin Fields",
+          "pos": "QB"
+        },
+        {
+          "round": 15,
+          "overall": 147,
+          "teamId": 6,
+          "team": "W SuperCyrus",
+          "person": "Cyrus",
+          "player": "Skyy Moore",
+          "pos": "WR"
+        },
+        {
+          "round": 15,
+          "overall": 148,
+          "teamId": 7,
+          "team": "Myagi Malladi ",
+          "person": "Adhi",
+          "player": "Colts D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 15,
+          "overall": 149,
+          "teamId": 5,
+          "team": "Team Cyril",
+          "person": "Cyril",
+          "player": "Nyheim Hines",
+          "pos": "RB"
+        },
+        {
+          "round": 15,
+          "overall": 150,
+          "teamId": 8,
+          "team": "Lower house Ben Dover ",
+          "person": "Vansh",
+          "player": "Kenneth Walker III",
+          "pos": "RB"
+        },
+        {
+          "round": 16,
+          "overall": 151,
+          "teamId": 8,
+          "team": "Lower house Ben Dover ",
+          "person": "Vansh",
+          "player": "Tyler Bass",
+          "pos": "K"
+        },
+        {
+          "round": 16,
+          "overall": 152,
+          "teamId": 5,
+          "team": "Team Cyril",
+          "person": "Cyril",
+          "player": "James Cook",
+          "pos": "RB"
+        },
+        {
+          "round": 16,
+          "overall": 153,
+          "teamId": 7,
+          "team": "Myagi Malladi ",
+          "person": "Adhi",
+          "player": "Chargers D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 16,
+          "overall": 154,
+          "teamId": 6,
+          "team": "W SuperCyrus",
+          "person": "Cyrus",
+          "player": "Dolphins D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 16,
+          "overall": 155,
+          "teamId": 12,
+          "team": "New England Jit",
+          "person": "Charles",
+          "player": "Tyler Higbee",
+          "pos": "TE"
+        },
+        {
+          "round": 16,
+          "overall": 156,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Marvin Jones Jr.",
+          "pos": "WR"
+        },
+        {
+          "round": 16,
+          "overall": 157,
+          "teamId": 11,
+          "team": "Henry Ruggs Driving School",
+          "person": "Arav",
+          "player": "Eagles D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 16,
+          "overall": 158,
+          "teamId": 9,
+          "team": "Micah god 11 from heaven",
+          "person": "Ahan",
+          "player": "Commanders D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 16,
+          "overall": 159,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Jalen Tolbert",
+          "pos": "WR"
+        },
+        {
+          "round": 16,
+          "overall": 160,
+          "teamId": 1,
+          "team": "Bang Bang 🔥 ",
+          "person": "Sanay",
+          "player": "Alexander Mattison",
+          "pos": "RB"
+        }
+      ],
+      "schedule": [
+        {
+          "week": 1,
+          "isPlayoff": false,
+          "homeId": 11,
+          "homePts": 114.46,
+          "awayId": 6,
+          "awayPts": 96.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 129.58,
+          "awayId": 8,
+          "awayPts": 112.16,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "isPlayoff": false,
+          "homeId": 9,
+          "homePts": 132.92,
+          "awayId": 7,
+          "awayPts": 118.42,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 149.86,
+          "awayId": 4,
+          "awayPts": 119.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "isPlayoff": false,
+          "homeId": 5,
+          "homePts": 118.08,
+          "awayId": 12,
+          "awayPts": 113.12,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "isPlayoff": false,
+          "homeId": 8,
+          "homePts": 163.58,
+          "awayId": 7,
+          "awayPts": 97.66,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "isPlayoff": false,
+          "homeId": 4,
+          "homePts": 134.7,
+          "awayId": 11,
+          "awayPts": 105.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "isPlayoff": false,
+          "homeId": 12,
+          "homePts": 140.12,
+          "awayId": 6,
+          "awayPts": 100.18,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 107.06,
+          "awayId": 5,
+          "awayPts": 85.2,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 159.78,
+          "awayId": 9,
+          "awayPts": 173,
+          "winner": "AWAY"
+        },
+        {
+          "week": 3,
+          "isPlayoff": false,
+          "homeId": 4,
+          "homePts": 84.98,
+          "awayId": 12,
+          "awayPts": 135.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 3,
+          "isPlayoff": false,
+          "homeId": 8,
+          "homePts": 106,
+          "awayId": 10,
+          "awayPts": 106,
+          "winner": "TIE"
+        },
+        {
+          "week": 3,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 100.6,
+          "awayId": 5,
+          "awayPts": 99.34,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "isPlayoff": false,
+          "homeId": 11,
+          "homePts": 120.46,
+          "awayId": 1,
+          "awayPts": 132.7,
+          "winner": "AWAY"
+        },
+        {
+          "week": 3,
+          "isPlayoff": false,
+          "homeId": 6,
+          "homePts": 105.84,
+          "awayId": 9,
+          "awayPts": 126.32,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 151.7,
+          "awayId": 5,
+          "awayPts": 110.8,
+          "winner": "HOME"
+        },
+        {
+          "week": 4,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 132.22,
+          "awayId": 4,
+          "awayPts": 144.46,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "isPlayoff": false,
+          "homeId": 9,
+          "homePts": 110.86,
+          "awayId": 12,
+          "awayPts": 119.16,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "isPlayoff": false,
+          "homeId": 11,
+          "homePts": 184.68,
+          "awayId": 8,
+          "awayPts": 107.12,
+          "winner": "HOME"
+        },
+        {
+          "week": 4,
+          "isPlayoff": false,
+          "homeId": 6,
+          "homePts": 104,
+          "awayId": 7,
+          "awayPts": 94.98,
+          "winner": "HOME"
+        },
+        {
+          "week": 5,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 123.56,
+          "awayId": 9,
+          "awayPts": 107.56,
+          "winner": "HOME"
+        },
+        {
+          "week": 5,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 114.24,
+          "awayId": 11,
+          "awayPts": 153.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "isPlayoff": false,
+          "homeId": 5,
+          "homePts": 94.24,
+          "awayId": 6,
+          "awayPts": 111.36,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "isPlayoff": false,
+          "homeId": 4,
+          "homePts": 113.68,
+          "awayId": 8,
+          "awayPts": 138.42,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "isPlayoff": false,
+          "homeId": 12,
+          "homePts": 113.46,
+          "awayId": 7,
+          "awayPts": 135.18,
+          "winner": "AWAY"
+        },
+        {
+          "week": 6,
+          "isPlayoff": false,
+          "homeId": 6,
+          "homePts": 100.56,
+          "awayId": 8,
+          "awayPts": 114.58,
+          "winner": "AWAY"
+        },
+        {
+          "week": 6,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 136.9,
+          "awayId": 4,
+          "awayPts": 111.42,
+          "winner": "HOME"
+        },
+        {
+          "week": 6,
+          "isPlayoff": false,
+          "homeId": 12,
+          "homePts": 84.3,
+          "awayId": 10,
+          "awayPts": 115.42,
+          "winner": "AWAY"
+        },
+        {
+          "week": 6,
+          "isPlayoff": false,
+          "homeId": 5,
+          "homePts": 95.12,
+          "awayId": 1,
+          "awayPts": 128.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 6,
+          "isPlayoff": false,
+          "homeId": 9,
+          "homePts": 117.7,
+          "awayId": 11,
+          "awayPts": 94.08,
+          "winner": "HOME"
+        },
+        {
+          "week": 7,
+          "isPlayoff": false,
+          "homeId": 4,
+          "homePts": 130,
+          "awayId": 6,
+          "awayPts": 130,
+          "winner": "TIE"
+        },
+        {
+          "week": 7,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 145.82,
+          "awayId": 7,
+          "awayPts": 134.44,
+          "winner": "HOME"
+        },
+        {
+          "week": 7,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 105.74,
+          "awayId": 12,
+          "awayPts": 37.8,
+          "winner": "HOME"
+        },
+        {
+          "week": 7,
+          "isPlayoff": false,
+          "homeId": 11,
+          "homePts": 142.36,
+          "awayId": 5,
+          "awayPts": 97.9,
+          "winner": "HOME"
+        },
+        {
+          "week": 7,
+          "isPlayoff": false,
+          "homeId": 8,
+          "homePts": 128.8,
+          "awayId": 9,
+          "awayPts": 73.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 8,
+          "isPlayoff": false,
+          "homeId": 6,
+          "homePts": 107.02,
+          "awayId": 10,
+          "awayPts": 125.92,
+          "winner": "AWAY"
+        },
+        {
+          "week": 8,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 176.08,
+          "awayId": 1,
+          "awayPts": 96.32,
+          "winner": "HOME"
+        },
+        {
+          "week": 8,
+          "isPlayoff": false,
+          "homeId": 12,
+          "homePts": 112.4,
+          "awayId": 11,
+          "awayPts": 144.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 8,
+          "isPlayoff": false,
+          "homeId": 5,
+          "homePts": 101.66,
+          "awayId": 8,
+          "awayPts": 163.88,
+          "winner": "AWAY"
+        },
+        {
+          "week": 8,
+          "isPlayoff": false,
+          "homeId": 9,
+          "homePts": 136.42,
+          "awayId": 4,
+          "awayPts": 137.64,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 134.6,
+          "awayId": 6,
+          "awayPts": 160.08,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "isPlayoff": false,
+          "homeId": 11,
+          "homePts": 140.7,
+          "awayId": 10,
+          "awayPts": 105.02,
+          "winner": "HOME"
+        },
+        {
+          "week": 9,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 111.54,
+          "awayId": 9,
+          "awayPts": 116.52,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "isPlayoff": false,
+          "homeId": 8,
+          "homePts": 106,
+          "awayId": 4,
+          "awayPts": 122.24,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "isPlayoff": false,
+          "homeId": 12,
+          "homePts": 117.22,
+          "awayId": 5,
+          "awayPts": 64.26,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "isPlayoff": false,
+          "homeId": 11,
+          "homePts": 124.96,
+          "awayId": 7,
+          "awayPts": 75.98,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "isPlayoff": false,
+          "homeId": 8,
+          "homePts": 110.5,
+          "awayId": 1,
+          "awayPts": 138.4,
+          "winner": "AWAY"
+        },
+        {
+          "week": 10,
+          "isPlayoff": false,
+          "homeId": 6,
+          "homePts": 130.5,
+          "awayId": 12,
+          "awayPts": 117.8,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "isPlayoff": false,
+          "homeId": 4,
+          "homePts": 114.54,
+          "awayId": 10,
+          "awayPts": 119.74,
+          "winner": "AWAY"
+        },
+        {
+          "week": 10,
+          "isPlayoff": false,
+          "homeId": 9,
+          "homePts": 110.08,
+          "awayId": 5,
+          "awayPts": 68.02,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "isPlayoff": false,
+          "homeId": 8,
+          "homePts": 95.48,
+          "awayId": 12,
+          "awayPts": 122.12,
+          "winner": "AWAY"
+        },
+        {
+          "week": 11,
+          "isPlayoff": false,
+          "homeId": 11,
+          "homePts": 165.72,
+          "awayId": 4,
+          "awayPts": 105.46,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "isPlayoff": false,
+          "homeId": 5,
+          "homePts": 104.24,
+          "awayId": 7,
+          "awayPts": 120.7,
+          "winner": "AWAY"
+        },
+        {
+          "week": 11,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 125.88,
+          "awayId": 10,
+          "awayPts": 97.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "isPlayoff": false,
+          "homeId": 9,
+          "homePts": 81.56,
+          "awayId": 6,
+          "awayPts": 148.14,
+          "winner": "AWAY"
+        },
+        {
+          "week": 12,
+          "isPlayoff": false,
+          "homeId": 4,
+          "homePts": 137.9,
+          "awayId": 5,
+          "awayPts": 114.34,
+          "winner": "HOME"
+        },
+        {
+          "week": 12,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 141.9,
+          "awayId": 8,
+          "awayPts": 115.02,
+          "winner": "HOME"
+        },
+        {
+          "week": 12,
+          "isPlayoff": false,
+          "homeId": 12,
+          "homePts": 177.12,
+          "awayId": 9,
+          "awayPts": 107.06,
+          "winner": "HOME"
+        },
+        {
+          "week": 12,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 140.22,
+          "awayId": 11,
+          "awayPts": 121.14,
+          "winner": "HOME"
+        },
+        {
+          "week": 12,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 98.6,
+          "awayId": 6,
+          "awayPts": 88.46,
+          "winner": "HOME"
+        },
+        {
+          "week": 13,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 131.9,
+          "awayId": 9,
+          "awayPts": 113.34,
+          "winner": "HOME"
+        },
+        {
+          "week": 13,
+          "isPlayoff": false,
+          "homeId": 4,
+          "homePts": 105.42,
+          "awayId": 1,
+          "awayPts": 152.02,
+          "winner": "AWAY"
+        },
+        {
+          "week": 13,
+          "isPlayoff": false,
+          "homeId": 6,
+          "homePts": 86.1,
+          "awayId": 5,
+          "awayPts": 52.94,
+          "winner": "HOME"
+        },
+        {
+          "week": 13,
+          "isPlayoff": false,
+          "homeId": 8,
+          "homePts": 124.18,
+          "awayId": 11,
+          "awayPts": 151.36,
+          "winner": "AWAY"
+        },
+        {
+          "week": 13,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 122.74,
+          "awayId": 12,
+          "awayPts": 178.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 14,
+          "isPlayoff": false,
+          "homeId": 5,
+          "homePts": 64.42,
+          "awayId": 11,
+          "awayPts": 123.26,
+          "winner": "AWAY"
+        },
+        {
+          "week": 14,
+          "isPlayoff": false,
+          "homeId": 12,
+          "homePts": 145.78,
+          "awayId": 1,
+          "awayPts": 125.58,
+          "winner": "HOME"
+        },
+        {
+          "week": 14,
+          "isPlayoff": false,
+          "homeId": 9,
+          "homePts": 69.86,
+          "awayId": 10,
+          "awayPts": 158.88,
+          "winner": "AWAY"
+        },
+        {
+          "week": 14,
+          "isPlayoff": false,
+          "homeId": 6,
+          "homePts": 105.3,
+          "awayId": 4,
+          "awayPts": 129.78,
+          "winner": "AWAY"
+        },
+        {
+          "week": 14,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 59.96,
+          "awayId": 8,
+          "awayPts": 93.36,
+          "winner": "AWAY"
+        },
+        {
+          "week": 15,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 137.66,
+          "awayId": 5,
+          "awayPts": 118.78,
+          "winner": "HOME"
+        },
+        {
+          "week": 15,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 136.12,
+          "awayId": 12,
+          "awayPts": 129,
+          "winner": "HOME"
+        },
+        {
+          "week": 15,
+          "isPlayoff": false,
+          "homeId": 4,
+          "homePts": 100.24,
+          "awayId": 9,
+          "awayPts": 94.2,
+          "winner": "HOME"
+        },
+        {
+          "week": 15,
+          "isPlayoff": false,
+          "homeId": 8,
+          "homePts": 126.22,
+          "awayId": 6,
+          "awayPts": 103.56,
+          "winner": "HOME"
+        },
+        {
+          "week": 15,
+          "isPlayoff": false,
+          "homeId": 11,
+          "homePts": 135.32,
+          "awayId": 7,
+          "awayPts": 129.8,
+          "winner": "HOME"
+        },
+        {
+          "week": 16,
+          "isPlayoff": true,
+          "homeId": 10,
+          "homePts": 138.1,
+          "awayId": 9,
+          "awayPts": 147.16,
+          "winner": "AWAY"
+        },
+        {
+          "week": 16,
+          "isPlayoff": true,
+          "homeId": 1,
+          "homePts": 143.68,
+          "awayId": 8,
+          "awayPts": 120,
+          "winner": "HOME"
+        },
+        {
+          "week": 16,
+          "isPlayoff": true,
+          "homeId": 11,
+          "homePts": 128.56,
+          "awayId": 4,
+          "awayPts": 109.66,
+          "winner": "HOME"
+        },
+        {
+          "week": 16,
+          "isPlayoff": true,
+          "homeId": 12,
+          "homePts": 105.5,
+          "awayId": 6,
+          "awayPts": 96.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 16,
+          "isPlayoff": true,
+          "homeId": 7,
+          "homePts": 98.3,
+          "awayId": 5,
+          "awayPts": 99.54,
+          "winner": "AWAY"
+        },
+        {
+          "week": 17,
+          "isPlayoff": true,
+          "homeId": 1,
+          "homePts": 95.4,
+          "awayId": 9,
+          "awayPts": 120.68,
+          "winner": "AWAY"
+        },
+        {
+          "week": 17,
+          "isPlayoff": true,
+          "homeId": 12,
+          "homePts": 80.5,
+          "awayId": 11,
+          "awayPts": 162.48,
+          "winner": "AWAY"
+        },
+        {
+          "week": 17,
+          "isPlayoff": true,
+          "homeId": 10,
+          "homePts": 79.28,
+          "awayId": 8,
+          "awayPts": 74.32,
+          "winner": "HOME"
+        },
+        {
+          "week": 17,
+          "isPlayoff": true,
+          "homeId": 4,
+          "homePts": 157.82,
+          "awayId": 6,
+          "awayPts": 78.06,
+          "winner": "HOME"
+        },
+        {
+          "week": 17,
+          "isPlayoff": true,
+          "homeId": 7,
+          "homePts": 105.9,
+          "awayId": 5,
+          "awayPts": 117.58,
+          "winner": "AWAY"
+        },
+        {
+          "week": 18,
+          "isPlayoff": true,
+          "homeId": 11,
+          "homePts": 99.68,
+          "awayId": 1,
+          "awayPts": 132.16,
+          "winner": "AWAY"
+        },
+        {
+          "week": 18,
+          "isPlayoff": true,
+          "homeId": 12,
+          "homePts": 65.96,
+          "awayId": 9,
+          "awayPts": 101.02,
+          "winner": "AWAY"
+        },
+        {
+          "week": 18,
+          "isPlayoff": true,
+          "homeId": 10,
+          "homePts": 84.22,
+          "awayId": 4,
+          "awayPts": 62.98,
+          "winner": "HOME"
+        },
+        {
+          "week": 18,
+          "isPlayoff": true,
+          "homeId": 8,
+          "homePts": 107.02,
+          "awayId": 6,
+          "awayPts": 88.8,
+          "winner": "HOME"
+        },
+        {
+          "week": 18,
+          "isPlayoff": true,
+          "homeId": 7,
+          "homePts": 119.1,
+          "awayId": 5,
+          "awayPts": 79.06,
+          "winner": "HOME"
+        }
+      ]
+    },
+    {
+      "season": 2023,
+      "league": "No Punt Intended",
+      "size": 10,
+      "regWeeks": 14,
+      "divisions": [
+        "West"
+      ],
+      "teams": [
+        {
+          "id": 1,
+          "name": "Double D DeRozan",
+          "abbrev": "DBLD",
+          "person": "Sanay",
+          "regRank": 3,
+          "playoffRank": 1,
+          "wins": 9,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 1793.5,
+          "pointsAgainst": 1711.9,
+          "division": "West"
+        },
+        {
+          "id": 4,
+          "name": "Jit Tripping",
+          "abbrev": "Jit",
+          "person": "Viraaj",
+          "regRank": 1,
+          "playoffRank": 3,
+          "wins": 10,
+          "losses": 4,
+          "ties": 0,
+          "pointsFor": 1970.12,
+          "pointsAgainst": 1645.54,
+          "division": "West"
+        },
+        {
+          "id": 5,
+          "name": "Olive Garden",
+          "abbrev": "Oliv",
+          "person": "Jai",
+          "regRank": 5,
+          "playoffRank": 2,
+          "wins": 7,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1627.06,
+          "pointsAgainst": 1696.18,
+          "division": "West"
+        },
+        {
+          "id": 6,
+          "name": "Last Place Race",
+          "abbrev": "SC",
+          "person": "Cyrus",
+          "regRank": 7,
+          "playoffRank": 4,
+          "wins": 6,
+          "losses": 8,
+          "ties": 0,
+          "pointsFor": 1647.02,
+          "pointsAgainst": 1717.54,
+          "division": "West"
+        },
+        {
+          "id": 7,
+          "name": "Chris olave ur face",
+          "abbrev": "I.I.",
+          "person": "Charles",
+          "regRank": 8,
+          "playoffRank": 10,
+          "wins": 6,
+          "losses": 8,
+          "ties": 0,
+          "pointsFor": 1435.78,
+          "pointsAgainst": 1597.88,
+          "division": "West"
+        },
+        {
+          "id": 8,
+          "name": "Team Patel",
+          "abbrev": "PATE",
+          "person": "Vansh",
+          "regRank": 2,
+          "playoffRank": 7,
+          "wins": 9,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 1666.7,
+          "pointsAgainst": 1625.92,
+          "division": "West"
+        },
+        {
+          "id": 9,
+          "name": "Dat N*bba",
+          "abbrev": "NI",
+          "person": "Ahan",
+          "regRank": 9,
+          "playoffRank": 9,
+          "wins": 5,
+          "losses": 9,
+          "ties": 0,
+          "pointsFor": 1559.62,
+          "pointsAgainst": 1644.34,
+          "division": "West"
+        },
+        {
+          "id": 10,
+          "name": "Ceedeez Nuts",
+          "abbrev": "AERO",
+          "person": "Aarav",
+          "regRank": 4,
+          "playoffRank": 6,
+          "wins": 7,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1782.6,
+          "pointsAgainst": 1733.6,
+          "division": "West"
+        },
+        {
+          "id": 11,
+          "name": "Just-In Case",
+          "abbrev": "JIC",
+          "person": "Arav",
+          "regRank": 6,
+          "playoffRank": 5,
+          "wins": 7,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1772.42,
+          "pointsAgainst": 1716.48,
+          "division": "West"
+        },
+        {
+          "id": 12,
+          "name": "KC SingleSami",
+          "abbrev": "Rizz",
+          "person": "Sami",
+          "regRank": 10,
+          "playoffRank": 8,
+          "wins": 4,
+          "losses": 10,
+          "ties": 0,
+          "pointsFor": 1500.38,
+          "pointsAgainst": 1665.82,
+          "division": "West"
+        }
+      ],
+      "draftPicks": [
+        {
+          "round": 1,
+          "overall": 1,
+          "teamId": 12,
+          "team": "KC SingleSami",
+          "person": "Sami",
+          "player": "Justin Jefferson",
+          "pos": "WR"
+        },
+        {
+          "round": 1,
+          "overall": 2,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Tyreek Hill",
+          "pos": "WR"
+        },
+        {
+          "round": 1,
+          "overall": 3,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Travis Kelce",
+          "pos": "TE"
+        },
+        {
+          "round": 1,
+          "overall": 4,
+          "teamId": 8,
+          "team": "Team Patel",
+          "person": "Vansh",
+          "player": "Austin Ekeler",
+          "pos": "RB"
+        },
+        {
+          "round": 1,
+          "overall": 5,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Cooper Kupp",
+          "pos": "WR"
+        },
+        {
+          "round": 1,
+          "overall": 6,
+          "teamId": 11,
+          "team": "Just-In Case",
+          "person": "Arav",
+          "player": "Ja'Marr Chase",
+          "pos": "WR"
+        },
+        {
+          "round": 1,
+          "overall": 7,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Christian McCaffrey",
+          "pos": "RB"
+        },
+        {
+          "round": 1,
+          "overall": 8,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Derrick Henry",
+          "pos": "RB"
+        },
+        {
+          "round": 1,
+          "overall": 9,
+          "teamId": 1,
+          "team": "Double D DeRozan",
+          "person": "Sanay",
+          "player": "Jonathan Taylor",
+          "pos": "RB"
+        },
+        {
+          "round": 1,
+          "overall": 10,
+          "teamId": 7,
+          "team": "Chris olave ur face",
+          "person": "Charles",
+          "player": "Bijan Robinson",
+          "pos": "RB"
+        },
+        {
+          "round": 2,
+          "overall": 11,
+          "teamId": 7,
+          "team": "Chris olave ur face",
+          "person": "Charles",
+          "player": "Saquon Barkley",
+          "pos": "RB"
+        },
+        {
+          "round": 2,
+          "overall": 12,
+          "teamId": 1,
+          "team": "Double D DeRozan",
+          "person": "Sanay",
+          "player": "Davante Adams",
+          "pos": "WR"
+        },
+        {
+          "round": 2,
+          "overall": 13,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Stefon Diggs",
+          "pos": "WR"
+        },
+        {
+          "round": 2,
+          "overall": 14,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "CeeDee Lamb",
+          "pos": "WR"
+        },
+        {
+          "round": 2,
+          "overall": 15,
+          "teamId": 11,
+          "team": "Just-In Case",
+          "person": "Arav",
+          "player": "Amon-Ra St. Brown",
+          "pos": "WR"
+        },
+        {
+          "round": 2,
+          "overall": 16,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Josh Jacobs",
+          "pos": "RB"
+        },
+        {
+          "round": 2,
+          "overall": 17,
+          "teamId": 8,
+          "team": "Team Patel",
+          "person": "Vansh",
+          "player": "A.J. Brown",
+          "pos": "WR"
+        },
+        {
+          "round": 2,
+          "overall": 18,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "DK Metcalf",
+          "pos": "WR"
+        },
+        {
+          "round": 2,
+          "overall": 19,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Jaylen Waddle",
+          "pos": "WR"
+        },
+        {
+          "round": 2,
+          "overall": 20,
+          "teamId": 12,
+          "team": "KC SingleSami",
+          "person": "Sami",
+          "player": "Nick Chubb",
+          "pos": "RB"
+        },
+        {
+          "round": 3,
+          "overall": 21,
+          "teamId": 12,
+          "team": "KC SingleSami",
+          "person": "Sami",
+          "player": "Aaron Jones",
+          "pos": "RB"
+        },
+        {
+          "round": 3,
+          "overall": 22,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Garrett Wilson",
+          "pos": "WR"
+        },
+        {
+          "round": 3,
+          "overall": 23,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Joe Mixon",
+          "pos": "RB"
+        },
+        {
+          "round": 3,
+          "overall": 24,
+          "teamId": 8,
+          "team": "Team Patel",
+          "person": "Vansh",
+          "player": "Tony Pollard",
+          "pos": "RB"
+        },
+        {
+          "round": 3,
+          "overall": 25,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Rhamondre Stevenson",
+          "pos": "RB"
+        },
+        {
+          "round": 3,
+          "overall": 26,
+          "teamId": 11,
+          "team": "Just-In Case",
+          "person": "Arav",
+          "player": "Jahmyr Gibbs",
+          "pos": "RB"
+        },
+        {
+          "round": 3,
+          "overall": 27,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Patrick Mahomes",
+          "pos": "QB"
+        },
+        {
+          "round": 3,
+          "overall": 28,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Josh Allen",
+          "pos": "QB"
+        },
+        {
+          "round": 3,
+          "overall": 29,
+          "teamId": 1,
+          "team": "Double D DeRozan",
+          "person": "Sanay",
+          "player": "Travis Etienne Jr.",
+          "pos": "RB"
+        },
+        {
+          "round": 3,
+          "overall": 30,
+          "teamId": 7,
+          "team": "Chris olave ur face",
+          "person": "Charles",
+          "player": "Breece Hall",
+          "pos": "RB"
+        },
+        {
+          "round": 4,
+          "overall": 31,
+          "teamId": 7,
+          "team": "Chris olave ur face",
+          "person": "Charles",
+          "player": "Jalen Hurts",
+          "pos": "QB"
+        },
+        {
+          "round": 4,
+          "overall": 32,
+          "teamId": 1,
+          "team": "Double D DeRozan",
+          "person": "Sanay",
+          "player": "Tee Higgins",
+          "pos": "WR"
+        },
+        {
+          "round": 4,
+          "overall": 33,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "DeVonta Smith",
+          "pos": "WR"
+        },
+        {
+          "round": 4,
+          "overall": 34,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Chris Olave",
+          "pos": "WR"
+        },
+        {
+          "round": 4,
+          "overall": 35,
+          "teamId": 11,
+          "team": "Just-In Case",
+          "person": "Arav",
+          "player": "Mark Andrews",
+          "pos": "TE"
+        },
+        {
+          "round": 4,
+          "overall": 36,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Dameon Pierce",
+          "pos": "RB"
+        },
+        {
+          "round": 4,
+          "overall": 37,
+          "teamId": 8,
+          "team": "Team Patel",
+          "person": "Vansh",
+          "player": "Najee Harris",
+          "pos": "RB"
+        },
+        {
+          "round": 4,
+          "overall": 38,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Deebo Samuel",
+          "pos": "WR"
+        },
+        {
+          "round": 4,
+          "overall": 39,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Joe Burrow",
+          "pos": "QB"
+        },
+        {
+          "round": 4,
+          "overall": 40,
+          "teamId": 12,
+          "team": "KC SingleSami",
+          "person": "Sami",
+          "player": "George Kittle",
+          "pos": "TE"
+        },
+        {
+          "round": 5,
+          "overall": 41,
+          "teamId": 12,
+          "team": "KC SingleSami",
+          "person": "Sami",
+          "player": "Lamar Jackson",
+          "pos": "QB"
+        },
+        {
+          "round": 5,
+          "overall": 42,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Kenneth Walker III",
+          "pos": "RB"
+        },
+        {
+          "round": 5,
+          "overall": 43,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Justin Herbert",
+          "pos": "QB"
+        },
+        {
+          "round": 5,
+          "overall": 44,
+          "teamId": 8,
+          "team": "Team Patel",
+          "person": "Vansh",
+          "player": "Amari Cooper",
+          "pos": "WR"
+        },
+        {
+          "round": 5,
+          "overall": 45,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Dallas Goedert",
+          "pos": "TE"
+        },
+        {
+          "round": 5,
+          "overall": 46,
+          "teamId": 11,
+          "team": "Just-In Case",
+          "person": "Arav",
+          "player": "Miles Sanders",
+          "pos": "RB"
+        },
+        {
+          "round": 5,
+          "overall": 47,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Keenan Allen",
+          "pos": "WR"
+        },
+        {
+          "round": 5,
+          "overall": 48,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Rachaad White",
+          "pos": "RB"
+        },
+        {
+          "round": 5,
+          "overall": 49,
+          "teamId": 1,
+          "team": "Double D DeRozan",
+          "person": "Sanay",
+          "player": "Justin Fields",
+          "pos": "QB"
+        },
+        {
+          "round": 5,
+          "overall": 50,
+          "teamId": 7,
+          "team": "Chris olave ur face",
+          "person": "Charles",
+          "player": "Chris Godwin",
+          "pos": "WR"
+        },
+        {
+          "round": 6,
+          "overall": 51,
+          "teamId": 7,
+          "team": "Chris olave ur face",
+          "person": "Charles",
+          "player": "Christian Watson",
+          "pos": "WR"
+        },
+        {
+          "round": 6,
+          "overall": 52,
+          "teamId": 1,
+          "team": "Double D DeRozan",
+          "person": "Sanay",
+          "player": "T.J. Hockenson",
+          "pos": "TE"
+        },
+        {
+          "round": 6,
+          "overall": 53,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Darren Waller",
+          "pos": "TE"
+        },
+        {
+          "round": 6,
+          "overall": 54,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "DJ Moore",
+          "pos": "WR"
+        },
+        {
+          "round": 6,
+          "overall": 55,
+          "teamId": 11,
+          "team": "Just-In Case",
+          "person": "Arav",
+          "player": "Terry McLaurin",
+          "pos": "WR"
+        },
+        {
+          "round": 6,
+          "overall": 56,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Mike Evans",
+          "pos": "WR"
+        },
+        {
+          "round": 6,
+          "overall": 57,
+          "teamId": 8,
+          "team": "Team Patel",
+          "person": "Vansh",
+          "player": "Diontae Johnson",
+          "pos": "WR"
+        },
+        {
+          "round": 6,
+          "overall": 58,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Marquise Brown",
+          "pos": "WR"
+        },
+        {
+          "round": 6,
+          "overall": 59,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Jerry Jeudy",
+          "pos": "WR"
+        },
+        {
+          "round": 6,
+          "overall": 60,
+          "teamId": 12,
+          "team": "KC SingleSami",
+          "person": "Sami",
+          "player": "Christian Kirk",
+          "pos": "WR"
+        },
+        {
+          "round": 7,
+          "overall": 61,
+          "teamId": 12,
+          "team": "KC SingleSami",
+          "person": "Sami",
+          "player": "Dalvin Cook",
+          "pos": "RB"
+        },
+        {
+          "round": 7,
+          "overall": 62,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "DeAndre Hopkins",
+          "pos": "WR"
+        },
+        {
+          "round": 7,
+          "overall": 63,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "D'Andre Swift",
+          "pos": "RB"
+        },
+        {
+          "round": 7,
+          "overall": 64,
+          "teamId": 8,
+          "team": "Team Patel",
+          "person": "Vansh",
+          "player": "Calvin Ridley",
+          "pos": "WR"
+        },
+        {
+          "round": 7,
+          "overall": 65,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Trevor Lawrence",
+          "pos": "QB"
+        },
+        {
+          "round": 7,
+          "overall": 66,
+          "teamId": 11,
+          "team": "Just-In Case",
+          "person": "Arav",
+          "player": "Alexander Mattison",
+          "pos": "RB"
+        },
+        {
+          "round": 7,
+          "overall": 67,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Isiah Pacheco",
+          "pos": "RB"
+        },
+        {
+          "round": 7,
+          "overall": 68,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Tyler Lockett",
+          "pos": "WR"
+        },
+        {
+          "round": 7,
+          "overall": 69,
+          "teamId": 1,
+          "team": "Double D DeRozan",
+          "person": "Sanay",
+          "player": "Mike Williams",
+          "pos": "WR"
+        },
+        {
+          "round": 7,
+          "overall": 70,
+          "teamId": 7,
+          "team": "Chris olave ur face",
+          "person": "Charles",
+          "player": "Kyle Pitts",
+          "pos": "TE"
+        },
+        {
+          "round": 8,
+          "overall": 71,
+          "teamId": 7,
+          "team": "Chris olave ur face",
+          "person": "Charles",
+          "player": "James Conner",
+          "pos": "RB"
+        },
+        {
+          "round": 8,
+          "overall": 72,
+          "teamId": 1,
+          "team": "Double D DeRozan",
+          "person": "Sanay",
+          "player": "David Montgomery",
+          "pos": "RB"
+        },
+        {
+          "round": 8,
+          "overall": 73,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Cowboys D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 8,
+          "overall": 74,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Samaje Perine",
+          "pos": "RB"
+        },
+        {
+          "round": 8,
+          "overall": 75,
+          "teamId": 11,
+          "team": "Just-In Case",
+          "person": "Arav",
+          "player": "Cam Akers",
+          "pos": "RB"
+        },
+        {
+          "round": 8,
+          "overall": 76,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "J.K. Dobbins",
+          "pos": "RB"
+        },
+        {
+          "round": 8,
+          "overall": 77,
+          "teamId": 8,
+          "team": "Team Patel",
+          "person": "Vansh",
+          "player": "Deshaun Watson",
+          "pos": "QB"
+        },
+        {
+          "round": 8,
+          "overall": 78,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Brandon Aiyuk",
+          "pos": "WR"
+        },
+        {
+          "round": 8,
+          "overall": 79,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Alvin Kamara",
+          "pos": "RB"
+        },
+        {
+          "round": 8,
+          "overall": 80,
+          "teamId": 12,
+          "team": "KC SingleSami",
+          "person": "Sami",
+          "player": "Justin Tucker",
+          "pos": "K"
+        },
+        {
+          "round": 9,
+          "overall": 81,
+          "teamId": 12,
+          "team": "KC SingleSami",
+          "person": "Sami",
+          "player": "49ers D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 9,
+          "overall": 82,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Michael Thomas",
+          "pos": "WR"
+        },
+        {
+          "round": 9,
+          "overall": 83,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Odell Beckham Jr.",
+          "pos": "WR"
+        },
+        {
+          "round": 9,
+          "overall": 84,
+          "teamId": 8,
+          "team": "Team Patel",
+          "person": "Vansh",
+          "player": "Drake London",
+          "pos": "WR"
+        },
+        {
+          "round": 9,
+          "overall": 85,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Michael Pittman Jr.",
+          "pos": "WR"
+        },
+        {
+          "round": 9,
+          "overall": 86,
+          "teamId": 11,
+          "team": "Just-In Case",
+          "person": "Arav",
+          "player": "Brandin Cooks",
+          "pos": "WR"
+        },
+        {
+          "round": 9,
+          "overall": 87,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "AJ Dillon",
+          "pos": "RB"
+        },
+        {
+          "round": 9,
+          "overall": 88,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Jakobi Meyers",
+          "pos": "WR"
+        },
+        {
+          "round": 9,
+          "overall": 89,
+          "teamId": 1,
+          "team": "Double D DeRozan",
+          "person": "Sanay",
+          "player": "Jaxon Smith-Njigba",
+          "pos": "WR"
+        },
+        {
+          "round": 9,
+          "overall": 90,
+          "teamId": 7,
+          "team": "Chris olave ur face",
+          "person": "Charles",
+          "player": "Jahan Dotson",
+          "pos": "WR"
+        },
+        {
+          "round": 10,
+          "overall": 91,
+          "teamId": 7,
+          "team": "Chris olave ur face",
+          "person": "Charles",
+          "player": "James Cook",
+          "pos": "RB"
+        },
+        {
+          "round": 10,
+          "overall": 92,
+          "teamId": 1,
+          "team": "Double D DeRozan",
+          "person": "Sanay",
+          "player": "Khalil Herbert",
+          "pos": "RB"
+        },
+        {
+          "round": 10,
+          "overall": 93,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Javonte Williams",
+          "pos": "RB"
+        },
+        {
+          "round": 10,
+          "overall": 94,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Evan Engram",
+          "pos": "TE"
+        },
+        {
+          "round": 10,
+          "overall": 95,
+          "teamId": 11,
+          "team": "Just-In Case",
+          "person": "Arav",
+          "player": "Rondale Moore",
+          "pos": "WR"
+        },
+        {
+          "round": 10,
+          "overall": 96,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Dak Prescott",
+          "pos": "QB"
+        },
+        {
+          "round": 10,
+          "overall": 97,
+          "teamId": 8,
+          "team": "Team Patel",
+          "person": "Vansh",
+          "player": "Pat Freiermuth",
+          "pos": "TE"
+        },
+        {
+          "round": 10,
+          "overall": 98,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Bills D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 10,
+          "overall": 99,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Cole Kmet",
+          "pos": "TE"
+        },
+        {
+          "round": 10,
+          "overall": 100,
+          "teamId": 12,
+          "team": "KC SingleSami",
+          "person": "Sami",
+          "player": "Tua Tagovailoa",
+          "pos": "QB"
+        },
+        {
+          "round": 11,
+          "overall": 101,
+          "teamId": 12,
+          "team": "KC SingleSami",
+          "person": "Sami",
+          "player": "Jamaal Williams",
+          "pos": "RB"
+        },
+        {
+          "round": 11,
+          "overall": 102,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Treylon Burks",
+          "pos": "WR"
+        },
+        {
+          "round": 11,
+          "overall": 103,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Evan McPherson",
+          "pos": "K"
+        },
+        {
+          "round": 11,
+          "overall": 104,
+          "teamId": 8,
+          "team": "Team Patel",
+          "person": "Vansh",
+          "player": "George Pickens",
+          "pos": "WR"
+        },
+        {
+          "round": 11,
+          "overall": 105,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "David Njoku",
+          "pos": "TE"
+        },
+        {
+          "round": 11,
+          "overall": 106,
+          "teamId": 11,
+          "team": "Just-In Case",
+          "person": "Arav",
+          "player": "Brian Robinson Jr.",
+          "pos": "RB"
+        },
+        {
+          "round": 11,
+          "overall": 107,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Kadarius Toney",
+          "pos": "WR"
+        },
+        {
+          "round": 11,
+          "overall": 108,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Anthony Richardson",
+          "pos": "QB"
+        },
+        {
+          "round": 11,
+          "overall": 109,
+          "teamId": 1,
+          "team": "Double D DeRozan",
+          "person": "Sanay",
+          "player": "Geno Smith",
+          "pos": "QB"
+        },
+        {
+          "round": 11,
+          "overall": 110,
+          "teamId": 7,
+          "team": "Chris olave ur face",
+          "person": "Charles",
+          "player": "Kirk Cousins",
+          "pos": "QB"
+        },
+        {
+          "round": 12,
+          "overall": 111,
+          "teamId": 7,
+          "team": "Chris olave ur face",
+          "person": "Charles",
+          "player": "Daniel Jones",
+          "pos": "QB"
+        },
+        {
+          "round": 12,
+          "overall": 112,
+          "teamId": 1,
+          "team": "Double D DeRozan",
+          "person": "Sanay",
+          "player": "Jordan Addison",
+          "pos": "WR"
+        },
+        {
+          "round": 12,
+          "overall": 113,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Daniel Carlson",
+          "pos": "K"
+        },
+        {
+          "round": 12,
+          "overall": 114,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Rashaad Penny",
+          "pos": "RB"
+        },
+        {
+          "round": 12,
+          "overall": 115,
+          "teamId": 11,
+          "team": "Just-In Case",
+          "person": "Arav",
+          "player": "DJ Chark Jr.",
+          "pos": "WR"
+        },
+        {
+          "round": 12,
+          "overall": 116,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "JuJu Smith-Schuster",
+          "pos": "WR"
+        },
+        {
+          "round": 12,
+          "overall": 117,
+          "teamId": 8,
+          "team": "Team Patel",
+          "person": "Vansh",
+          "player": "Dalton Schultz",
+          "pos": "TE"
+        },
+        {
+          "round": 12,
+          "overall": 118,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Antonio Gibson",
+          "pos": "RB"
+        },
+        {
+          "round": 12,
+          "overall": 119,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Jeff Wilson Jr.",
+          "pos": "RB"
+        },
+        {
+          "round": 12,
+          "overall": 120,
+          "teamId": 12,
+          "team": "KC SingleSami",
+          "person": "Sami",
+          "player": "Tyler Higbee",
+          "pos": "TE"
+        },
+        {
+          "round": 13,
+          "overall": 121,
+          "teamId": 12,
+          "team": "KC SingleSami",
+          "person": "Sami",
+          "player": "Adam Thielen",
+          "pos": "WR"
+        },
+        {
+          "round": 13,
+          "overall": 122,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Jerick McKinnon",
+          "pos": "RB"
+        },
+        {
+          "round": 13,
+          "overall": 123,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Zay Flowers",
+          "pos": "WR"
+        },
+        {
+          "round": 13,
+          "overall": 124,
+          "teamId": 8,
+          "team": "Team Patel",
+          "person": "Vansh",
+          "player": "Courtland Sutton",
+          "pos": "WR"
+        },
+        {
+          "round": 13,
+          "overall": 125,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Devin Singletary",
+          "pos": "RB"
+        },
+        {
+          "round": 13,
+          "overall": 126,
+          "teamId": 11,
+          "team": "Just-In Case",
+          "person": "Arav",
+          "player": "Zach Charbonnet",
+          "pos": "RB"
+        },
+        {
+          "round": 13,
+          "overall": 127,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Gabe Davis",
+          "pos": "WR"
+        },
+        {
+          "round": 13,
+          "overall": 128,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Allen Lazard",
+          "pos": "WR"
+        },
+        {
+          "round": 13,
+          "overall": 129,
+          "teamId": 1,
+          "team": "Double D DeRozan",
+          "person": "Sanay",
+          "player": "Skyy Moore",
+          "pos": "WR"
+        },
+        {
+          "round": 13,
+          "overall": 130,
+          "teamId": 7,
+          "team": "Chris olave ur face",
+          "person": "Charles",
+          "player": "Aaron Rodgers",
+          "pos": "QB"
+        },
+        {
+          "round": 14,
+          "overall": 131,
+          "teamId": 7,
+          "team": "Chris olave ur face",
+          "person": "Charles",
+          "player": "Raheem Mostert",
+          "pos": "RB"
+        },
+        {
+          "round": 14,
+          "overall": 132,
+          "teamId": 1,
+          "team": "Double D DeRozan",
+          "person": "Sanay",
+          "player": "Tyler Boyd",
+          "pos": "WR"
+        },
+        {
+          "round": 14,
+          "overall": 133,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Juwan Johnson",
+          "pos": "TE"
+        },
+        {
+          "round": 14,
+          "overall": 134,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Darnell Mooney",
+          "pos": "WR"
+        },
+        {
+          "round": 14,
+          "overall": 135,
+          "teamId": 11,
+          "team": "Just-In Case",
+          "person": "Arav",
+          "player": "Quentin Johnston",
+          "pos": "WR"
+        },
+        {
+          "round": 14,
+          "overall": 136,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Gerald Everett",
+          "pos": "TE"
+        },
+        {
+          "round": 14,
+          "overall": 137,
+          "teamId": 8,
+          "team": "Team Patel",
+          "person": "Vansh",
+          "player": "Russell Wilson",
+          "pos": "QB"
+        },
+        {
+          "round": 14,
+          "overall": 138,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Elijah Mitchell",
+          "pos": "RB"
+        },
+        {
+          "round": 14,
+          "overall": 139,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Michael Gallup",
+          "pos": "WR"
+        },
+        {
+          "round": 14,
+          "overall": 140,
+          "teamId": 12,
+          "team": "KC SingleSami",
+          "person": "Sami",
+          "player": "Damien Harris",
+          "pos": "RB"
+        },
+        {
+          "round": 15,
+          "overall": 141,
+          "teamId": 12,
+          "team": "KC SingleSami",
+          "person": "Sami",
+          "player": "Patriots D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 15,
+          "overall": 142,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Zay Jones",
+          "pos": "WR"
+        },
+        {
+          "round": 15,
+          "overall": 143,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Michael Carter",
+          "pos": "RB"
+        },
+        {
+          "round": 15,
+          "overall": 144,
+          "teamId": 8,
+          "team": "Team Patel",
+          "person": "Vansh",
+          "player": "Zach Ertz",
+          "pos": "TE"
+        },
+        {
+          "round": 15,
+          "overall": 145,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Packers D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 15,
+          "overall": 146,
+          "teamId": 11,
+          "team": "Just-In Case",
+          "person": "Arav",
+          "player": "Steelers D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 15,
+          "overall": 147,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "De'Von Achane",
+          "pos": "RB"
+        },
+        {
+          "round": 15,
+          "overall": 148,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Nico Collins",
+          "pos": "WR"
+        },
+        {
+          "round": 15,
+          "overall": 149,
+          "teamId": 1,
+          "team": "Double D DeRozan",
+          "person": "Sanay",
+          "player": "Harrison Butker",
+          "pos": "K"
+        },
+        {
+          "round": 15,
+          "overall": 150,
+          "teamId": 7,
+          "team": "Chris olave ur face",
+          "person": "Charles",
+          "player": "Dolphins D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 16,
+          "overall": 151,
+          "teamId": 7,
+          "team": "Chris olave ur face",
+          "person": "Charles",
+          "player": "Tyquan Thornton",
+          "pos": "WR"
+        },
+        {
+          "round": 16,
+          "overall": 152,
+          "teamId": 11,
+          "team": "Just-In Case",
+          "person": "Arav",
+          "player": "Jason Myers",
+          "pos": "K"
+        },
+        {
+          "round": 16,
+          "overall": 153,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Chuba Hubbard",
+          "pos": "RB"
+        },
+        {
+          "round": 16,
+          "overall": 154,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Saints D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 16,
+          "overall": 155,
+          "teamId": 1,
+          "team": "Double D DeRozan",
+          "person": "Sanay",
+          "player": "Jets D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 16,
+          "overall": 156,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Younghoe Koo",
+          "pos": "K"
+        },
+        {
+          "round": 16,
+          "overall": 157,
+          "teamId": 8,
+          "team": "Team Patel",
+          "person": "Vansh",
+          "player": "Bengals D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 16,
+          "overall": 158,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Elijah Moore",
+          "pos": "WR"
+        },
+        {
+          "round": 16,
+          "overall": 159,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Tyler Bass",
+          "pos": "K"
+        },
+        {
+          "round": 16,
+          "overall": 160,
+          "teamId": 12,
+          "team": "KC SingleSami",
+          "person": "Sami",
+          "player": "Marquez Valdes-Scantling",
+          "pos": "WR"
+        },
+        {
+          "round": 17,
+          "overall": 161,
+          "teamId": 12,
+          "team": "KC SingleSami",
+          "person": "Sami",
+          "player": "K.J. Osborn",
+          "pos": "WR"
+        },
+        {
+          "round": 17,
+          "overall": 162,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Seahawks D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 17,
+          "overall": 163,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Chigoziem Okonkwo",
+          "pos": "TE"
+        },
+        {
+          "round": 17,
+          "overall": 164,
+          "teamId": 8,
+          "team": "Team Patel",
+          "person": "Vansh",
+          "player": "Graham Gano",
+          "pos": "K"
+        },
+        {
+          "round": 17,
+          "overall": 165,
+          "teamId": 4,
+          "team": "Jit Tripping",
+          "person": "Viraaj",
+          "player": "Tyler Allgeier",
+          "pos": "RB"
+        },
+        {
+          "round": 17,
+          "overall": 166,
+          "teamId": 11,
+          "team": "Just-In Case",
+          "person": "Arav",
+          "player": "Matthew Stafford",
+          "pos": "QB"
+        },
+        {
+          "round": 17,
+          "overall": 167,
+          "teamId": 10,
+          "team": "Ceedeez Nuts",
+          "person": "Aarav",
+          "player": "Matt Gay",
+          "pos": "K"
+        },
+        {
+          "round": 17,
+          "overall": 168,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Ezekiel Elliott",
+          "pos": "RB"
+        },
+        {
+          "round": 17,
+          "overall": 169,
+          "teamId": 1,
+          "team": "Double D DeRozan",
+          "person": "Sanay",
+          "player": "Jared Goff",
+          "pos": "QB"
+        },
+        {
+          "round": 17,
+          "overall": 170,
+          "teamId": 7,
+          "team": "Chris olave ur face",
+          "person": "Charles",
+          "player": "Eddy Pineiro",
+          "pos": "K"
+        }
+      ],
+      "schedule": [
+        {
+          "week": 1,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 92.94,
+          "awayId": 1,
+          "awayPts": 92.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "isPlayoff": false,
+          "homeId": 6,
+          "homePts": 121.56,
+          "awayId": 4,
+          "awayPts": 143.44,
+          "winner": "AWAY"
+        },
+        {
+          "week": 1,
+          "isPlayoff": false,
+          "homeId": 12,
+          "homePts": 104.56,
+          "awayId": 9,
+          "awayPts": 97.08,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "isPlayoff": false,
+          "homeId": 5,
+          "homePts": 103.44,
+          "awayId": 10,
+          "awayPts": 83.08,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "isPlayoff": false,
+          "homeId": 8,
+          "homePts": 147.38,
+          "awayId": 11,
+          "awayPts": 103.14,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "isPlayoff": false,
+          "homeId": 4,
+          "homePts": 130.44,
+          "awayId": 9,
+          "awayPts": 124.08,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 100.46,
+          "awayId": 7,
+          "awayPts": 123.36,
+          "winner": "AWAY"
+        },
+        {
+          "week": 2,
+          "isPlayoff": false,
+          "homeId": 11,
+          "homePts": 128.84,
+          "awayId": 1,
+          "awayPts": 129.02,
+          "winner": "AWAY"
+        },
+        {
+          "week": 2,
+          "isPlayoff": false,
+          "homeId": 5,
+          "homePts": 155.3,
+          "awayId": 6,
+          "awayPts": 128.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "isPlayoff": false,
+          "homeId": 8,
+          "homePts": 86.2,
+          "awayId": 12,
+          "awayPts": 119.28,
+          "winner": "AWAY"
+        },
+        {
+          "week": 3,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 153.36,
+          "awayId": 11,
+          "awayPts": 118.46,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "isPlayoff": false,
+          "homeId": 4,
+          "homePts": 166.72,
+          "awayId": 5,
+          "awayPts": 71.88,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "isPlayoff": false,
+          "homeId": 9,
+          "homePts": 96.16,
+          "awayId": 8,
+          "awayPts": 129.76,
+          "winner": "AWAY"
+        },
+        {
+          "week": 3,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 82.52,
+          "awayId": 6,
+          "awayPts": 118.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 3,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 172.68,
+          "awayId": 12,
+          "awayPts": 151.48,
+          "winner": "HOME"
+        },
+        {
+          "week": 4,
+          "isPlayoff": false,
+          "homeId": 5,
+          "homePts": 105.4,
+          "awayId": 8,
+          "awayPts": 121.52,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "isPlayoff": false,
+          "homeId": 6,
+          "homePts": 186.68,
+          "awayId": 10,
+          "awayPts": 113.98,
+          "winner": "HOME"
+        },
+        {
+          "week": 4,
+          "isPlayoff": false,
+          "homeId": 12,
+          "homePts": 107.94,
+          "awayId": 11,
+          "awayPts": 109.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 97.7,
+          "awayId": 4,
+          "awayPts": 74.12,
+          "winner": "HOME"
+        },
+        {
+          "week": 4,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 127.36,
+          "awayId": 9,
+          "awayPts": 115,
+          "winner": "HOME"
+        },
+        {
+          "week": 5,
+          "isPlayoff": false,
+          "homeId": 6,
+          "homePts": 105.26,
+          "awayId": 12,
+          "awayPts": 126.24,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "isPlayoff": false,
+          "homeId": 5,
+          "homePts": 102.64,
+          "awayId": 7,
+          "awayPts": 102.66,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "isPlayoff": false,
+          "homeId": 8,
+          "homePts": 148.88,
+          "awayId": 1,
+          "awayPts": 123.42,
+          "winner": "HOME"
+        },
+        {
+          "week": 5,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 208.12,
+          "awayId": 4,
+          "awayPts": 143.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 5,
+          "isPlayoff": false,
+          "homeId": 11,
+          "homePts": 102.98,
+          "awayId": 9,
+          "awayPts": 103.28,
+          "winner": "AWAY"
+        },
+        {
+          "week": 6,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 141.9,
+          "awayId": 4,
+          "awayPts": 139.84,
+          "winner": "HOME"
+        },
+        {
+          "week": 6,
+          "isPlayoff": false,
+          "homeId": 9,
+          "homePts": 111.1,
+          "awayId": 10,
+          "awayPts": 126.78,
+          "winner": "AWAY"
+        },
+        {
+          "week": 6,
+          "isPlayoff": false,
+          "homeId": 11,
+          "homePts": 115.12,
+          "awayId": 5,
+          "awayPts": 121.94,
+          "winner": "AWAY"
+        },
+        {
+          "week": 6,
+          "isPlayoff": false,
+          "homeId": 8,
+          "homePts": 120.4,
+          "awayId": 6,
+          "awayPts": 116.18,
+          "winner": "HOME"
+        },
+        {
+          "week": 6,
+          "isPlayoff": false,
+          "homeId": 12,
+          "homePts": 105.12,
+          "awayId": 7,
+          "awayPts": 94.86,
+          "winner": "HOME"
+        },
+        {
+          "week": 7,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 115.34,
+          "awayId": 1,
+          "awayPts": 145.66,
+          "winner": "AWAY"
+        },
+        {
+          "week": 7,
+          "isPlayoff": false,
+          "homeId": 5,
+          "homePts": 122.46,
+          "awayId": 9,
+          "awayPts": 72.76,
+          "winner": "HOME"
+        },
+        {
+          "week": 7,
+          "isPlayoff": false,
+          "homeId": 6,
+          "homePts": 84.86,
+          "awayId": 11,
+          "awayPts": 142.3,
+          "winner": "AWAY"
+        },
+        {
+          "week": 7,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 118.8,
+          "awayId": 8,
+          "awayPts": 106.28,
+          "winner": "HOME"
+        },
+        {
+          "week": 7,
+          "isPlayoff": false,
+          "homeId": 4,
+          "homePts": 156.66,
+          "awayId": 12,
+          "awayPts": 89.08,
+          "winner": "HOME"
+        },
+        {
+          "week": 8,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 127.96,
+          "awayId": 5,
+          "awayPts": 107.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 8,
+          "isPlayoff": false,
+          "homeId": 9,
+          "homePts": 114.92,
+          "awayId": 6,
+          "awayPts": 138.42,
+          "winner": "AWAY"
+        },
+        {
+          "week": 8,
+          "isPlayoff": false,
+          "homeId": 11,
+          "homePts": 155.86,
+          "awayId": 7,
+          "awayPts": 100.96,
+          "winner": "HOME"
+        },
+        {
+          "week": 8,
+          "isPlayoff": false,
+          "homeId": 8,
+          "homePts": 119.78,
+          "awayId": 4,
+          "awayPts": 128.08,
+          "winner": "AWAY"
+        },
+        {
+          "week": 8,
+          "isPlayoff": false,
+          "homeId": 12,
+          "homePts": 113.98,
+          "awayId": 10,
+          "awayPts": 137.86,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "isPlayoff": false,
+          "homeId": 6,
+          "homePts": 90.64,
+          "awayId": 1,
+          "awayPts": 130.28,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 104.12,
+          "awayId": 5,
+          "awayPts": 104.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "isPlayoff": false,
+          "homeId": 9,
+          "homePts": 99.62,
+          "awayId": 12,
+          "awayPts": 64.58,
+          "winner": "HOME"
+        },
+        {
+          "week": 9,
+          "isPlayoff": false,
+          "homeId": 4,
+          "homePts": 119.66,
+          "awayId": 10,
+          "awayPts": 117.62,
+          "winner": "HOME"
+        },
+        {
+          "week": 9,
+          "isPlayoff": false,
+          "homeId": 11,
+          "homePts": 163.32,
+          "awayId": 8,
+          "awayPts": 110.7,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 97.18,
+          "awayId": 9,
+          "awayPts": 86.48,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "isPlayoff": false,
+          "homeId": 4,
+          "homePts": 179.06,
+          "awayId": 6,
+          "awayPts": 114.02,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 137.72,
+          "awayId": 11,
+          "awayPts": 156.2,
+          "winner": "AWAY"
+        },
+        {
+          "week": 10,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 171.66,
+          "awayId": 5,
+          "awayPts": 109.46,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "isPlayoff": false,
+          "homeId": 12,
+          "homePts": 106.72,
+          "awayId": 8,
+          "awayPts": 108.38,
+          "winner": "AWAY"
+        },
+        {
+          "week": 11,
+          "isPlayoff": false,
+          "homeId": 4,
+          "homePts": 138.66,
+          "awayId": 11,
+          "awayPts": 94.96,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 101.4,
+          "awayId": 10,
+          "awayPts": 133.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 11,
+          "isPlayoff": false,
+          "homeId": 8,
+          "homePts": 124.74,
+          "awayId": 9,
+          "awayPts": 106.44,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "isPlayoff": false,
+          "homeId": 6,
+          "homePts": 128.5,
+          "awayId": 5,
+          "awayPts": 104.78,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "isPlayoff": false,
+          "homeId": 12,
+          "homePts": 121.26,
+          "awayId": 1,
+          "awayPts": 123.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 12,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 102.02,
+          "awayId": 8,
+          "awayPts": 135.3,
+          "winner": "AWAY"
+        },
+        {
+          "week": 12,
+          "isPlayoff": false,
+          "homeId": 5,
+          "homePts": 113.42,
+          "awayId": 4,
+          "awayPts": 165.94,
+          "winner": "AWAY"
+        },
+        {
+          "week": 12,
+          "isPlayoff": false,
+          "homeId": 11,
+          "homePts": 107.78,
+          "awayId": 12,
+          "awayPts": 91.88,
+          "winner": "HOME"
+        },
+        {
+          "week": 12,
+          "isPlayoff": false,
+          "homeId": 6,
+          "homePts": 135.38,
+          "awayId": 7,
+          "awayPts": 110.76,
+          "winner": "HOME"
+        },
+        {
+          "week": 12,
+          "isPlayoff": false,
+          "homeId": 9,
+          "homePts": 127.1,
+          "awayId": 1,
+          "awayPts": 120.4,
+          "winner": "HOME"
+        },
+        {
+          "week": 13,
+          "isPlayoff": false,
+          "homeId": 5,
+          "homePts": 170.8,
+          "awayId": 12,
+          "awayPts": 107.92,
+          "winner": "HOME"
+        },
+        {
+          "week": 13,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 103.22,
+          "awayId": 6,
+          "awayPts": 83.88,
+          "winner": "HOME"
+        },
+        {
+          "week": 13,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 103.42,
+          "awayId": 8,
+          "awayPts": 107.56,
+          "winner": "AWAY"
+        },
+        {
+          "week": 13,
+          "isPlayoff": false,
+          "homeId": 4,
+          "homePts": 165.46,
+          "awayId": 7,
+          "awayPts": 99.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 13,
+          "isPlayoff": false,
+          "homeId": 9,
+          "homePts": 173.28,
+          "awayId": 11,
+          "awayPts": 136.34,
+          "winner": "HOME"
+        },
+        {
+          "week": 14,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 117.48,
+          "awayId": 7,
+          "awayPts": 109.42,
+          "winner": "HOME"
+        },
+        {
+          "week": 14,
+          "isPlayoff": false,
+          "homeId": 9,
+          "homePts": 132.32,
+          "awayId": 4,
+          "awayPts": 118.34,
+          "winner": "HOME"
+        },
+        {
+          "week": 14,
+          "isPlayoff": false,
+          "homeId": 11,
+          "homePts": 137.52,
+          "awayId": 10,
+          "awayPts": 115.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 14,
+          "isPlayoff": false,
+          "homeId": 8,
+          "homePts": 99.82,
+          "awayId": 5,
+          "awayPts": 133.54,
+          "winner": "AWAY"
+        },
+        {
+          "week": 14,
+          "isPlayoff": false,
+          "homeId": 12,
+          "homePts": 90.34,
+          "awayId": 6,
+          "awayPts": 95.14,
+          "winner": "AWAY"
+        },
+        {
+          "week": 15,
+          "isPlayoff": true,
+          "homeId": 10,
+          "homePts": 98.56,
+          "awayId": 5,
+          "awayPts": 118.42,
+          "winner": "AWAY"
+        },
+        {
+          "week": 15,
+          "isPlayoff": true,
+          "homeId": 1,
+          "homePts": 120.62,
+          "awayId": 11,
+          "awayPts": 113.54,
+          "winner": "HOME"
+        },
+        {
+          "week": 15,
+          "isPlayoff": true,
+          "homeId": 8,
+          "homePts": 113.28,
+          "awayId": 6,
+          "awayPts": 126.16,
+          "winner": "AWAY"
+        },
+        {
+          "week": 15,
+          "isPlayoff": true,
+          "homeId": 7,
+          "homePts": 144.46,
+          "awayId": 9,
+          "awayPts": 101.36,
+          "winner": "HOME"
+        },
+        {
+          "week": 16,
+          "isPlayoff": true,
+          "homeId": 4,
+          "homePts": 122.62,
+          "awayId": 5,
+          "awayPts": 122.88,
+          "winner": "AWAY"
+        },
+        {
+          "week": 16,
+          "isPlayoff": true,
+          "homeId": 1,
+          "homePts": 136.04,
+          "awayId": 6,
+          "awayPts": 101.84,
+          "winner": "HOME"
+        },
+        {
+          "week": 16,
+          "isPlayoff": true,
+          "homeId": 8,
+          "homePts": 105.2,
+          "awayId": 10,
+          "awayPts": 110.12,
+          "winner": "AWAY"
+        },
+        {
+          "week": 16,
+          "isPlayoff": true,
+          "homeId": 7,
+          "homePts": 105.58,
+          "awayId": 12,
+          "awayPts": 154.08,
+          "winner": "AWAY"
+        },
+        {
+          "week": 17,
+          "isPlayoff": true,
+          "homeId": 1,
+          "homePts": 150.38,
+          "awayId": 5,
+          "awayPts": 123.2,
+          "winner": "HOME"
+        },
+        {
+          "week": 17,
+          "isPlayoff": true,
+          "homeId": 4,
+          "homePts": 96.7,
+          "awayId": 6,
+          "awayPts": 88.92,
+          "winner": "HOME"
+        },
+        {
+          "week": 17,
+          "isPlayoff": true,
+          "homeId": 10,
+          "homePts": 105.48,
+          "awayId": 11,
+          "awayPts": 132.42,
+          "winner": "AWAY"
+        },
+        {
+          "week": 17,
+          "isPlayoff": true,
+          "homeId": 9,
+          "homePts": 123.94,
+          "awayId": 12,
+          "awayPts": 162.34,
+          "winner": "AWAY"
+        }
+      ]
+    },
+    {
+      "season": 2025,
+      "league": "No Punt Intended",
+      "size": 10,
+      "regWeeks": 14,
+      "divisions": [
+        "Teeth/No Teeth"
+      ],
+      "teams": [
+        {
+          "id": 1,
+          "name": "Mr. Morningstar",
+          "abbrev": "LUX",
+          "person": "Sanay",
+          "regRank": 5,
+          "playoffRank": 3,
+          "wins": 7,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1662.34,
+          "pointsAgainst": 1489.9,
+          "division": "Teeth/No Teeth"
+        },
+        {
+          "id": 4,
+          "name": "Teeth",
+          "abbrev": "T",
+          "person": "Viraaj",
+          "regRank": 1,
+          "playoffRank": 2,
+          "wins": 9,
+          "losses": 5,
+          "ties": 0,
+          "pointsFor": 1799.48,
+          "pointsAgainst": 1551.52,
+          "division": "Teeth/No Teeth"
+        },
+        {
+          "id": 5,
+          "name": "Olive Garden",
+          "abbrev": "Oliv",
+          "person": "Jai",
+          "regRank": 8,
+          "playoffRank": 10,
+          "wins": 7,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1555.8,
+          "pointsAgainst": 1594.8,
+          "division": "Teeth/No Teeth"
+        },
+        {
+          "id": 6,
+          "name": "Last Place Race",
+          "abbrev": "SC",
+          "person": "Cyrus",
+          "regRank": 7,
+          "playoffRank": 4,
+          "wins": 7,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1574.24,
+          "pointsAgainst": 1627.76,
+          "division": "Teeth/No Teeth"
+        },
+        {
+          "id": 7,
+          "name": "Chris olave",
+          "abbrev": "I.I.",
+          "person": "Charles",
+          "regRank": 4,
+          "playoffRank": 5,
+          "wins": 7,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1683.04,
+          "pointsAgainst": 1626.46,
+          "division": "Teeth/No Teeth"
+        },
+        {
+          "id": 9,
+          "name": "Dat N*bba",
+          "abbrev": "NI",
+          "person": "Ahan",
+          "regRank": 2,
+          "playoffRank": 7,
+          "wins": 8,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 1894.94,
+          "pointsAgainst": 1830.5,
+          "division": "Teeth/No Teeth"
+        },
+        {
+          "id": 10,
+          "name": "Project X",
+          "abbrev": "AERO",
+          "person": "Aarav",
+          "regRank": 10,
+          "playoffRank": 9,
+          "wins": 4,
+          "losses": 10,
+          "ties": 0,
+          "pointsFor": 1490.2,
+          "pointsAgainst": 1707.42,
+          "division": "Teeth/No Teeth"
+        },
+        {
+          "id": 11,
+          "name": "Saquons Big Fat Brock",
+          "abbrev": "Arav",
+          "person": "Arav",
+          "regRank": 3,
+          "playoffRank": 6,
+          "wins": 8,
+          "losses": 6,
+          "ties": 0,
+          "pointsFor": 1738.24,
+          "pointsAgainst": 1659.02,
+          "division": "Teeth/No Teeth"
+        },
+        {
+          "id": 12,
+          "name": "Lil Fetus Fantasy",
+          "abbrev": "LFF",
+          "person": "Sami",
+          "regRank": 6,
+          "playoffRank": 1,
+          "wins": 7,
+          "losses": 7,
+          "ties": 0,
+          "pointsFor": 1598.14,
+          "pointsAgainst": 1739.34,
+          "division": "Teeth/No Teeth"
+        },
+        {
+          "id": 13,
+          "name": "Ceedeez Nuts",
+          "abbrev": "CN",
+          "person": "Ansuman",
+          "regRank": 9,
+          "playoffRank": 8,
+          "wins": 6,
+          "losses": 8,
+          "ties": 0,
+          "pointsFor": 1486.28,
+          "pointsAgainst": 1655.98,
+          "division": "Teeth/No Teeth"
+        }
+      ],
+      "draftPicks": [
+        {
+          "round": 1,
+          "overall": 1,
+          "teamId": 1,
+          "team": "Mr. Morningstar",
+          "person": "Sanay",
+          "player": "Ja'Marr Chase",
+          "pos": "WR"
+        },
+        {
+          "round": 1,
+          "overall": 2,
+          "teamId": 12,
+          "team": "Lil Fetus Fantasy",
+          "person": "Sami",
+          "player": "Bijan Robinson",
+          "pos": "RB"
+        },
+        {
+          "round": 1,
+          "overall": 3,
+          "teamId": 11,
+          "team": "Saquons Big Fat Brock",
+          "person": "Arav",
+          "player": "Saquon Barkley",
+          "pos": "RB"
+        },
+        {
+          "round": 1,
+          "overall": 4,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Justin Jefferson",
+          "pos": "WR"
+        },
+        {
+          "round": 1,
+          "overall": 5,
+          "teamId": 7,
+          "team": "Chris olave",
+          "person": "Charles",
+          "player": "Jahmyr Gibbs",
+          "pos": "RB"
+        },
+        {
+          "round": 1,
+          "overall": 6,
+          "teamId": 13,
+          "team": "Ceedeez Nuts",
+          "person": "Ansuman",
+          "player": "CeeDee Lamb",
+          "pos": "WR"
+        },
+        {
+          "round": 1,
+          "overall": 7,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Christian McCaffrey",
+          "pos": "RB"
+        },
+        {
+          "round": 1,
+          "overall": 8,
+          "teamId": 4,
+          "team": "Teeth",
+          "person": "Viraaj",
+          "player": "Puka Nacua",
+          "pos": "WR"
+        },
+        {
+          "round": 1,
+          "overall": 9,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Amon-Ra St. Brown",
+          "pos": "WR"
+        },
+        {
+          "round": 1,
+          "overall": 10,
+          "teamId": 10,
+          "team": "Project X",
+          "person": "Aarav",
+          "player": "De'Von Achane",
+          "pos": "RB"
+        },
+        {
+          "round": 2,
+          "overall": 11,
+          "teamId": 10,
+          "team": "Project X",
+          "person": "Aarav",
+          "player": "Malik Nabers",
+          "pos": "WR"
+        },
+        {
+          "round": 2,
+          "overall": 12,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Nico Collins",
+          "pos": "WR"
+        },
+        {
+          "round": 2,
+          "overall": 13,
+          "teamId": 4,
+          "team": "Teeth",
+          "person": "Viraaj",
+          "player": "Jonathan Taylor",
+          "pos": "RB"
+        },
+        {
+          "round": 2,
+          "overall": 14,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Ashton Jeanty",
+          "pos": "RB"
+        },
+        {
+          "round": 2,
+          "overall": 15,
+          "teamId": 13,
+          "team": "Ceedeez Nuts",
+          "person": "Ansuman",
+          "player": "Brian Thomas Jr.",
+          "pos": "WR"
+        },
+        {
+          "round": 2,
+          "overall": 16,
+          "teamId": 7,
+          "team": "Chris olave",
+          "person": "Charles",
+          "player": "A.J. Brown",
+          "pos": "WR"
+        },
+        {
+          "round": 2,
+          "overall": 17,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Josh Jacobs",
+          "pos": "RB"
+        },
+        {
+          "round": 2,
+          "overall": 18,
+          "teamId": 11,
+          "team": "Saquons Big Fat Brock",
+          "person": "Arav",
+          "player": "Brock Bowers",
+          "pos": "TE"
+        },
+        {
+          "round": 2,
+          "overall": 19,
+          "teamId": 12,
+          "team": "Lil Fetus Fantasy",
+          "person": "Sami",
+          "player": "Drake London",
+          "pos": "WR"
+        },
+        {
+          "round": 2,
+          "overall": 20,
+          "teamId": 1,
+          "team": "Mr. Morningstar",
+          "person": "Sanay",
+          "player": "Derrick Henry",
+          "pos": "RB"
+        },
+        {
+          "round": 3,
+          "overall": 21,
+          "teamId": 1,
+          "team": "Mr. Morningstar",
+          "person": "Sanay",
+          "player": "Tee Higgins",
+          "pos": "WR"
+        },
+        {
+          "round": 3,
+          "overall": 22,
+          "teamId": 12,
+          "team": "Lil Fetus Fantasy",
+          "person": "Sami",
+          "player": "Bucky Irving",
+          "pos": "RB"
+        },
+        {
+          "round": 3,
+          "overall": 23,
+          "teamId": 11,
+          "team": "Saquons Big Fat Brock",
+          "person": "Arav",
+          "player": "Ladd McConkey",
+          "pos": "WR"
+        },
+        {
+          "round": 3,
+          "overall": 24,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Trey McBride",
+          "pos": "TE"
+        },
+        {
+          "round": 3,
+          "overall": 25,
+          "teamId": 7,
+          "team": "Chris olave",
+          "person": "Charles",
+          "player": "Kyren Williams",
+          "pos": "RB"
+        },
+        {
+          "round": 3,
+          "overall": 26,
+          "teamId": 13,
+          "team": "Ceedeez Nuts",
+          "person": "Ansuman",
+          "player": "Chase Brown",
+          "pos": "RB"
+        },
+        {
+          "round": 3,
+          "overall": 27,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Josh Allen",
+          "pos": "QB"
+        },
+        {
+          "round": 3,
+          "overall": 28,
+          "teamId": 4,
+          "team": "Teeth",
+          "person": "Viraaj",
+          "player": "Tyreek Hill",
+          "pos": "WR"
+        },
+        {
+          "round": 3,
+          "overall": 29,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Davante Adams",
+          "pos": "WR"
+        },
+        {
+          "round": 3,
+          "overall": 30,
+          "teamId": 10,
+          "team": "Project X",
+          "person": "Aarav",
+          "player": "Lamar Jackson",
+          "pos": "QB"
+        },
+        {
+          "round": 4,
+          "overall": 31,
+          "teamId": 10,
+          "team": "Project X",
+          "person": "Aarav",
+          "player": "Omarion Hampton",
+          "pos": "RB"
+        },
+        {
+          "round": 4,
+          "overall": 32,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Jayden Daniels",
+          "pos": "QB"
+        },
+        {
+          "round": 4,
+          "overall": 33,
+          "teamId": 4,
+          "team": "Teeth",
+          "person": "Viraaj",
+          "player": "Jalen Hurts",
+          "pos": "QB"
+        },
+        {
+          "round": 4,
+          "overall": 34,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Jaxon Smith-Njigba",
+          "pos": "WR"
+        },
+        {
+          "round": 4,
+          "overall": 35,
+          "teamId": 13,
+          "team": "Ceedeez Nuts",
+          "person": "Ansuman",
+          "player": "Kenneth Walker III",
+          "pos": "RB"
+        },
+        {
+          "round": 4,
+          "overall": 36,
+          "teamId": 7,
+          "team": "Chris olave",
+          "person": "Charles",
+          "player": "James Cook III",
+          "pos": "RB"
+        },
+        {
+          "round": 4,
+          "overall": 37,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Garrett Wilson",
+          "pos": "WR"
+        },
+        {
+          "round": 4,
+          "overall": 38,
+          "teamId": 11,
+          "team": "Saquons Big Fat Brock",
+          "person": "Arav",
+          "player": "Breece Hall",
+          "pos": "RB"
+        },
+        {
+          "round": 4,
+          "overall": 39,
+          "teamId": 12,
+          "team": "Lil Fetus Fantasy",
+          "person": "Sami",
+          "player": "Mike Evans",
+          "pos": "WR"
+        },
+        {
+          "round": 4,
+          "overall": 40,
+          "teamId": 1,
+          "team": "Mr. Morningstar",
+          "person": "Sanay",
+          "player": "Terry McLaurin",
+          "pos": "WR"
+        },
+        {
+          "round": 5,
+          "overall": 41,
+          "teamId": 1,
+          "team": "Mr. Morningstar",
+          "person": "Sanay",
+          "player": "Alvin Kamara",
+          "pos": "RB"
+        },
+        {
+          "round": 5,
+          "overall": 42,
+          "teamId": 12,
+          "team": "Lil Fetus Fantasy",
+          "person": "Sami",
+          "player": "DK Metcalf",
+          "pos": "WR"
+        },
+        {
+          "round": 5,
+          "overall": 43,
+          "teamId": 11,
+          "team": "Saquons Big Fat Brock",
+          "person": "Arav",
+          "player": "Marvin Harrison Jr.",
+          "pos": "WR"
+        },
+        {
+          "round": 5,
+          "overall": 44,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "James Conner",
+          "pos": "RB"
+        },
+        {
+          "round": 5,
+          "overall": 45,
+          "teamId": 7,
+          "team": "Chris olave",
+          "person": "Charles",
+          "player": "Joe Burrow",
+          "pos": "QB"
+        },
+        {
+          "round": 5,
+          "overall": 46,
+          "teamId": 13,
+          "team": "Ceedeez Nuts",
+          "person": "Ansuman",
+          "player": "George Kittle",
+          "pos": "TE"
+        },
+        {
+          "round": 5,
+          "overall": 47,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Chuba Hubbard",
+          "pos": "RB"
+        },
+        {
+          "round": 5,
+          "overall": 48,
+          "teamId": 4,
+          "team": "Teeth",
+          "person": "Viraaj",
+          "player": "D'Andre Swift",
+          "pos": "RB"
+        },
+        {
+          "round": 5,
+          "overall": 49,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Joe Mixon",
+          "pos": "RB"
+        },
+        {
+          "round": 5,
+          "overall": 50,
+          "teamId": 10,
+          "team": "Project X",
+          "person": "Aarav",
+          "player": "DJ Moore",
+          "pos": "WR"
+        },
+        {
+          "round": 6,
+          "overall": 51,
+          "teamId": 10,
+          "team": "Project X",
+          "person": "Aarav",
+          "player": "DeVonta Smith",
+          "pos": "WR"
+        },
+        {
+          "round": 6,
+          "overall": 52,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Sam LaPorta",
+          "pos": "TE"
+        },
+        {
+          "round": 6,
+          "overall": 53,
+          "teamId": 4,
+          "team": "Teeth",
+          "person": "Viraaj",
+          "player": "T.J. Hockenson",
+          "pos": "TE"
+        },
+        {
+          "round": 6,
+          "overall": 54,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Xavier Worthy",
+          "pos": "WR"
+        },
+        {
+          "round": 6,
+          "overall": 55,
+          "teamId": 13,
+          "team": "Ceedeez Nuts",
+          "person": "Ansuman",
+          "player": "Courtland Sutton",
+          "pos": "WR"
+        },
+        {
+          "round": 6,
+          "overall": 56,
+          "teamId": 7,
+          "team": "Chris olave",
+          "person": "Charles",
+          "player": "Zay Flowers",
+          "pos": "WR"
+        },
+        {
+          "round": 6,
+          "overall": 57,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Calvin Ridley",
+          "pos": "WR"
+        },
+        {
+          "round": 6,
+          "overall": 58,
+          "teamId": 11,
+          "team": "Saquons Big Fat Brock",
+          "person": "Arav",
+          "player": "Jerry Jeudy",
+          "pos": "WR"
+        },
+        {
+          "round": 6,
+          "overall": 59,
+          "teamId": 12,
+          "team": "Lil Fetus Fantasy",
+          "person": "Sami",
+          "player": "Baker Mayfield",
+          "pos": "QB"
+        },
+        {
+          "round": 6,
+          "overall": 60,
+          "teamId": 1,
+          "team": "Mr. Morningstar",
+          "person": "Sanay",
+          "player": "Jaylen Waddle",
+          "pos": "WR"
+        },
+        {
+          "round": 7,
+          "overall": 61,
+          "teamId": 1,
+          "team": "Mr. Morningstar",
+          "person": "Sanay",
+          "player": "Rashee Rice",
+          "pos": "WR"
+        },
+        {
+          "round": 7,
+          "overall": 62,
+          "teamId": 12,
+          "team": "Lil Fetus Fantasy",
+          "person": "Sami",
+          "player": "Jameson Williams",
+          "pos": "WR"
+        },
+        {
+          "round": 7,
+          "overall": 63,
+          "teamId": 11,
+          "team": "Saquons Big Fat Brock",
+          "person": "Arav",
+          "player": "Tetairoa McMillan",
+          "pos": "WR"
+        },
+        {
+          "round": 7,
+          "overall": 64,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Travis Hunter",
+          "pos": "WR"
+        },
+        {
+          "round": 7,
+          "overall": 65,
+          "teamId": 7,
+          "team": "Chris olave",
+          "person": "Charles",
+          "player": "George Pickens",
+          "pos": "WR"
+        },
+        {
+          "round": 7,
+          "overall": 66,
+          "teamId": 13,
+          "team": "Ceedeez Nuts",
+          "person": "Ansuman",
+          "player": "Aaron Jones Sr.",
+          "pos": "RB"
+        },
+        {
+          "round": 7,
+          "overall": 67,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "David Montgomery",
+          "pos": "RB"
+        },
+        {
+          "round": 7,
+          "overall": 68,
+          "teamId": 4,
+          "team": "Teeth",
+          "person": "Viraaj",
+          "player": "TreVeyon Henderson",
+          "pos": "RB"
+        },
+        {
+          "round": 7,
+          "overall": 69,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "RJ Harvey",
+          "pos": "RB"
+        },
+        {
+          "round": 7,
+          "overall": 70,
+          "teamId": 10,
+          "team": "Project X",
+          "person": "Aarav",
+          "player": "Rome Odunze",
+          "pos": "WR"
+        },
+        {
+          "round": 8,
+          "overall": 71,
+          "teamId": 10,
+          "team": "Project X",
+          "person": "Aarav",
+          "player": "Isiah Pacheco",
+          "pos": "RB"
+        },
+        {
+          "round": 8,
+          "overall": 72,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Cooper Kupp",
+          "pos": "WR"
+        },
+        {
+          "round": 8,
+          "overall": 73,
+          "teamId": 4,
+          "team": "Teeth",
+          "person": "Viraaj",
+          "player": "Chris Olave",
+          "pos": "WR"
+        },
+        {
+          "round": 8,
+          "overall": 74,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Kaleb Johnson",
+          "pos": "RB"
+        },
+        {
+          "round": 8,
+          "overall": 75,
+          "teamId": 13,
+          "team": "Ceedeez Nuts",
+          "person": "Ansuman",
+          "player": "Patrick Mahomes",
+          "pos": "QB"
+        },
+        {
+          "round": 8,
+          "overall": 76,
+          "teamId": 7,
+          "team": "Chris olave",
+          "person": "Charles",
+          "player": "Chris Godwin Jr.",
+          "pos": "WR"
+        },
+        {
+          "round": 8,
+          "overall": 77,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Tony Pollard",
+          "pos": "RB"
+        },
+        {
+          "round": 8,
+          "overall": 78,
+          "teamId": 11,
+          "team": "Saquons Big Fat Brock",
+          "person": "Arav",
+          "player": "Jordan Addison",
+          "pos": "WR"
+        },
+        {
+          "round": 8,
+          "overall": 79,
+          "teamId": 12,
+          "team": "Lil Fetus Fantasy",
+          "person": "Sami",
+          "player": "Jakobi Meyers",
+          "pos": "WR"
+        },
+        {
+          "round": 8,
+          "overall": 80,
+          "teamId": 1,
+          "team": "Mr. Morningstar",
+          "person": "Sanay",
+          "player": "Brian Robinson Jr.",
+          "pos": "RB"
+        },
+        {
+          "round": 9,
+          "overall": 81,
+          "teamId": 1,
+          "team": "Mr. Morningstar",
+          "person": "Sanay",
+          "player": "Kyler Murray",
+          "pos": "QB"
+        },
+        {
+          "round": 9,
+          "overall": 82,
+          "teamId": 12,
+          "team": "Lil Fetus Fantasy",
+          "person": "Sami",
+          "player": "Mark Andrews",
+          "pos": "TE"
+        },
+        {
+          "round": 9,
+          "overall": 83,
+          "teamId": 11,
+          "team": "Saquons Big Fat Brock",
+          "person": "Arav",
+          "player": "Tyrone Tracy Jr.",
+          "pos": "RB"
+        },
+        {
+          "round": 9,
+          "overall": 84,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Travis Kelce",
+          "pos": "TE"
+        },
+        {
+          "round": 9,
+          "overall": 85,
+          "teamId": 7,
+          "team": "Chris olave",
+          "person": "Charles",
+          "player": "David Njoku",
+          "pos": "TE"
+        },
+        {
+          "round": 9,
+          "overall": 86,
+          "teamId": 13,
+          "team": "Ceedeez Nuts",
+          "person": "Ansuman",
+          "player": "Javonte Williams",
+          "pos": "RB"
+        },
+        {
+          "round": 9,
+          "overall": 87,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Evan Engram",
+          "pos": "TE"
+        },
+        {
+          "round": 9,
+          "overall": 88,
+          "teamId": 4,
+          "team": "Teeth",
+          "person": "Viraaj",
+          "player": "Stefon Diggs",
+          "pos": "WR"
+        },
+        {
+          "round": 9,
+          "overall": 89,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Matthew Golden",
+          "pos": "WR"
+        },
+        {
+          "round": 9,
+          "overall": 90,
+          "teamId": 10,
+          "team": "Project X",
+          "person": "Aarav",
+          "player": "Deebo Samuel",
+          "pos": "WR"
+        },
+        {
+          "round": 10,
+          "overall": 91,
+          "teamId": 10,
+          "team": "Project X",
+          "person": "Aarav",
+          "player": "J.K. Dobbins",
+          "pos": "RB"
+        },
+        {
+          "round": 10,
+          "overall": 92,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Bo Nix",
+          "pos": "QB"
+        },
+        {
+          "round": 10,
+          "overall": 93,
+          "teamId": 4,
+          "team": "Teeth",
+          "person": "Viraaj",
+          "player": "Jaylen Warren",
+          "pos": "RB"
+        },
+        {
+          "round": 10,
+          "overall": 94,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Khalil Shakir",
+          "pos": "WR"
+        },
+        {
+          "round": 10,
+          "overall": 95,
+          "teamId": 13,
+          "team": "Ceedeez Nuts",
+          "person": "Ansuman",
+          "player": "Michael Pittman Jr.",
+          "pos": "WR"
+        },
+        {
+          "round": 10,
+          "overall": 96,
+          "teamId": 7,
+          "team": "Chris olave",
+          "person": "Charles",
+          "player": "Brock Purdy",
+          "pos": "QB"
+        },
+        {
+          "round": 10,
+          "overall": 97,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Rhamondre Stevenson",
+          "pos": "RB"
+        },
+        {
+          "round": 10,
+          "overall": 98,
+          "teamId": 11,
+          "team": "Saquons Big Fat Brock",
+          "person": "Arav",
+          "player": "Ricky Pearsall",
+          "pos": "WR"
+        },
+        {
+          "round": 10,
+          "overall": 99,
+          "teamId": 12,
+          "team": "Lil Fetus Fantasy",
+          "person": "Sami",
+          "player": "Cam Skattebo",
+          "pos": "RB"
+        },
+        {
+          "round": 10,
+          "overall": 100,
+          "teamId": 1,
+          "team": "Mr. Morningstar",
+          "person": "Sanay",
+          "player": "Tucker Kraft",
+          "pos": "TE"
+        },
+        {
+          "round": 11,
+          "overall": 101,
+          "teamId": 1,
+          "team": "Mr. Morningstar",
+          "person": "Sanay",
+          "player": "Keon Coleman",
+          "pos": "WR"
+        },
+        {
+          "round": 11,
+          "overall": 102,
+          "teamId": 12,
+          "team": "Lil Fetus Fantasy",
+          "person": "Sami",
+          "player": "Jauan Jennings",
+          "pos": "WR"
+        },
+        {
+          "round": 11,
+          "overall": 103,
+          "teamId": 11,
+          "team": "Saquons Big Fat Brock",
+          "person": "Arav",
+          "player": "Josh Downs",
+          "pos": "WR"
+        },
+        {
+          "round": 11,
+          "overall": 104,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Jayden Reed",
+          "pos": "WR"
+        },
+        {
+          "round": 11,
+          "overall": 105,
+          "teamId": 7,
+          "team": "Chris olave",
+          "person": "Charles",
+          "player": "Justin Herbert",
+          "pos": "QB"
+        },
+        {
+          "round": 11,
+          "overall": 106,
+          "teamId": 13,
+          "team": "Ceedeez Nuts",
+          "person": "Ansuman",
+          "player": "Darnell Mooney",
+          "pos": "WR"
+        },
+        {
+          "round": 11,
+          "overall": 107,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Emeka Egbuka",
+          "pos": "WR"
+        },
+        {
+          "round": 11,
+          "overall": 108,
+          "teamId": 4,
+          "team": "Teeth",
+          "person": "Viraaj",
+          "player": "Jayden Higgins",
+          "pos": "WR"
+        },
+        {
+          "round": 11,
+          "overall": 109,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Caleb Williams",
+          "pos": "QB"
+        },
+        {
+          "round": 11,
+          "overall": 110,
+          "teamId": 10,
+          "team": "Project X",
+          "person": "Aarav",
+          "player": "Rashid Shaheed",
+          "pos": "WR"
+        },
+        {
+          "round": 12,
+          "overall": 111,
+          "teamId": 10,
+          "team": "Project X",
+          "person": "Aarav",
+          "player": "Dallas Goedert",
+          "pos": "TE"
+        },
+        {
+          "round": 12,
+          "overall": 112,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Dak Prescott",
+          "pos": "QB"
+        },
+        {
+          "round": 12,
+          "overall": 113,
+          "teamId": 4,
+          "team": "Teeth",
+          "person": "Viraaj",
+          "player": "Dalton Kincaid",
+          "pos": "TE"
+        },
+        {
+          "round": 12,
+          "overall": 114,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Austin Ekeler",
+          "pos": "RB"
+        },
+        {
+          "round": 12,
+          "overall": 115,
+          "teamId": 13,
+          "team": "Ceedeez Nuts",
+          "person": "Ansuman",
+          "player": "Justin Fields",
+          "pos": "QB"
+        },
+        {
+          "round": 12,
+          "overall": 116,
+          "teamId": 7,
+          "team": "Chris olave",
+          "person": "Charles",
+          "player": "Keenan Allen",
+          "pos": "WR"
+        },
+        {
+          "round": 12,
+          "overall": 117,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Jared Goff",
+          "pos": "QB"
+        },
+        {
+          "round": 12,
+          "overall": 118,
+          "teamId": 11,
+          "team": "Saquons Big Fat Brock",
+          "person": "Arav",
+          "player": "Travis Etienne Jr.",
+          "pos": "RB"
+        },
+        {
+          "round": 12,
+          "overall": 119,
+          "teamId": 12,
+          "team": "Lil Fetus Fantasy",
+          "person": "Sami",
+          "player": "Tyjae Spears",
+          "pos": "RB"
+        },
+        {
+          "round": 12,
+          "overall": 120,
+          "teamId": 1,
+          "team": "Mr. Morningstar",
+          "person": "Sanay",
+          "player": "Quinshon Judkins",
+          "pos": "RB"
+        },
+        {
+          "round": 13,
+          "overall": 121,
+          "teamId": 1,
+          "team": "Mr. Morningstar",
+          "person": "Sanay",
+          "player": "Adam Thielen",
+          "pos": "WR"
+        },
+        {
+          "round": 13,
+          "overall": 122,
+          "teamId": 12,
+          "team": "Lil Fetus Fantasy",
+          "person": "Sami",
+          "player": "Xavier Legette",
+          "pos": "WR"
+        },
+        {
+          "round": 13,
+          "overall": 123,
+          "teamId": 11,
+          "team": "Saquons Big Fat Brock",
+          "person": "Arav",
+          "player": "Jordan Mason",
+          "pos": "RB"
+        },
+        {
+          "round": 13,
+          "overall": 124,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Jerome Ford",
+          "pos": "RB"
+        },
+        {
+          "round": 13,
+          "overall": 125,
+          "teamId": 7,
+          "team": "Chris olave",
+          "person": "Charles",
+          "player": "Tank Bigsby",
+          "pos": "RB"
+        },
+        {
+          "round": 13,
+          "overall": 126,
+          "teamId": 13,
+          "team": "Ceedeez Nuts",
+          "person": "Ansuman",
+          "player": "Rachaad White",
+          "pos": "RB"
+        },
+        {
+          "round": 13,
+          "overall": 127,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Zach Charbonnet",
+          "pos": "RB"
+        },
+        {
+          "round": 13,
+          "overall": 128,
+          "teamId": 4,
+          "team": "Teeth",
+          "person": "Viraaj",
+          "player": "Trey Benson",
+          "pos": "RB"
+        },
+        {
+          "round": 13,
+          "overall": 129,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Colston Loveland",
+          "pos": "TE"
+        },
+        {
+          "round": 13,
+          "overall": 130,
+          "teamId": 10,
+          "team": "Project X",
+          "person": "Aarav",
+          "player": "Kyle Pitts Sr.",
+          "pos": "TE"
+        },
+        {
+          "round": 14,
+          "overall": 131,
+          "teamId": 10,
+          "team": "Project X",
+          "person": "Aarav",
+          "player": "Cedric Tillman",
+          "pos": "WR"
+        },
+        {
+          "round": 14,
+          "overall": 132,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Jake Ferguson",
+          "pos": "TE"
+        },
+        {
+          "round": 14,
+          "overall": 133,
+          "teamId": 4,
+          "team": "Teeth",
+          "person": "Viraaj",
+          "player": "Najee Harris",
+          "pos": "RB"
+        },
+        {
+          "round": 14,
+          "overall": 134,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Brandon Aiyuk",
+          "pos": "WR"
+        },
+        {
+          "round": 14,
+          "overall": 135,
+          "teamId": 13,
+          "team": "Ceedeez Nuts",
+          "person": "Ansuman",
+          "player": "Tyler Warren",
+          "pos": "TE"
+        },
+        {
+          "round": 14,
+          "overall": 136,
+          "teamId": 7,
+          "team": "Chris olave",
+          "person": "Charles",
+          "player": "Drake Maye",
+          "pos": "QB"
+        },
+        {
+          "round": 14,
+          "overall": 137,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Jordan Love",
+          "pos": "QB"
+        },
+        {
+          "round": 14,
+          "overall": 138,
+          "teamId": 11,
+          "team": "Saquons Big Fat Brock",
+          "person": "Arav",
+          "player": "Dylan Sampson",
+          "pos": "RB"
+        },
+        {
+          "round": 14,
+          "overall": 139,
+          "teamId": 12,
+          "team": "Lil Fetus Fantasy",
+          "person": "Sami",
+          "player": "Hunter Henry",
+          "pos": "TE"
+        },
+        {
+          "round": 14,
+          "overall": 140,
+          "teamId": 1,
+          "team": "Mr. Morningstar",
+          "person": "Sanay",
+          "player": "Cam Ward",
+          "pos": "QB"
+        },
+        {
+          "round": 15,
+          "overall": 141,
+          "teamId": 1,
+          "team": "Mr. Morningstar",
+          "person": "Sanay",
+          "player": "Justice Hill",
+          "pos": "RB"
+        },
+        {
+          "round": 15,
+          "overall": 142,
+          "teamId": 12,
+          "team": "Lil Fetus Fantasy",
+          "person": "Sami",
+          "player": "Brandon Aubrey",
+          "pos": "K"
+        },
+        {
+          "round": 15,
+          "overall": 143,
+          "teamId": 11,
+          "team": "Saquons Big Fat Brock",
+          "person": "Arav",
+          "player": "C.J. Stroud",
+          "pos": "QB"
+        },
+        {
+          "round": 15,
+          "overall": 144,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Tyler Allgeier",
+          "pos": "RB"
+        },
+        {
+          "round": 15,
+          "overall": 145,
+          "teamId": 7,
+          "team": "Chris olave",
+          "person": "Charles",
+          "player": "Hollywood Brown",
+          "pos": "WR"
+        },
+        {
+          "round": 15,
+          "overall": 146,
+          "teamId": 13,
+          "team": "Ceedeez Nuts",
+          "person": "Ansuman",
+          "player": "Marvin Mims Jr.",
+          "pos": "WR"
+        },
+        {
+          "round": 15,
+          "overall": 147,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Jack Bech",
+          "pos": "WR"
+        },
+        {
+          "round": 15,
+          "overall": 148,
+          "teamId": 4,
+          "team": "Teeth",
+          "person": "Viraaj",
+          "player": "Texans D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 15,
+          "overall": 149,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Jaylen Wright",
+          "pos": "RB"
+        },
+        {
+          "round": 15,
+          "overall": 150,
+          "teamId": 10,
+          "team": "Project X",
+          "person": "Aarav",
+          "player": "Ray Davis",
+          "pos": "RB"
+        },
+        {
+          "round": 16,
+          "overall": 151,
+          "teamId": 10,
+          "team": "Project X",
+          "person": "Aarav",
+          "player": "Steelers D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 16,
+          "overall": 152,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Broncos D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 16,
+          "overall": 153,
+          "teamId": 4,
+          "team": "Teeth",
+          "person": "Viraaj",
+          "player": "J.J. McCarthy",
+          "pos": "QB"
+        },
+        {
+          "round": 16,
+          "overall": 154,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Jake Bates",
+          "pos": "K"
+        },
+        {
+          "round": 16,
+          "overall": 155,
+          "teamId": 13,
+          "team": "Ceedeez Nuts",
+          "person": "Ansuman",
+          "player": "Ravens D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 16,
+          "overall": 156,
+          "teamId": 7,
+          "team": "Chris olave",
+          "person": "Charles",
+          "player": "Vikings D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 16,
+          "overall": 157,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Cameron Dicker",
+          "pos": "K"
+        },
+        {
+          "round": 16,
+          "overall": 158,
+          "teamId": 11,
+          "team": "Saquons Big Fat Brock",
+          "person": "Arav",
+          "player": "Seahawks D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 16,
+          "overall": 159,
+          "teamId": 12,
+          "team": "Lil Fetus Fantasy",
+          "person": "Sami",
+          "player": "Lions D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 16,
+          "overall": 160,
+          "teamId": 1,
+          "team": "Mr. Morningstar",
+          "person": "Sanay",
+          "player": "Chase McLaughlin",
+          "pos": "K"
+        },
+        {
+          "round": 17,
+          "overall": 161,
+          "teamId": 1,
+          "team": "Mr. Morningstar",
+          "person": "Sanay",
+          "player": "Patriots D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 17,
+          "overall": 162,
+          "teamId": 12,
+          "team": "Lil Fetus Fantasy",
+          "person": "Sami",
+          "player": "Younghoe Koo",
+          "pos": "K"
+        },
+        {
+          "round": 17,
+          "overall": 163,
+          "teamId": 11,
+          "team": "Saquons Big Fat Brock",
+          "person": "Arav",
+          "player": "Jake Elliott",
+          "pos": "K"
+        },
+        {
+          "round": 17,
+          "overall": 164,
+          "teamId": 6,
+          "team": "Last Place Race",
+          "person": "Cyrus",
+          "player": "Bills D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 17,
+          "overall": 165,
+          "teamId": 7,
+          "team": "Chris olave",
+          "person": "Charles",
+          "player": "Jason Sanders",
+          "pos": "K"
+        },
+        {
+          "round": 17,
+          "overall": 166,
+          "teamId": 13,
+          "team": "Ceedeez Nuts",
+          "person": "Ansuman",
+          "player": "Tyler Bass",
+          "pos": "K"
+        },
+        {
+          "round": 17,
+          "overall": 167,
+          "teamId": 9,
+          "team": "Dat N*bba",
+          "person": "Ahan",
+          "player": "Eagles D/ST",
+          "pos": "D/ST"
+        },
+        {
+          "round": 17,
+          "overall": 168,
+          "teamId": 4,
+          "team": "Teeth",
+          "person": "Viraaj",
+          "player": "Chris Boswell",
+          "pos": "K"
+        },
+        {
+          "round": 17,
+          "overall": 169,
+          "teamId": 5,
+          "team": "Olive Garden",
+          "person": "Jai",
+          "player": "Harrison Butker",
+          "pos": "K"
+        },
+        {
+          "round": 17,
+          "overall": 170,
+          "teamId": 10,
+          "team": "Project X",
+          "person": "Aarav",
+          "player": "Cam Little",
+          "pos": "K"
+        }
+      ],
+      "schedule": [
+        {
+          "week": 1,
+          "isPlayoff": false,
+          "homeId": 4,
+          "homePts": 116.28,
+          "awayId": 5,
+          "awayPts": 92.32,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "isPlayoff": false,
+          "homeId": 13,
+          "homePts": 96.62,
+          "awayId": 12,
+          "awayPts": 108.98,
+          "winner": "AWAY"
+        },
+        {
+          "week": 1,
+          "isPlayoff": false,
+          "homeId": 11,
+          "homePts": 146.3,
+          "awayId": 10,
+          "awayPts": 111.06,
+          "winner": "HOME"
+        },
+        {
+          "week": 1,
+          "isPlayoff": false,
+          "homeId": 6,
+          "homePts": 99.62,
+          "awayId": 9,
+          "awayPts": 125.36,
+          "winner": "AWAY"
+        },
+        {
+          "week": 1,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 107.52,
+          "awayId": 1,
+          "awayPts": 99.52,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 126,
+          "awayId": 9,
+          "awayPts": 121.72,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "isPlayoff": false,
+          "homeId": 11,
+          "homePts": 103.08,
+          "awayId": 4,
+          "awayPts": 136.04,
+          "winner": "AWAY"
+        },
+        {
+          "week": 2,
+          "isPlayoff": false,
+          "homeId": 12,
+          "homePts": 151.7,
+          "awayId": 7,
+          "awayPts": 110.54,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "isPlayoff": false,
+          "homeId": 13,
+          "homePts": 127.58,
+          "awayId": 1,
+          "awayPts": 116.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 2,
+          "isPlayoff": false,
+          "homeId": 5,
+          "homePts": 110.1,
+          "awayId": 6,
+          "awayPts": 98.28,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 151.7,
+          "awayId": 13,
+          "awayPts": 55.66,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "isPlayoff": false,
+          "homeId": 9,
+          "homePts": 132.52,
+          "awayId": 5,
+          "awayPts": 101.84,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "isPlayoff": false,
+          "homeId": 11,
+          "homePts": 140.62,
+          "awayId": 6,
+          "awayPts": 97.82,
+          "winner": "HOME"
+        },
+        {
+          "week": 3,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 101.62,
+          "awayId": 12,
+          "awayPts": 130.72,
+          "winner": "AWAY"
+        },
+        {
+          "week": 3,
+          "isPlayoff": false,
+          "homeId": 4,
+          "homePts": 150.34,
+          "awayId": 1,
+          "awayPts": 83.76,
+          "winner": "HOME"
+        },
+        {
+          "week": 4,
+          "isPlayoff": false,
+          "homeId": 4,
+          "homePts": 123.6,
+          "awayId": 9,
+          "awayPts": 172.36,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "isPlayoff": false,
+          "homeId": 6,
+          "homePts": 108.08,
+          "awayId": 12,
+          "awayPts": 157.46,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 94.32,
+          "awayId": 10,
+          "awayPts": 120.18,
+          "winner": "AWAY"
+        },
+        {
+          "week": 4,
+          "isPlayoff": false,
+          "homeId": 11,
+          "homePts": 138.98,
+          "awayId": 5,
+          "awayPts": 122.44,
+          "winner": "HOME"
+        },
+        {
+          "week": 4,
+          "isPlayoff": false,
+          "homeId": 13,
+          "homePts": 117.5,
+          "awayId": 1,
+          "awayPts": 105.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 5,
+          "isPlayoff": false,
+          "homeId": 9,
+          "homePts": 164.52,
+          "awayId": 5,
+          "awayPts": 169.84,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 100.16,
+          "awayId": 4,
+          "awayPts": 139.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 5,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 118.54,
+          "awayId": 11,
+          "awayPts": 96.02,
+          "winner": "HOME"
+        },
+        {
+          "week": 5,
+          "isPlayoff": false,
+          "homeId": 12,
+          "homePts": 118.86,
+          "awayId": 13,
+          "awayPts": 115.12,
+          "winner": "HOME"
+        },
+        {
+          "week": 5,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 129.5,
+          "awayId": 6,
+          "awayPts": 98.78,
+          "winner": "HOME"
+        },
+        {
+          "week": 6,
+          "isPlayoff": false,
+          "homeId": 5,
+          "homePts": 139.36,
+          "awayId": 7,
+          "awayPts": 118.96,
+          "winner": "HOME"
+        },
+        {
+          "week": 6,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 91.62,
+          "awayId": 6,
+          "awayPts": 75.56,
+          "winner": "HOME"
+        },
+        {
+          "week": 6,
+          "isPlayoff": false,
+          "homeId": 9,
+          "homePts": 118.6,
+          "awayId": 12,
+          "awayPts": 157.84,
+          "winner": "AWAY"
+        },
+        {
+          "week": 6,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 85.04,
+          "awayId": 11,
+          "awayPts": 119.38,
+          "winner": "AWAY"
+        },
+        {
+          "week": 6,
+          "isPlayoff": false,
+          "homeId": 4,
+          "homePts": 118.72,
+          "awayId": 13,
+          "awayPts": 112.08,
+          "winner": "HOME"
+        },
+        {
+          "week": 7,
+          "isPlayoff": false,
+          "homeId": 9,
+          "homePts": 148.72,
+          "awayId": 7,
+          "awayPts": 142.58,
+          "winner": "HOME"
+        },
+        {
+          "week": 7,
+          "isPlayoff": false,
+          "homeId": 4,
+          "homePts": 177.84,
+          "awayId": 11,
+          "awayPts": 90.68,
+          "winner": "HOME"
+        },
+        {
+          "week": 7,
+          "isPlayoff": false,
+          "homeId": 6,
+          "homePts": 124.36,
+          "awayId": 5,
+          "awayPts": 86.34,
+          "winner": "HOME"
+        },
+        {
+          "week": 7,
+          "isPlayoff": false,
+          "homeId": 12,
+          "homePts": 104.92,
+          "awayId": 1,
+          "awayPts": 178.58,
+          "winner": "AWAY"
+        },
+        {
+          "week": 7,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 93.76,
+          "awayId": 13,
+          "awayPts": 103.54,
+          "winner": "AWAY"
+        },
+        {
+          "week": 8,
+          "isPlayoff": false,
+          "homeId": 13,
+          "homePts": 102.86,
+          "awayId": 11,
+          "awayPts": 136.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 8,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 117.08,
+          "awayId": 6,
+          "awayPts": 147.78,
+          "winner": "AWAY"
+        },
+        {
+          "week": 8,
+          "isPlayoff": false,
+          "homeId": 12,
+          "homePts": 94.28,
+          "awayId": 4,
+          "awayPts": 145.56,
+          "winner": "AWAY"
+        },
+        {
+          "week": 8,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 141.52,
+          "awayId": 9,
+          "awayPts": 57.22,
+          "winner": "HOME"
+        },
+        {
+          "week": 8,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 62.4,
+          "awayId": 5,
+          "awayPts": 91.08,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 105.5,
+          "awayId": 4,
+          "awayPts": 115.92,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 140.56,
+          "awayId": 1,
+          "awayPts": 118.64,
+          "winner": "HOME"
+        },
+        {
+          "week": 9,
+          "isPlayoff": false,
+          "homeId": 5,
+          "homePts": 131.12,
+          "awayId": 12,
+          "awayPts": 116.58,
+          "winner": "HOME"
+        },
+        {
+          "week": 9,
+          "isPlayoff": false,
+          "homeId": 11,
+          "homePts": 157.06,
+          "awayId": 9,
+          "awayPts": 160.12,
+          "winner": "AWAY"
+        },
+        {
+          "week": 9,
+          "isPlayoff": false,
+          "homeId": 6,
+          "homePts": 121.84,
+          "awayId": 13,
+          "awayPts": 106.5,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "isPlayoff": false,
+          "homeId": 5,
+          "homePts": 108,
+          "awayId": 13,
+          "awayPts": 97.66,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 120.24,
+          "awayId": 7,
+          "awayPts": 132.3,
+          "winner": "AWAY"
+        },
+        {
+          "week": 10,
+          "isPlayoff": false,
+          "homeId": 6,
+          "homePts": 134.78,
+          "awayId": 9,
+          "awayPts": 143.54,
+          "winner": "AWAY"
+        },
+        {
+          "week": 10,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 119.7,
+          "awayId": 11,
+          "awayPts": 93.1,
+          "winner": "HOME"
+        },
+        {
+          "week": 10,
+          "isPlayoff": false,
+          "homeId": 12,
+          "homePts": 98.02,
+          "awayId": 4,
+          "awayPts": 153.02,
+          "winner": "AWAY"
+        },
+        {
+          "week": 11,
+          "isPlayoff": false,
+          "homeId": 12,
+          "homePts": 103.82,
+          "awayId": 11,
+          "awayPts": 111.84,
+          "winner": "AWAY"
+        },
+        {
+          "week": 11,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 112.3,
+          "awayId": 5,
+          "awayPts": 96.92,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 93.54,
+          "awayId": 6,
+          "awayPts": 107.36,
+          "winner": "AWAY"
+        },
+        {
+          "week": 11,
+          "isPlayoff": false,
+          "homeId": 9,
+          "homePts": 150.28,
+          "awayId": 10,
+          "awayPts": 82.72,
+          "winner": "HOME"
+        },
+        {
+          "week": 11,
+          "isPlayoff": false,
+          "homeId": 13,
+          "homePts": 114.74,
+          "awayId": 4,
+          "awayPts": 113.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 12,
+          "isPlayoff": false,
+          "homeId": 5,
+          "homePts": 119.46,
+          "awayId": 10,
+          "awayPts": 104.92,
+          "winner": "HOME"
+        },
+        {
+          "week": 12,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 140.22,
+          "awayId": 12,
+          "awayPts": 74.62,
+          "winner": "HOME"
+        },
+        {
+          "week": 12,
+          "isPlayoff": false,
+          "homeId": 6,
+          "homePts": 116.26,
+          "awayId": 4,
+          "awayPts": 97.96,
+          "winner": "HOME"
+        },
+        {
+          "week": 12,
+          "isPlayoff": false,
+          "homeId": 9,
+          "homePts": 147.92,
+          "awayId": 7,
+          "awayPts": 172.86,
+          "winner": "AWAY"
+        },
+        {
+          "week": 12,
+          "isPlayoff": false,
+          "homeId": 11,
+          "homePts": 110.36,
+          "awayId": 13,
+          "awayPts": 116.18,
+          "winner": "AWAY"
+        },
+        {
+          "week": 13,
+          "isPlayoff": false,
+          "homeId": 13,
+          "homePts": 133.64,
+          "awayId": 9,
+          "awayPts": 114.02,
+          "winner": "HOME"
+        },
+        {
+          "week": 13,
+          "isPlayoff": false,
+          "homeId": 10,
+          "homePts": 112.14,
+          "awayId": 6,
+          "awayPts": 125.06,
+          "winner": "AWAY"
+        },
+        {
+          "week": 13,
+          "isPlayoff": false,
+          "homeId": 12,
+          "homePts": 84.74,
+          "awayId": 11,
+          "awayPts": 135.38,
+          "winner": "AWAY"
+        },
+        {
+          "week": 13,
+          "isPlayoff": false,
+          "homeId": 1,
+          "homePts": 149.62,
+          "awayId": 4,
+          "awayPts": 95.3,
+          "winner": "HOME"
+        },
+        {
+          "week": 13,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 111.44,
+          "awayId": 5,
+          "awayPts": 93.94,
+          "winner": "HOME"
+        },
+        {
+          "week": 14,
+          "isPlayoff": false,
+          "homeId": 4,
+          "homePts": 116,
+          "awayId": 6,
+          "awayPts": 118.66,
+          "winner": "AWAY"
+        },
+        {
+          "week": 14,
+          "isPlayoff": false,
+          "homeId": 9,
+          "homePts": 138.04,
+          "awayId": 13,
+          "awayPts": 86.6,
+          "winner": "HOME"
+        },
+        {
+          "week": 14,
+          "isPlayoff": false,
+          "homeId": 11,
+          "homePts": 158.84,
+          "awayId": 10,
+          "awayPts": 122.82,
+          "winner": "HOME"
+        },
+        {
+          "week": 14,
+          "isPlayoff": false,
+          "homeId": 5,
+          "homePts": 93.04,
+          "awayId": 12,
+          "awayPts": 95.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 14,
+          "isPlayoff": false,
+          "homeId": 7,
+          "homePts": 106.16,
+          "awayId": 1,
+          "awayPts": 82.14,
+          "winner": "HOME"
+        },
+        {
+          "week": 15,
+          "isPlayoff": true,
+          "homeId": 7,
+          "homePts": 93,
+          "awayId": 1,
+          "awayPts": 114.02,
+          "winner": "AWAY"
+        },
+        {
+          "week": 15,
+          "isPlayoff": true,
+          "homeId": 11,
+          "homePts": 152.8,
+          "awayId": 12,
+          "awayPts": 158.6,
+          "winner": "AWAY"
+        },
+        {
+          "week": 15,
+          "isPlayoff": true,
+          "homeId": 9,
+          "homePts": 128.72,
+          "awayId": 6,
+          "awayPts": 142.04,
+          "winner": "AWAY"
+        },
+        {
+          "week": 15,
+          "isPlayoff": true,
+          "homeId": 5,
+          "homePts": 137.86,
+          "awayId": 13,
+          "awayPts": 91.56,
+          "winner": "HOME"
+        },
+        {
+          "week": 16,
+          "isPlayoff": true,
+          "homeId": 4,
+          "homePts": 178.7,
+          "awayId": 1,
+          "awayPts": 132.38,
+          "winner": "HOME"
+        },
+        {
+          "week": 16,
+          "isPlayoff": true,
+          "homeId": 12,
+          "homePts": 169.3,
+          "awayId": 6,
+          "awayPts": 88.12,
+          "winner": "HOME"
+        },
+        {
+          "week": 16,
+          "isPlayoff": true,
+          "homeId": 9,
+          "homePts": 78.1,
+          "awayId": 11,
+          "awayPts": 110.9,
+          "winner": "AWAY"
+        },
+        {
+          "week": 16,
+          "isPlayoff": true,
+          "homeId": 5,
+          "homePts": 86.18,
+          "awayId": 10,
+          "awayPts": 94.68,
+          "winner": "AWAY"
+        },
+        {
+          "week": 17,
+          "isPlayoff": true,
+          "homeId": 4,
+          "homePts": 111,
+          "awayId": 12,
+          "awayPts": 125.22,
+          "winner": "AWAY"
+        },
+        {
+          "week": 17,
+          "isPlayoff": true,
+          "homeId": 1,
+          "homePts": 138.86,
+          "awayId": 6,
+          "awayPts": 115.32,
+          "winner": "HOME"
+        },
+        {
+          "week": 17,
+          "isPlayoff": true,
+          "homeId": 11,
+          "homePts": 114.24,
+          "awayId": 7,
+          "awayPts": 125.1,
+          "winner": "AWAY"
+        },
+        {
+          "week": 17,
+          "isPlayoff": true,
+          "homeId": 13,
+          "homePts": 109.78,
+          "awayId": 10,
+          "awayPts": 72.26,
+          "winner": "HOME"
+        }
+      ]
+    }
+  ]
+}

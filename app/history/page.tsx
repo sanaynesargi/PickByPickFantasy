@@ -17,7 +17,7 @@ import {
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import HistoryIcon from "@mui/icons-material/History";
-import { HISTORY, ACTIVE_MANAGERS, winPct, recordStr, type StandingRow } from "@/lib/history-data";
+import { HISTORY, ACTIVE_MANAGERS, leagueSeason, winPct, recordStr, type StandingRow } from "@/lib/history-data";
 import { careers, correlations, medalTally } from "@/lib/history-stats";
 import { MEDAL } from "../theme";
 import PickAverages from "../components/PickAverages";
@@ -134,9 +134,15 @@ export default function HistoryPage() {
 }
 
 function SeasonView({ data, onPerson }: { data: (typeof HISTORY)[number]; onPerson: (m: string) => void }) {
+  // Round-1 player each team drafted (from ESPN; absent for the Sleeper 2024 season).
+  const r1 = new Map<number, { player: string; pos: string }>();
+  leagueSeason(data.season)?.draftPicks
+    .filter((p) => p.round === 1)
+    .forEach((p) => r1.set(p.overall, { player: p.player, pos: p.pos }));
   const rows = data.draftOrder.map((p) => ({
     ...p,
     s: data.standings.find((st) => st.team === p.team),
+    drafted: r1.get(p.pick),
   }));
   const champ = data.standings.find((s) => s.playoffRank === 1);
 
@@ -170,7 +176,7 @@ function SeasonView({ data, onPerson }: { data: (typeof HISTORY)[number]; onPers
           <Typography variant="caption" color="text.secondary">pick · reg / playoff finish</Typography>
         </Stack>
         <Stack spacing={1}>
-          {rows.map(({ pick, team, manager, s }) => {
+          {rows.map(({ pick, team, manager, s, drafted }) => {
             const medal = medalColor(s?.playoffRank);
             return (
               <Card key={pick}
@@ -208,6 +214,13 @@ function SeasonView({ data, onPerson }: { data: (typeof HISTORY)[number]; onPers
                       <> · <span className="num">{s.pointsFor.toFixed(0)}</span> PF</>
                     )}
                   </Typography>
+                  {drafted && (
+                    <Typography variant="caption" noWrap component="div"
+                      sx={{ color: "primary.light", fontWeight: 600 }}>
+                      1.{String(pick).padStart(2, "0")} · {drafted.player}
+                      {drafted.pos ? ` · ${drafted.pos}` : ""}
+                    </Typography>
+                  )}
                 </Box>
                 {s && (
                   <Stack alignItems="flex-end" spacing={0.6} sx={{ flexShrink: 0 }}>
