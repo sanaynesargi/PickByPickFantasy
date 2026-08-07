@@ -140,6 +140,10 @@ const g = (week: number, homeId: number, homePts: number, awayId: number, awayPt
   week, isPlayoff: false, homeId, homePts, awayId, awayPts,
   winner: homePts > awayPts ? "HOME" : awayPts > homePts ? "AWAY" : "TIE",
 });
+// playoff/bracket game (championship + toilet bowl), weeks 15-17
+const p = (week: number, homeId: number, homePts: number, awayId: number, awayPts: number): LeagueGame => ({
+  ...g(week, homeId, homePts, awayId, awayPts), isPlayoff: true,
+});
 // person -> team id: Ahan 1, Ansuman 2, Viraaj 3, Jai 4, Aarav 5, Charles 6,
 // Sami 7, Sanay 8, Cyrus 9, Arav 10.
 const SLEEPER_2024_RICH: LeagueSeason = {
@@ -174,6 +178,14 @@ const SLEEPER_2024_RICH: LeagueSeason = {
     g(11, 8, 120.08, 2, 136.34), g(11, 1, 150.48, 3, 107.84), g(11, 9, 105.68, 10, 101.50), g(11, 6, 91.84, 5, 159.98), g(11, 4, 117.38, 7, 120.74),
     g(12, 8, 105.28, 5, 134.00), g(12, 1, 87.88, 9, 88.66), g(12, 10, 124.18, 3, 124.06), g(12, 4, 112.48, 2, 109.46), g(12, 6, 129.70, 7, 114.28),
     g(14, 8, 152.80, 3, 163.60), g(14, 1, 183.38, 4, 132.42), g(14, 10, 128.38, 5, 158.96), g(14, 7, 103.04, 9, 92.70), g(14, 6, 43.10, 2, 118.32),
+    // --- Playoffs (championship bracket + toilet bowl), from Sleeper brackets ---
+    // Wk15 R1: Ahan had a first-round bye
+    p(15, 4, 123.80, 5, 115.46), p(15, 2, 146.50, 7, 142.24), p(15, 3, 117.86, 6, 121.54),
+    p(15, 10, 120.14, 9, 100.72), // toilet bowl final (last place): Arav over Cyrus
+    // Wk16 semis + 5th-place semi
+    p(16, 1, 130.76, 4, 122.98), p(16, 2, 171.14, 6, 134.82), p(16, 7, 126.08, 3, 143.90),
+    // Wk17 finals: championship, 3rd place, 5th place
+    p(17, 1, 145.58, 2, 142.88), p(17, 4, 148.32, 6, 91.88), p(17, 5, 122.84, 3, 119.10),
   ],
 };
 
