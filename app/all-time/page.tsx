@@ -8,6 +8,7 @@ import {
 import { ACTIVE_MANAGERS } from "@/lib/history-data";
 import { careers, correlations, medalTally } from "@/lib/history-stats";
 import PickAverages from "../components/PickAverages";
+import SeasonRecords from "../components/SeasonRecords";
 import PageNav from "../components/PageNav";
 import PersonDialog from "../history/PersonDialog";
 
@@ -95,6 +96,9 @@ export default function AllTimePage() {
               reg fin = regular-season finish · PO fin = playoff finish · 🏆/🥈/🥉 = playoff podiums
             </Typography>
           </Box>
+
+          {/* Single-season records */}
+          <SeasonRecords />
 
           {/* Draft-pick correlations */}
           <Box>

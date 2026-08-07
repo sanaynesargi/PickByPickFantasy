@@ -131,6 +131,42 @@ export function rivalry(a: string, b: string): Rivalry {
   return { a, b, aWins, bWins, ties, aPf, bPf, games };
 }
 
+export type SeasonRecord = {
+  person: string; season: number; wins: number; losses: number; ties: number; regRank: number;
+};
+export type Collapse = {
+  person: string;
+  from: SeasonRecord;
+  to: SeasonRecord;
+  drop: number; // wins lost year-over-year
+};
+
+// Single-season superlatives across every season (2022 to 2025).
+export function seasonRecords(): { bestRecord: SeasonRecord[]; biggestCollapse: Collapse[] } {
+  const all: SeasonRecord[] = [];
+  for (const s of RICH_SEASONS)
+    for (const t of s.teams)
+      all.push({ person: t.person, season: s.season, wins: t.wins, losses: t.losses, ties: t.ties, regRank: t.regRank });
+
+  const pct = (r: SeasonRecord) => r.wins / (r.wins + r.losses + r.ties || 1);
+  const bestRecord = [...all]
+    .sort((a, b) => pct(b) - pct(a) || b.wins - a.wins || a.losses - b.losses)
+    .slice(0, 5);
+
+  const byPerson: Record<string, SeasonRecord[]> = {};
+  for (const r of all) (byPerson[r.person] ||= []).push(r);
+  const collapses: Collapse[] = [];
+  for (const p in byPerson) {
+    const arr = byPerson[p].sort((a, b) => a.season - b.season);
+    for (let i = 1; i < arr.length; i++)
+      if (arr[i].season === arr[i - 1].season + 1)
+        collapses.push({ person: p, from: arr[i - 1], to: arr[i], drop: arr[i - 1].wins - arr[i].wins });
+  }
+  const biggestCollapse = collapses.filter((c) => c.drop > 0).sort((a, b) => b.drop - a.drop).slice(0, 5);
+
+  return { bestRecord, biggestCollapse };
+}
+
 export type GameLog = {
   season: number; week: number; isPlayoff: boolean;
   pts: number; oppPts: number; opp: string; result: "W" | "L" | "T";
