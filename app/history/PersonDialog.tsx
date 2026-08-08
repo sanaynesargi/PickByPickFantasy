@@ -73,9 +73,11 @@ function FinishChart({ seasons }: { seasons: ReturnType<typeof personSeasons> })
                 <title>{`${s.season} · playoff ${ordinal(s.po)}`}</title>
               </circle>
             )}
-            <circle cx={xFor(i)} cy={yFor(s.rank)} r={4} fill={REG} stroke="#242019" strokeWidth={2}>
-              <title>{`${s.season} · reg ${ordinal(s.rank)} · ${s.team}`}</title>
-            </circle>
+            {s.rank !== undefined && (
+              <circle cx={xFor(i)} cy={yFor(s.rank)} r={4} fill={REG} stroke="#242019" strokeWidth={2}>
+                <title>{`${s.season} · reg ${ordinal(s.rank)} · ${s.team}`}</title>
+              </circle>
+            )}
           </g>
         ))}
       </svg>
@@ -198,10 +200,10 @@ export default function PersonDialog({
                           <Box component="td" className="num" sx={{ ...td, textAlign: "left", fontFamily: "var(--font-display)", fontWeight: 700 }}>{s.season}</Box>
                           <Box component="td" sx={{ ...td, textAlign: "left", maxWidth: 130, overflow: "hidden", textOverflow: "ellipsis" }}>{s.team}</Box>
                           <Box component="td" sx={td}>{rec(s)}</Box>
-                          <Box component="td" sx={td}>{ordinal(s.rank)}</Box>
+                          <Box component="td" sx={td}>{s.rank !== undefined ? ordinal(s.rank) : "·"}</Box>
                           <Box component="td" sx={td}>{s.po !== undefined ? ordinal(s.po) : "·"}</Box>
                           <Box component="td" sx={td}>{s.pf !== undefined ? s.pf.toFixed(0) : "·"}</Box>
-                          <Box component="td" sx={td}>{s.pick}</Box>
+                          <Box component="td" sx={td}>{s.pick ?? "·"}</Box>
                         </Box>
                       ))}
                     </Box>

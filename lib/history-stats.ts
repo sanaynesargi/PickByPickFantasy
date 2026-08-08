@@ -8,13 +8,13 @@ import { HISTORY, RICH_SEASONS, winPct } from "./history-data";
 
 export type FlatRecord = {
   season: number;
-  pick: number;
+  pick?: number; // undefined for a mid-season replacement who didn't draft
   manager: string;
   team: string;
   wins: number;
   losses: number;
   ties: number;
-  rank: number; // regular-season finish
+  rank?: number; // regular-season finish; undefined for a partial (mid-season) stint
   po?: number; // playoff finish
   pf?: number;
   pa?: number;
@@ -45,6 +45,33 @@ export function flatten(): FlatRecord[] {
         pd: pf !== undefined && pa !== undefined ? pf - pa : undefined,
       });
     }
+  }
+
+  // Mid-season handoffs: split the finisher's team-season into the finisher's
+  // portion (keeps finish + draft pick) and the leaver's partial (record only).
+  for (const h of MANAGER_HANDOFFS) {
+    const s = RICH_SEASONS.find((x) => x.season === h.season);
+    const team = s?.teams.find((t) => t.id === h.teamId);
+    if (!s || !team) continue;
+    const idx = out.findIndex((r) => r.season === h.season && r.team === team.name);
+    if (idx < 0) continue;
+    const pre = { wins: 0, losses: 0, ties: 0, pf: 0, pa: 0 };
+    const post = { wins: 0, losses: 0, ties: 0, pf: 0, pa: 0 };
+    for (const g of s.schedule) {
+      if (g.isPlayoff || g.winner === "UNDECIDED") continue; // regular season only (matches standings W-L)
+      const home = g.homeId === h.teamId;
+      if (!home && g.awayId !== h.teamId) continue;
+      const my = home ? g.homePts : g.awayPts;
+      const opp = home ? g.awayPts : g.homePts;
+      const b = g.week <= h.throughWeek ? pre : post;
+      b.pf += my; b.pa += opp;
+      if (my > opp) b.wins++; else if (my < opp) b.losses++; else b.ties++;
+    }
+    const base = out[idx];
+    // finisher keeps rank/po/pick; record + points shrink to the post-handoff portion
+    out[idx] = { ...base, wins: post.wins, losses: post.losses, ties: post.ties, pf: post.pf, pa: post.pa, pd: post.pf - post.pa };
+    // leaver: partial record only, no finish or draft pick
+    out.push({ season: h.season, manager: h.person, team: team.name, pick: undefined, rank: undefined, po: undefined, wins: pre.wins, losses: pre.losses, ties: pre.ties, pf: pre.pf, pa: pre.pa, pd: pre.pf - pre.pa });
   }
   return out;
 }
@@ -246,6 +273,8 @@ export function careers(): Career[] {
     const losses = sum(rs.map((r) => r.losses));
     const ties = sum(rs.map((r) => r.ties));
     const pos = rs.map((r) => r.po).filter((v): v is number => v !== undefined);
+    const ranks = rs.map((r) => r.rank).filter((v): v is number => v !== undefined);
+    const picks = rs.map((r) => r.pick).filter((v): v is number => v !== undefined);
     res.push({
       manager,
       seasons: rs.length,
@@ -253,10 +282,10 @@ export function careers(): Career[] {
       losses,
       ties,
       winPct: winPct({ wins, losses, ties }),
-      avgFinish: avg(rs.map((r) => r.rank)),
+      avgFinish: avg(ranks),
       avgPlayoff: pos.length ? avg(pos) : undefined,
-      avgPick: avg(rs.map((r) => r.pick)),
-      bestFinish: Math.min(...rs.map((r) => r.rank)),
+      avgPick: avg(picks),
+      bestFinish: ranks.length ? Math.min(...ranks) : 0,
       firsts: rs.filter((r) => r.rank === 1).length,
       titles: rs.filter((r) => r.po === 1).length,
       seconds: rs.filter((r) => r.po === 2).length,
@@ -279,8 +308,8 @@ export type PickAvg = {
 };
 
 export function perPick(): PickAvg[] {
-  const recs = flatten();
-  const picks = [...new Set(recs.map((r) => r.pick))].sort((a, b) => a - b);
+  const recs = flatten().filter((r) => r.pick !== undefined);
+  const picks = [...new Set(recs.map((r) => r.pick as number))].sort((a, b) => a - b);
   return picks.map((pick) => {
     const rs = recs.filter((r) => r.pick === pick);
     const pts = rs.filter((r) => r.pd !== undefined);
@@ -289,7 +318,7 @@ export function perPick(): PickAvg[] {
       pick,
       n: rs.length,
       avgWins: avg(rs.map((r) => r.wins)),
-      avgFinish: avg(rs.map((r) => r.rank)),
+      avgFinish: avg(rs.map((r) => r.rank).filter((v): v is number => v !== undefined)),
       avgPlayoff: pos.length ? avg(pos) : undefined,
       nPts: pts.length,
       avgPf: pts.length ? avg(pts.map((r) => r.pf!)) : undefined,
@@ -323,12 +352,12 @@ export type Corr = { label: string; r: number | null; n: number };
 
 // Correlation of draft pick number vs each outcome (lower pick = earlier).
 export function correlations(): Corr[] {
-  const recs = flatten();
+  const recs = flatten().filter((r) => r.pick !== undefined);
   const pts = recs.filter((r) => r.pd !== undefined);
   return [
-    { label: "Wins", r: pearson(recs.map((r) => r.pick), recs.map((r) => r.wins)), n: recs.length },
-    { label: "Points for", r: pearson(pts.map((r) => r.pick), pts.map((r) => r.pf!)), n: pts.length },
-    { label: "Points against", r: pearson(pts.map((r) => r.pick), pts.map((r) => r.pa!)), n: pts.length },
-    { label: "Point diff.", r: pearson(pts.map((r) => r.pick), pts.map((r) => r.pd!)), n: pts.length },
+    { label: "Wins", r: pearson(recs.map((r) => r.pick!), recs.map((r) => r.wins)), n: recs.length },
+    { label: "Points for", r: pearson(pts.map((r) => r.pick!), pts.map((r) => r.pf!)), n: pts.length },
+    { label: "Points against", r: pearson(pts.map((r) => r.pick!), pts.map((r) => r.pa!)), n: pts.length },
+    { label: "Point diff.", r: pearson(pts.map((r) => r.pick!), pts.map((r) => r.pd!)), n: pts.length },
   ];
 }
