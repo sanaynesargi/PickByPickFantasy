@@ -59,6 +59,20 @@ export function medalTally(c: { titles: number; seconds: number; thirds: number 
     .join(" ");
 }
 
+// Mid-season manager changes. A team's games up to and including `throughWeek`
+// count for `person` in the per-game views (head-to-head, rivalries, game log).
+// Season-level records/standings stay with the team's finishing owner.
+const MANAGER_HANDOFFS: { season: number; teamId: number; throughWeek: number; person: string }[] = [
+  // Ansuman ran the New England Jit (team 12) for weeks 1-7 of 2022 before
+  // leaving the league that year; Charles took over from week 8. The 2022
+  // season line stays with Charles (he finished it and made the playoffs).
+  { season: 2022, teamId: 12, throughWeek: 7, person: "Ansuman" },
+];
+function personOnWeek(base: Map<number, string>, season: number, teamId: number, week: number): string | undefined {
+  const h = MANAGER_HANDOFFS.find((x) => x.season === season && x.teamId === teamId && week <= x.throughWeek);
+  return h ? h.person : base.get(teamId);
+}
+
 export type H2H = {
   opponent: string;
   wins: number; losses: number; ties: number;
@@ -72,8 +86,8 @@ export function headToHead(person: string): H2H[] {
     const personByTeam = new Map(s.teams.map((t) => [t.id, t.person]));
     for (const g of s.schedule) {
       if (g.winner === "UNDECIDED") continue;
-      const hp = personByTeam.get(g.homeId);
-      const ap = personByTeam.get(g.awayId);
+      const hp = personOnWeek(personByTeam, s.season, g.homeId, g.week);
+      const ap = personOnWeek(personByTeam, s.season, g.awayId, g.week);
       if (!hp || !ap) continue;
       let opp: string, myPts: number, oppPts: number, res: "W" | "L" | "T";
       if (hp === person) {
@@ -112,8 +126,8 @@ export function rivalry(a: string, b: string): Rivalry {
     const pById = new Map(s.teams.map((t) => [t.id, t.person]));
     for (const g of s.schedule) {
       if (g.winner === "UNDECIDED") continue;
-      const hp = pById.get(g.homeId);
-      const ap = pById.get(g.awayId);
+      const hp = personOnWeek(pById, s.season, g.homeId, g.week);
+      const ap = personOnWeek(pById, s.season, g.awayId, g.week);
       let aPts: number, bPts: number, winner: "A" | "B" | "T";
       if (hp === a && ap === b) {
         aPts = g.homePts; bPts = g.awayPts;
@@ -179,8 +193,8 @@ export function gameLog(person: string): GameLog[] {
     const pById = new Map(s.teams.map((t) => [t.id, t.person]));
     for (const g of s.schedule) {
       if (g.winner === "UNDECIDED") continue;
-      const hp = pById.get(g.homeId);
-      const ap = pById.get(g.awayId);
+      const hp = personOnWeek(pById, s.season, g.homeId, g.week);
+      const ap = personOnWeek(pById, s.season, g.awayId, g.week);
       let pts: number, oppPts: number, opp: string | undefined, result: "W" | "L" | "T";
       if (hp === person) {
         pts = g.homePts; oppPts = g.awayPts; opp = ap;
