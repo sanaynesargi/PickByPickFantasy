@@ -48,12 +48,12 @@ function teamPersonMap(season: number): Map<number, string> {
   return new Map((s?.teams ?? []).map((t) => [t.id, t.person]));
 }
 
-export type FavPlayer = { name: string; pts: number; starts: number; ppg: number };
+export type FavPlayer = { name: string; pts: number; starts: number; ppg: number; seasons: number[] };
 
 // A person's most-productive players across their career, by total points scored
 // while in their STARTING lineup. Honors the 2022 mid-season handoff.
 export function topPlayers(person: string, limit = 5): FavPlayer[] {
-  const agg = new Map<number, { pts: number; starts: number }>();
+  const agg = new Map<number, { pts: number; starts: number; seasons: Set<number> }>();
   for (const season of Object.keys(BX.seasons)) {
     const yr = Number(season);
     const tp = teamPersonMap(yr);
@@ -66,15 +66,15 @@ export function topPlayers(person: string, limit = 5): FavPlayer[] {
         if (owner !== person) continue;
         for (const [pid, slot, pts] of rows) {
           if (!isStarter(slot)) continue;
-          const a = agg.get(pid) ?? { pts: 0, starts: 0 };
-          a.pts += pts; a.starts += 1;
+          const a = agg.get(pid) ?? { pts: 0, starts: 0, seasons: new Set<number>() };
+          a.pts += pts; a.starts += 1; a.seasons.add(yr);
           agg.set(pid, a);
         }
       }
     }
   }
   return [...agg.entries()]
-    .map(([pid, v]) => ({ name: BX.players[pid] || "?", pts: v.pts, starts: v.starts, ppg: v.starts ? v.pts / v.starts : 0 }))
+    .map(([pid, v]) => ({ name: BX.players[pid] || "?", pts: v.pts, starts: v.starts, ppg: v.starts ? v.pts / v.starts : 0, seasons: [...v.seasons].sort((a, b) => a - b) }))
     .sort((a, b) => b.pts - a.pts)
     .slice(0, limit);
 }

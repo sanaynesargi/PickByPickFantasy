@@ -96,10 +96,12 @@ function FinishChart({ seasons }: { seasons: ReturnType<typeof personSeasons> })
   );
 }
 
-function Tile({ label, value }: { label: string; value: string }) {
+function Tile({ label, value, accent }: { label: string; value: string; accent?: boolean }) {
   return (
-    <Box sx={{ flex: 1, textAlign: "center", py: 1.1, px: 0.5, borderRadius: 2, border: "1px solid rgba(255,255,255,0.10)" }}>
-      <Typography className="num" sx={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 18, lineHeight: 1.1 }}>
+    <Box sx={{ flex: 1, textAlign: "center", py: 1.1, px: 0.5, borderRadius: 2,
+      border: "1px solid", borderColor: accent ? "rgba(255,106,26,0.45)" : "rgba(255,255,255,0.10)",
+      bgcolor: accent ? "rgba(255,106,26,0.06)" : "transparent" }}>
+      <Typography className="num" sx={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 18, lineHeight: 1.1, color: accent ? "primary.light" : "text.primary" }}>
         {value}
       </Typography>
       <Typography sx={{ fontSize: 9.5, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "text.secondary" }}>
@@ -179,6 +181,7 @@ export default function PersonDialog({
                   <Tile label="Best reg" value={ordinal(c.bestFinish)} />
                   <Tile label="Avg reg" value={c.avgFinish.toFixed(1)} />
                   <Tile label="Avg PO" value={c.avgPlayoff !== undefined ? c.avgPlayoff.toFixed(1) : "·"} />
+                  {activity && <Tile label="Moves/wk" value={activity.addsPerWeek.toFixed(1)} accent />}
                 </Stack>
                 <Typography variant="overline" sx={{ color: "primary.main", display: "block", mb: 0.5 }}>
                   Finish by season
@@ -187,27 +190,22 @@ export default function PersonDialog({
 
                 {fav.length > 0 && (
                   <Box sx={{ mt: 2 }}>
-                    <Stack direction="row" alignItems="baseline" spacing={1} sx={{ mb: 0.75 }}>
-                      <Typography variant="overline" sx={{ color: "primary.main" }}>Franchise players</Typography>
-                      {activity && (
-                        <Typography variant="caption" color="text.secondary" sx={{ ml: "auto" }} className="num">
-                          {activity.addsPerWeek.toFixed(1)} roster moves/wk
-                        </Typography>
-                      )}
-                    </Stack>
+                    <Typography variant="overline" sx={{ color: "primary.main", display: "block", mb: 0.75 }}>Franchise players</Typography>
                     <Stack spacing={0.5}>
                       {fav.map((p, i) => (
                         <Box key={p.name} sx={{ display: "flex", alignItems: "center", gap: 1, px: 1.25, py: 0.75, borderRadius: 1.5,
                           border: "1px solid", borderColor: i === 0 ? "rgba(255,106,26,0.35)" : "rgba(255,255,255,0.07)",
                           bgcolor: i === 0 ? "rgba(255,106,26,0.05)" : "rgba(255,255,255,0.02)" }}>
-                          <Typography sx={{ fontSize: 14, flexShrink: 0 }}>{i === 0 ? "⭐" : ""}</Typography>
-                          <Typography noWrap sx={{ flexGrow: 1, minWidth: 0, fontFamily: "var(--font-display)", fontWeight: i === 0 ? 800 : 600, fontSize: 14 }}>
-                            {p.name}
-                          </Typography>
-                          <Typography variant="caption" color="text.secondary" className="num" sx={{ flexShrink: 0 }}>
-                            {p.starts} st · {p.ppg.toFixed(1)}/st
-                          </Typography>
-                          <Typography className="num" sx={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 14, width: 52, textAlign: "right", flexShrink: 0, color: i === 0 ? "primary.light" : "text.primary" }}>
+                          <Typography sx={{ fontSize: 14, flexShrink: 0, width: 16 }}>{i === 0 ? "⭐" : ""}</Typography>
+                          <Box sx={{ flexGrow: 1, minWidth: 0 }}>
+                            <Typography noWrap sx={{ fontFamily: "var(--font-display)", fontWeight: i === 0 ? 800 : 600, fontSize: 14, lineHeight: 1.2 }}>
+                              {p.name}
+                            </Typography>
+                            <Typography className="num" sx={{ fontSize: 10, color: "text.secondary", letterSpacing: "0.02em" }}>
+                              {p.seasons.map((y) => `’${String(y).slice(2)}`).join(" ")} · {p.starts} st · {p.ppg.toFixed(1)}/st
+                            </Typography>
+                          </Box>
+                          <Typography className="num" sx={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 15, width: 52, textAlign: "right", flexShrink: 0, color: i === 0 ? "primary.light" : "text.primary" }}>
                             {p.pts.toFixed(0)}
                           </Typography>
                         </Box>
