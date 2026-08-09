@@ -1,0 +1,139 @@
+// Derived analytics over real per-week ESPN boxscores (lib/boxscores.json).
+// Covers the ESPN seasons only (2022, 2023, 2025); 2024 was on Sleeper and has
+// no player-level data. All functions return null / empty when a season lacks
+// boxscores, so callers can gate the UI.
+
+import boxData from "./boxscores.json";
+import { RICH_SEASONS, winPct } from "./history-data";
+import { personForTeamWeek } from "./history-stats";
+
+type Entry = [number, number, number]; // [playerId, lineupSlotId, points]
+const BX = boxData as unknown as { players: Record<string, string>; seasons: Record<string, Record<string, Record<string, Entry[]>>> };
+
+const SLOT_LABEL: Record<number, string> = {
+  0: "QB", 1: "QB", 2: "RB", 3: "RB", 4: "WR", 5: "WR", 6: "TE",
+  16: "D/ST", 17: "K", 20: "BE", 21: "IR", 23: "FLEX",
+};
+const SLOT_ORDER = ["QB", "RB", "WR", "TE", "FLEX", "D/ST", "K"];
+const isStarter = (slot: number) => slot !== 20 && slot !== 21;
+
+export function hasBoxscores(season: number): boolean {
+  return !!BX.seasons[season];
+}
+
+export type BoxPlayer = { name: string; slot: string; starter: boolean; pts: number };
+export type Boxscore = { starters: BoxPlayer[]; bench: BoxPlayer[]; total: number };
+
+// One team's lineup for a given week. `null` if no boxscore data (e.g. 2024).
+export function boxscore(season: number, week: number, teamId: number): Boxscore | null {
+  const rows = BX.seasons[season]?.[week]?.[teamId];
+  if (!rows) return null;
+  const players: BoxPlayer[] = rows.map(([pid, slot, pts]) => ({
+    name: BX.players[pid] || "?",
+    slot: SLOT_LABEL[slot] ?? String(slot),
+    starter: isStarter(slot),
+    pts,
+  }));
+  const starters = players
+    .filter((p) => p.starter)
+    .sort((a, b) => (SLOT_ORDER.indexOf(a.slot) - SLOT_ORDER.indexOf(b.slot)) || b.pts - a.pts);
+  const bench = players.filter((p) => !p.starter).sort((a, b) => b.pts - a.pts);
+  const total = starters.reduce((s, p) => s + p.pts, 0);
+  return { starters, bench, total };
+}
+
+// Team id -> person for a season, from RICH_SEASONS (finisher of the season).
+function teamPersonMap(season: number): Map<number, string> {
+  const s = RICH_SEASONS.find((x) => x.season === season);
+  return new Map((s?.teams ?? []).map((t) => [t.id, t.person]));
+}
+
+export type FavPlayer = { name: string; pts: number; starts: number; ppg: number };
+
+// A person's most-productive players across their career, by total points scored
+// while in their STARTING lineup. Honors the 2022 mid-season handoff.
+export function topPlayers(person: string, limit = 5): FavPlayer[] {
+  const agg = new Map<number, { pts: number; starts: number }>();
+  for (const season of Object.keys(BX.seasons)) {
+    const yr = Number(season);
+    const tp = teamPersonMap(yr);
+    const weeks = BX.seasons[season];
+    for (const week of Object.keys(weeks)) {
+      const wk = Number(week);
+      for (const [teamIdStr, rows] of Object.entries(weeks[week])) {
+        const teamId = Number(teamIdStr);
+        const owner = personForTeamWeek(yr, teamId, wk, tp.get(teamId) ?? "");
+        if (owner !== person) continue;
+        for (const [pid, slot, pts] of rows) {
+          if (!isStarter(slot)) continue;
+          const a = agg.get(pid) ?? { pts: 0, starts: 0 };
+          a.pts += pts; a.starts += 1;
+          agg.set(pid, a);
+        }
+      }
+    }
+  }
+  return [...agg.entries()]
+    .map(([pid, v]) => ({ name: BX.players[pid] || "?", pts: v.pts, starts: v.starts, ppg: v.starts ? v.pts / v.starts : 0 }))
+    .sort((a, b) => b.pts - a.pts)
+    .slice(0, limit);
+}
+
+export function favoritePlayer(person: string): FavPlayer | null {
+  return topPlayers(person, 1)[0] ?? null;
+}
+
+export type ActivitySeason = {
+  season: number; person: string; teamId: number;
+  addsPerWeek: number; totalAdds: number; winPct: number; weeks: number;
+};
+
+// "Activity" = roster churn: players added to the roster from one week to the
+// next (regular season). One row per team-season with that season's win%.
+// Keyed by the finishing manager (matches how the win% plots treat a season).
+export function activityBySeason(): ActivitySeason[] {
+  const out: ActivitySeason[] = [];
+  for (const s of RICH_SEASONS) {
+    const weeksData = BX.seasons[s.season];
+    if (!weeksData) continue; // no boxscores (2024)
+    const regWeeks = [...new Set(s.schedule.filter((g) => !g.isPlayoff).map((g) => g.week))].sort((a, b) => a - b);
+    for (const t of s.teams) {
+      let w = 0, l = 0, ties = 0;
+      for (const g of s.schedule) {
+        if (g.isPlayoff || g.winner === "UNDECIDED") continue;
+        const me = g.homeId === t.id ? g.homePts : g.awayId === t.id ? g.awayPts : null;
+        const opp = g.homeId === t.id ? g.awayPts : g.awayId === t.id ? g.homePts : null;
+        if (me == null || opp == null) continue;
+        if (me > opp) w++; else if (me < opp) l++; else ties++;
+      }
+      let churn = 0, compared = 0;
+      let prev: Set<number> | null = null;
+      for (const week of regWeeks) {
+        const rows = weeksData[week]?.[t.id];
+        if (!rows) continue;
+        const set = new Set(rows.map((r) => r[0]));
+        if (prev) {
+          let added = 0;
+          for (const id of set) if (!prev.has(id)) added++;
+          churn += added; compared++;
+        }
+        prev = set;
+      }
+      out.push({
+        season: s.season, person: t.person, teamId: t.id,
+        addsPerWeek: compared ? churn / compared : 0, totalAdds: churn,
+        winPct: winPct({ wins: w, losses: l, ties }), weeks: compared,
+      });
+    }
+  }
+  return out;
+}
+
+// A person's career activity (avg adds/week across their boxscore seasons).
+export function careerActivity(person: string): { addsPerWeek: number; seasons: number } | null {
+  const mine = activityBySeason().filter((r) => r.person === person && r.weeks > 0);
+  if (!mine.length) return null;
+  const totalAdds = mine.reduce((s, r) => s + r.totalAdds, 0);
+  const totalWeeks = mine.reduce((s, r) => s + r.weeks, 0);
+  return { addsPerWeek: totalWeeks ? totalAdds / totalWeeks : 0, seasons: mine.length };
+}

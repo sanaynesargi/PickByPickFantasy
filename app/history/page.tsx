@@ -14,9 +14,11 @@ import {
   ToggleButtonGroup,
 } from "@mui/material";
 import { HISTORY, leagueSeason, recordStr, type StandingRow, type LeagueSeason } from "@/lib/history-data";
+import { hasBoxscores } from "@/lib/boxscore-stats";
 import { MEDAL } from "../theme";
 import PageNav from "../components/PageNav";
 import PersonDialog from "./PersonDialog";
+import BoxScoreDialog, { type BoxTarget } from "../components/BoxScoreDialog";
 
 function ordinal(n: number) {
   const s = ["th", "st", "nd", "rd"];
@@ -321,6 +323,8 @@ function SeasonScores({ season, onPerson }: { season: LeagueSeason; onPerson: (m
   const meta = new Map(season.teams.map((t) => [t.id, t]));
   const played = season.schedule.filter((g) => g.winner !== "UNDECIDED" && (g.homePts > 0 || g.awayPts > 0));
   const weeks = [...new Set(played.map((g) => g.week))].sort((a, b) => a - b);
+  const boxAvailable = hasBoxscores(season.season);
+  const [box, setBox] = useState<BoxTarget | null>(null);
 
   // season highlights
   let topScore = { pts: 0, person: "", week: 0 };
@@ -340,7 +344,12 @@ function SeasonScores({ season, onPerson }: { season: LeagueSeason; onPerson: (m
 
   return (
     <Box>
-      <Typography variant="overline" sx={{ color: "primary.main", display: "block", mb: 1 }}>Weekly scores</Typography>
+      <Typography variant="overline" sx={{ color: "primary.main", display: "block" }}>Weekly scores</Typography>
+      {boxAvailable && (
+        <Typography variant="caption" color="text.secondary" sx={{ display: "block", mb: 1 }}>
+          Tap a matchup for the full box score · tap a name for their career.
+        </Typography>
+      )}
       <Stack direction="row" spacing={1} sx={{ mb: 2 }}>
         <Card sx={{ flex: 1, px: 1.5, py: 1 }}>
           <Typography sx={{ fontSize: 9.5, fontWeight: 700, letterSpacing: "0.08em", color: "text.secondary" }}>TOP SCORE</Typography>
@@ -367,13 +376,16 @@ function SeasonScores({ season, onPerson }: { season: LeagueSeason; onPerson: (m
                 const homeWin = g.winner === "HOME";
                 const awayWin = g.winner === "AWAY";
                 const cell = (id: number, pts: number, win: boolean) => (
-                  <Box onClick={() => onPerson(meta.get(id)?.person || "")} sx={{ display: "flex", justifyContent: "space-between", flex: 1, minWidth: 0, cursor: "pointer", opacity: win ? 1 : 0.62 }}>
-                    <Typography noWrap sx={{ fontSize: 13, fontWeight: win ? 700 : 500, minWidth: 0 }}>{meta.get(id)?.person}</Typography>
+                  <Box onClick={(e) => { e.stopPropagation(); onPerson(meta.get(id)?.person || ""); }} sx={{ display: "flex", justifyContent: "space-between", flex: 1, minWidth: 0, cursor: "pointer", opacity: win ? 1 : 0.62, "&:hover .nm": { textDecoration: "underline" } }}>
+                    <Typography className="nm" noWrap sx={{ fontSize: 13, fontWeight: win ? 700 : 500, minWidth: 0 }}>{meta.get(id)?.person}</Typography>
                     <Typography className="num" sx={{ fontSize: 13, fontWeight: 700, ml: 1, color: win ? "primary.light" : "text.primary" }}>{pts.toFixed(1)}</Typography>
                   </Box>
                 );
+                const openBox = boxAvailable
+                  ? () => setBox({ season: season.season, week: g.week, isPlayoff: g.isPlayoff, homeId: g.homeId, awayId: g.awayId, homePerson: meta.get(g.homeId)?.person || "", awayPerson: meta.get(g.awayId)?.person || "" })
+                  : undefined;
                 return (
-                  <Box key={i} sx={{ display: "flex", alignItems: "center", gap: 1.25, py: 0.4 }}>
+                  <Box key={i} onClick={openBox} sx={{ display: "flex", alignItems: "center", gap: 1.25, py: 0.4, borderRadius: 1, cursor: openBox ? "pointer" : "default", "&:hover": openBox ? { bgcolor: "rgba(255,255,255,0.04)" } : undefined }}>
                     {cell(g.homeId, g.homePts, homeWin)}
                     <Typography sx={{ fontSize: 10, color: "text.secondary", flexShrink: 0 }}>vs</Typography>
                     {cell(g.awayId, g.awayPts, awayWin)}
@@ -384,6 +396,8 @@ function SeasonScores({ season, onPerson }: { season: LeagueSeason; onPerson: (m
           );
         })}
       </Stack>
+
+      <BoxScoreDialog target={box} onClose={() => setBox(null)} />
     </Box>
   );
 }

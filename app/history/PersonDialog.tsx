@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { personSeasons, careers, headToHead } from "@/lib/history-stats";
+import { topPlayers, careerActivity } from "@/lib/boxscore-stats";
 
 const REG = "#ff7a30"; // regular-season finish (brand orange)
 const PO = "#4f9dd6"; // playoff finish (CVD-safe blue)
@@ -133,6 +134,8 @@ export default function PersonDialog({
   const seasons = manager ? personSeasons(manager) : [];
   const c = manager ? careers().find((x) => x.manager === manager) : undefined;
   const h2h = manager ? headToHead(manager) : [];
+  const fav = manager ? topPlayers(manager, 5) : [];
+  const activity = manager ? careerActivity(manager) : null;
 
   return (
     <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm"
@@ -181,6 +184,41 @@ export default function PersonDialog({
                   Finish by season
                 </Typography>
                 <FinishChart seasons={seasons} />
+
+                {fav.length > 0 && (
+                  <Box sx={{ mt: 2 }}>
+                    <Stack direction="row" alignItems="baseline" spacing={1} sx={{ mb: 0.75 }}>
+                      <Typography variant="overline" sx={{ color: "primary.main" }}>Franchise players</Typography>
+                      {activity && (
+                        <Typography variant="caption" color="text.secondary" sx={{ ml: "auto" }} className="num">
+                          {activity.addsPerWeek.toFixed(1)} roster moves/wk
+                        </Typography>
+                      )}
+                    </Stack>
+                    <Stack spacing={0.5}>
+                      {fav.map((p, i) => (
+                        <Box key={p.name} sx={{ display: "flex", alignItems: "center", gap: 1, px: 1.25, py: 0.75, borderRadius: 1.5,
+                          border: "1px solid", borderColor: i === 0 ? "rgba(255,106,26,0.35)" : "rgba(255,255,255,0.07)",
+                          bgcolor: i === 0 ? "rgba(255,106,26,0.05)" : "rgba(255,255,255,0.02)" }}>
+                          <Typography sx={{ fontSize: 14, flexShrink: 0 }}>{i === 0 ? "⭐" : ""}</Typography>
+                          <Typography noWrap sx={{ flexGrow: 1, minWidth: 0, fontFamily: "var(--font-display)", fontWeight: i === 0 ? 800 : 600, fontSize: 14 }}>
+                            {p.name}
+                          </Typography>
+                          <Typography variant="caption" color="text.secondary" className="num" sx={{ flexShrink: 0 }}>
+                            {p.starts} st · {p.ppg.toFixed(1)}/st
+                          </Typography>
+                          <Typography className="num" sx={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 14, width: 52, textAlign: "right", flexShrink: 0, color: i === 0 ? "primary.light" : "text.primary" }}>
+                            {p.pts.toFixed(0)}
+                          </Typography>
+                        </Box>
+                      ))}
+                    </Stack>
+                    <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 0.5 }}>
+                      Total points started (2022, 2023, 2025). st = starts.
+                    </Typography>
+                  </Box>
+                )}
+
                 <Box sx={{ overflowX: "auto", mt: 2 }}>
                   <Box component="table" sx={{ width: "100%", borderCollapse: "collapse", minWidth: 360 }}>
                     <Box component="thead">

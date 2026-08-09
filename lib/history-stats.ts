@@ -99,6 +99,11 @@ function personOnWeek(base: Map<number, string>, season: number, teamId: number,
   const h = MANAGER_HANDOFFS.find((x) => x.season === season && x.teamId === teamId && week <= x.throughWeek);
   return h ? h.person : base.get(teamId);
 }
+// Resolve who managed a team on a given week, honoring mid-season handoffs.
+export function personForTeamWeek(season: number, teamId: number, week: number, fallback: string): string {
+  const h = MANAGER_HANDOFFS.find((x) => x.season === season && x.teamId === teamId && week <= x.throughWeek);
+  return h ? h.person : fallback;
+}
 
 export type H2H = {
   opponent: string;
