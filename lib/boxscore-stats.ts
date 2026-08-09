@@ -165,7 +165,8 @@ export function activityBySeason(): ActivitySeason[] {
   return out;
 }
 
-export type Trade = { season: number; week: number; a: string; b: string; aGot: string[]; bGot: string[] };
+export type TradePlayer = { name: string; started: boolean }; // started = mostly started by the acquirer after the trade
+export type Trade = { season: number; week: number; a: string; b: string; aGot: TradePlayer[]; bGot: TradePlayer[] };
 
 // Detect in-season trades from weekly roster snapshots: a reciprocal exchange
 // where, from one week to the next, team A gains a player last on team B AND
@@ -200,6 +201,18 @@ export function allTrades(): Trade[] {
         for (let k = i; k < Math.min(i + STICK, weeks.length); k++) { if (rosterAt(season, t, weeks[k]).has(id)) ok++; else break; }
         return ok >= STICK;
       };
+      // Did the acquiring team mostly start this player after the trade?
+      const startedFlag = (teamId: number, pid: number): boolean => {
+        let started = 0, present = 0;
+        for (let k = i; k < weeks.length; k++) {
+          const row = BX.seasons[seasonStr][weeks[k]]?.[teamId];
+          const e = row?.find((r) => r[0] === pid);
+          if (!e) continue;
+          present++;
+          if (e[1] !== 20 && e[1] !== 21) started++;
+        }
+        return present > 0 && started / present >= 0.5;
+      };
       for (let a = 0; a < teams.length; a++) for (let b = a + 1; b < teams.length; b++) {
         const A = teams[a], C = teams[b];
         const aFromC = gained[A].filter((id) => prev[C].has(id) && sticks(A, id));
@@ -209,8 +222,8 @@ export function allTrades(): Trade[] {
             season, week: w,
             a: personForTeamWeek(season, A, w, tp.get(A) ?? ""),
             b: personForTeamWeek(season, C, w, tp.get(C) ?? ""),
-            aGot: aFromC.map((id) => BX.players[id] || "?"),
-            bGot: cFromA.map((id) => BX.players[id] || "?"),
+            aGot: aFromC.map((id) => ({ name: BX.players[id] || "?", started: startedFlag(A, id) })),
+            bGot: cFromA.map((id) => ({ name: BX.players[id] || "?", started: startedFlag(C, id) })),
           });
         }
       }
@@ -220,15 +233,15 @@ export function allTrades(): Trade[] {
   return out;
 }
 
-export type PersonTrade = { season: number; week: number; partner: string; got: string[]; gave: string[] };
+export type PersonTrade = { season: number; week: number; partner: string; got: TradePlayer[]; gave: string[] };
 
 // One person's in-season trades, newest first (from their point of view).
 export function careerTrades(person: string): PersonTrade[] {
   return allTrades()
     .filter((t) => t.a === person || t.b === person)
     .map((t) => t.a === person
-      ? { season: t.season, week: t.week, partner: t.b, got: t.aGot, gave: t.bGot }
-      : { season: t.season, week: t.week, partner: t.a, got: t.bGot, gave: t.aGot })
+      ? { season: t.season, week: t.week, partner: t.b, got: t.aGot, gave: t.bGot.map((p) => p.name) }
+      : { season: t.season, week: t.week, partner: t.a, got: t.bGot, gave: t.aGot.map((p) => p.name) })
     .sort((x, y) => y.season - x.season || y.week - x.week);
 }
 

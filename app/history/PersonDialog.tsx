@@ -345,7 +345,15 @@ export default function PersonDialog({
                             <Box sx={{ display: "flex", gap: 1, alignItems: "flex-start" }}>
                               <Box sx={{ flex: 1, minWidth: 0 }}>
                                 <Typography sx={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.05em", color: "#46c48c" }}>GOT</Typography>
-                                <Typography sx={{ fontSize: 12, lineHeight: 1.35 }}>{t.got.join(", ")}</Typography>
+                                <Typography sx={{ fontSize: 12, lineHeight: 1.4 }}>
+                                  {t.got.map((p, k) => (
+                                    <span key={k}>
+                                      {p.name}
+                                      {!p.started && <span style={{ color: "#8a8175", fontSize: 10 }}> · bench</span>}
+                                      {k < t.got.length - 1 ? ", " : ""}
+                                    </span>
+                                  ))}
+                                </Typography>
                               </Box>
                               <Box sx={{ flex: 1, minWidth: 0 }}>
                                 <Typography sx={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.05em", color: "#ec6650" }}>GAVE</Typography>
