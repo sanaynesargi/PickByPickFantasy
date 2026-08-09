@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { personSeasons, careers, headToHead } from "@/lib/history-stats";
-import { topPlayers, careerActivity } from "@/lib/boxscore-stats";
+import { topPlayers, careerActivity, mostRostered } from "@/lib/boxscore-stats";
 
 const REG = "#ff7a30"; // regular-season finish (brand orange)
 const PO = "#4f9dd6"; // playoff finish (CVD-safe blue)
@@ -137,6 +137,7 @@ export default function PersonDialog({
   const c = manager ? careers().find((x) => x.manager === manager) : undefined;
   const h2h = manager ? headToHead(manager) : [];
   const fav = manager ? topPlayers(manager, 5) : [];
+  const loyal = manager ? mostRostered(manager, 3) : [];
   const activity = manager ? careerActivity(manager) : null;
 
   return (
@@ -212,7 +213,36 @@ export default function PersonDialog({
                       ))}
                     </Stack>
                     <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 0.5 }}>
-                      Total points started (2022, 2023, 2025). st = starts.
+                      Total points started (2022 to 2025). st = starts.
+                    </Typography>
+                  </Box>
+                )}
+
+                {loyal.length > 0 && (
+                  <Box sx={{ mt: 2 }}>
+                    <Typography variant="overline" sx={{ color: "primary.main", display: "block", mb: 0.75 }}>
+                      Most loyal to
+                    </Typography>
+                    <Stack spacing={0.5}>
+                      {loyal.map((p, i) => (
+                        <Box key={p.name} sx={{ display: "flex", alignItems: "center", gap: 1, px: 1.25, py: 0.6, borderRadius: 1.5,
+                          border: "1px solid", borderColor: i === 0 ? "rgba(79,157,214,0.4)" : "rgba(255,255,255,0.07)",
+                          bgcolor: i === 0 ? "rgba(79,157,214,0.06)" : "rgba(255,255,255,0.02)" }}>
+                          <Typography sx={{ fontSize: 13, flexShrink: 0, width: 16 }}>{i === 0 ? "🤝" : ""}</Typography>
+                          <Typography noWrap sx={{ flexGrow: 1, minWidth: 0, fontFamily: "var(--font-display)", fontWeight: i === 0 ? 800 : 600, fontSize: 14 }}>
+                            {p.name}
+                          </Typography>
+                          <Typography variant="caption" color="text.secondary" className="num" sx={{ flexShrink: 0 }}>
+                            {p.seasons.map((y) => `’${String(y).slice(2)}`).join(" ")} · {p.weeks} wks
+                          </Typography>
+                          <Typography className="num" sx={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 15, width: 34, textAlign: "right", flexShrink: 0, color: i === 0 ? "#7bbce8" : "text.primary" }}>
+                            {p.seasons.length}<span style={{ fontSize: 10, fontWeight: 600, color: "#9a9084" }}>y</span>
+                          </Typography>
+                        </Box>
+                      ))}
+                    </Stack>
+                    <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 0.5 }}>
+                      Seasons rostered (started or benched). y = seasons.
                     </Typography>
                   </Box>
                 )}

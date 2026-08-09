@@ -52,8 +52,11 @@ export type FavPlayer = { name: string; pts: number; starts: number; ppg: number
 
 // A person's most-productive players across their career, by total points scored
 // while in their STARTING lineup. Honors the 2022 mid-season handoff.
+// Aggregate on player NAME, not raw id — ESPN and Sleeper use different id
+// namespaces, so the same player (e.g. Jonathan Taylor) would otherwise split
+// across the 2024 (Sleeper) boundary.
 export function topPlayers(person: string, limit = 5): FavPlayer[] {
-  const agg = new Map<number, { pts: number; starts: number; seasons: Set<number> }>();
+  const agg = new Map<string, { pts: number; starts: number; seasons: Set<number> }>();
   for (const season of Object.keys(BX.seasons)) {
     const yr = Number(season);
     const tp = teamPersonMap(yr);
@@ -66,21 +69,54 @@ export function topPlayers(person: string, limit = 5): FavPlayer[] {
         if (owner !== person) continue;
         for (const [pid, slot, pts] of rows) {
           if (!isStarter(slot)) continue;
-          const a = agg.get(pid) ?? { pts: 0, starts: 0, seasons: new Set<number>() };
+          const name = BX.players[pid] || "?";
+          const a = agg.get(name) ?? { pts: 0, starts: 0, seasons: new Set<number>() };
           a.pts += pts; a.starts += 1; a.seasons.add(yr);
-          agg.set(pid, a);
+          agg.set(name, a);
         }
       }
     }
   }
   return [...agg.entries()]
-    .map(([pid, v]) => ({ name: BX.players[pid] || "?", pts: v.pts, starts: v.starts, ppg: v.starts ? v.pts / v.starts : 0, seasons: [...v.seasons].sort((a, b) => a - b) }))
+    .map(([name, v]) => ({ name, pts: v.pts, starts: v.starts, ppg: v.starts ? v.pts / v.starts : 0, seasons: [...v.seasons].sort((a, b) => a - b) }))
     .sort((a, b) => b.pts - a.pts)
     .slice(0, limit);
 }
 
 export function favoritePlayer(person: string): FavPlayer | null {
   return topPlayers(person, 1)[0] ?? null;
+}
+
+export type LoyalPlayer = { name: string; seasons: number[]; weeks: number };
+
+// A person's most loyal-to players: rostered (started OR benched) across the most
+// distinct seasons, tie-broken by total weeks kept. Honors the 2022 handoff.
+export function mostRostered(person: string, limit = 5): LoyalPlayer[] {
+  const agg = new Map<string, { seasons: Set<number>; weeks: number }>();
+  for (const season of Object.keys(BX.seasons)) {
+    const yr = Number(season);
+    const tp = teamPersonMap(yr);
+    const weeks = BX.seasons[season];
+    for (const week of Object.keys(weeks)) {
+      const wk = Number(week);
+      for (const [teamIdStr, rows] of Object.entries(weeks[week])) {
+        const teamId = Number(teamIdStr);
+        const owner = personForTeamWeek(yr, teamId, wk, tp.get(teamId) ?? "");
+        if (owner !== person) continue;
+        for (const [pid] of rows) {
+          const name = BX.players[pid] || "?";
+          if (name.includes("D/ST")) continue; // defenses get streamed; not "loyalty"
+          const a = agg.get(name) ?? { seasons: new Set<number>(), weeks: 0 };
+          a.seasons.add(yr); a.weeks += 1;
+          agg.set(name, a);
+        }
+      }
+    }
+  }
+  return [...agg.entries()]
+    .map(([name, v]) => ({ name, seasons: [...v.seasons].sort((a, b) => a - b), weeks: v.weeks }))
+    .sort((a, b) => b.seasons.length - a.seasons.length || b.weeks - a.weeks)
+    .slice(0, limit);
 }
 
 export type ActivitySeason = {
