@@ -321,31 +321,44 @@ export default function PersonDialog({
 
             {tab === "trades" && (
               <>
-                <Stack spacing={0.75}>
-                  {trades.map((t, i) => (
-                    <Box key={i} sx={{ px: 1.25, py: 0.85, borderRadius: 1.5, border: "1px solid rgba(255,255,255,0.08)", bgcolor: "rgba(255,255,255,0.02)" }}>
-                      <Stack direction="row" alignItems="baseline" spacing={0.75} sx={{ mb: 0.35 }}>
-                        <Typography sx={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 13 }}>
-                          with {t.partner}
-                        </Typography>
-                        <Typography variant="caption" color="text.secondary" className="num" sx={{ ml: "auto" }}>
-                          &apos;{String(t.season).slice(2)} wk{t.week}
+                {[...new Set(trades.map((t) => t.season))].map((season) => {
+                  const inSeason = trades.filter((t) => t.season === season);
+                  return (
+                    <Box key={season} sx={{ mb: 2 }}>
+                      <Stack direction="row" alignItems="baseline" spacing={1} sx={{ mb: 0.75 }}>
+                        <Typography variant="overline" sx={{ color: "primary.main" }}>{season}</Typography>
+                        <Typography variant="caption" color="text.secondary" className="num">
+                          {inSeason.length} trade{inSeason.length === 1 ? "" : "s"}
                         </Typography>
                       </Stack>
-                      <Box sx={{ display: "flex", gap: 1, alignItems: "flex-start" }}>
-                        <Box sx={{ flex: 1, minWidth: 0 }}>
-                          <Typography sx={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.05em", color: "#46c48c" }}>GOT</Typography>
-                          <Typography sx={{ fontSize: 12, lineHeight: 1.35 }}>{t.got.join(", ")}</Typography>
-                        </Box>
-                        <Box sx={{ flex: 1, minWidth: 0 }}>
-                          <Typography sx={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.05em", color: "#ec6650" }}>GAVE</Typography>
-                          <Typography sx={{ fontSize: 12, lineHeight: 1.35, color: "text.secondary" }}>{t.gave.join(", ")}</Typography>
-                        </Box>
-                      </Box>
+                      <Stack spacing={0.75}>
+                        {inSeason.map((t, i) => (
+                          <Box key={i} sx={{ px: 1.25, py: 0.85, borderRadius: 1.5, border: "1px solid rgba(255,255,255,0.08)", bgcolor: "rgba(255,255,255,0.02)" }}>
+                            <Stack direction="row" alignItems="baseline" spacing={0.75} sx={{ mb: 0.35 }}>
+                              <Typography sx={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 13 }}>
+                                with {t.partner}
+                              </Typography>
+                              <Typography variant="caption" color="text.secondary" className="num" sx={{ ml: "auto" }}>
+                                wk{t.week}
+                              </Typography>
+                            </Stack>
+                            <Box sx={{ display: "flex", gap: 1, alignItems: "flex-start" }}>
+                              <Box sx={{ flex: 1, minWidth: 0 }}>
+                                <Typography sx={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.05em", color: "#46c48c" }}>GOT</Typography>
+                                <Typography sx={{ fontSize: 12, lineHeight: 1.35 }}>{t.got.join(", ")}</Typography>
+                              </Box>
+                              <Box sx={{ flex: 1, minWidth: 0 }}>
+                                <Typography sx={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.05em", color: "#ec6650" }}>GAVE</Typography>
+                                <Typography sx={{ fontSize: 12, lineHeight: 1.35, color: "text.secondary" }}>{t.gave.join(", ")}</Typography>
+                              </Box>
+                            </Box>
+                          </Box>
+                        ))}
+                      </Stack>
                     </Box>
-                  ))}
-                </Stack>
-                <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1.5 }}>
+                  );
+                })}
+                <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 0.5 }}>
                   {trades.length} in-season trade{trades.length === 1 ? "" : "s"}, detected from week-to-week roster moves. Pre-season / draft-day trades aren&apos;t captured.
                 </Typography>
               </>
