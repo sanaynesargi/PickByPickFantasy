@@ -165,6 +165,73 @@ export function activityBySeason(): ActivitySeason[] {
   return out;
 }
 
+export type Trade = { season: number; week: number; a: string; b: string; aGot: string[]; bGot: string[] };
+
+// Detect in-season trades from weekly roster snapshots: a reciprocal exchange
+// where, from one week to the next, team A gains a player last on team B AND
+// team B gains one last on A. A "stickiness" guard (received player stays on the
+// new roster >= 2 snapshots) filters out coincidental crossing waiver claims.
+// Note: this is a heuristic — ESPN doesn't expose a transaction log, and it
+// cannot see pre-season/draft-day trades (no roster snapshot before week 1).
+// Validated against Sleeper's authoritative 2024 log: recovers both in-season
+// trades with no false positives (detected one snapshot late, ~the trade week).
+const STICK = 2;
+let _trades: Trade[] | null = null;
+export function allTrades(): Trade[] {
+  if (_trades) return _trades;
+  const out: Trade[] = [];
+  const rosterAt = (season: number, teamId: number, week: number) =>
+    new Set((BX.seasons[season]?.[week]?.[teamId] ?? []).map((r) => r[0]));
+  for (const seasonStr of Object.keys(BX.seasons)) {
+    const season = Number(seasonStr);
+    const tp = teamPersonMap(season);
+    const weeks = Object.keys(BX.seasons[seasonStr]).map(Number).sort((a, b) => a - b);
+    for (let i = 1; i < weeks.length; i++) {
+      const w = weeks[i], pw = weeks[i - 1];
+      const teams = Object.keys(BX.seasons[seasonStr][w]).map(Number).filter((t) => BX.seasons[seasonStr][pw]?.[t]);
+      const prev: Record<number, Set<number>> = {}, gained: Record<number, number[]> = {};
+      for (const t of teams) {
+        prev[t] = rosterAt(season, t, pw);
+        const cur = rosterAt(season, t, w);
+        gained[t] = [...cur].filter((id) => !prev[t].has(id));
+      }
+      const sticks = (t: number, id: number) => {
+        let ok = 0;
+        for (let k = i; k < Math.min(i + STICK, weeks.length); k++) { if (rosterAt(season, t, weeks[k]).has(id)) ok++; else break; }
+        return ok >= STICK;
+      };
+      for (let a = 0; a < teams.length; a++) for (let b = a + 1; b < teams.length; b++) {
+        const A = teams[a], C = teams[b];
+        const aFromC = gained[A].filter((id) => prev[C].has(id) && sticks(A, id));
+        const cFromA = gained[C].filter((id) => prev[A].has(id) && sticks(C, id));
+        if (aFromC.length && cFromA.length) {
+          out.push({
+            season, week: w,
+            a: personForTeamWeek(season, A, w, tp.get(A) ?? ""),
+            b: personForTeamWeek(season, C, w, tp.get(C) ?? ""),
+            aGot: aFromC.map((id) => BX.players[id] || "?"),
+            bGot: cFromA.map((id) => BX.players[id] || "?"),
+          });
+        }
+      }
+    }
+  }
+  _trades = out;
+  return out;
+}
+
+export type PersonTrade = { season: number; week: number; partner: string; got: string[]; gave: string[] };
+
+// One person's in-season trades, newest first (from their point of view).
+export function careerTrades(person: string): PersonTrade[] {
+  return allTrades()
+    .filter((t) => t.a === person || t.b === person)
+    .map((t) => t.a === person
+      ? { season: t.season, week: t.week, partner: t.b, got: t.aGot, gave: t.bGot }
+      : { season: t.season, week: t.week, partner: t.a, got: t.bGot, gave: t.aGot })
+    .sort((x, y) => y.season - x.season || y.week - x.week);
+}
+
 // A person's career activity (avg adds/week across their boxscore seasons).
 export function careerActivity(person: string): { addsPerWeek: number; seasons: number } | null {
   const mine = activityBySeason().filter((r) => r.person === person && r.weeks > 0);

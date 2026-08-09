@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { personSeasons, careers, headToHead } from "@/lib/history-stats";
-import { topPlayers, careerActivity, mostRostered } from "@/lib/boxscore-stats";
+import { topPlayers, careerActivity, mostRostered, careerTrades } from "@/lib/boxscore-stats";
 
 const REG = "#ff7a30"; // regular-season finish (brand orange)
 const PO = "#4f9dd6"; // playoff finish (CVD-safe blue)
@@ -129,7 +129,7 @@ export default function PersonDialog({
   manager: string | null;
   onClose: () => void;
 }) {
-  const [tab, setTab] = useState<"overview" | "h2h">("overview");
+  const [tab, setTab] = useState<"overview" | "h2h" | "trades">("overview");
   useEffect(() => setTab("overview"), [manager]); // reset when a new player opens
 
   const open = manager !== null;
@@ -138,6 +138,7 @@ export default function PersonDialog({
   const h2h = manager ? headToHead(manager) : [];
   const fav = manager ? topPlayers(manager, 5) : [];
   const loyal = manager ? mostRostered(manager, 3) : [];
+  const trades = manager ? careerTrades(manager) : [];
   const activity = manager ? careerActivity(manager) : null;
 
   return (
@@ -171,6 +172,7 @@ export default function PersonDialog({
               }}>
               <ToggleButton value="overview">Overview</ToggleButton>
               <ToggleButton value="h2h">Head-to-head</ToggleButton>
+              {trades.length > 0 && <ToggleButton value="trades">Trades</ToggleButton>}
             </ToggleButtonGroup>
           </Box>
 
@@ -315,6 +317,38 @@ export default function PersonDialog({
                   </Typography>
                 </>
               )
+            )}
+
+            {tab === "trades" && (
+              <>
+                <Stack spacing={0.75}>
+                  {trades.map((t, i) => (
+                    <Box key={i} sx={{ px: 1.25, py: 0.85, borderRadius: 1.5, border: "1px solid rgba(255,255,255,0.08)", bgcolor: "rgba(255,255,255,0.02)" }}>
+                      <Stack direction="row" alignItems="baseline" spacing={0.75} sx={{ mb: 0.35 }}>
+                        <Typography sx={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 13 }}>
+                          with {t.partner}
+                        </Typography>
+                        <Typography variant="caption" color="text.secondary" className="num" sx={{ ml: "auto" }}>
+                          &apos;{String(t.season).slice(2)} wk{t.week}
+                        </Typography>
+                      </Stack>
+                      <Box sx={{ display: "flex", gap: 1, alignItems: "flex-start" }}>
+                        <Box sx={{ flex: 1, minWidth: 0 }}>
+                          <Typography sx={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.05em", color: "#46c48c" }}>GOT</Typography>
+                          <Typography sx={{ fontSize: 12, lineHeight: 1.35 }}>{t.got.join(", ")}</Typography>
+                        </Box>
+                        <Box sx={{ flex: 1, minWidth: 0 }}>
+                          <Typography sx={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.05em", color: "#ec6650" }}>GAVE</Typography>
+                          <Typography sx={{ fontSize: 12, lineHeight: 1.35, color: "text.secondary" }}>{t.gave.join(", ")}</Typography>
+                        </Box>
+                      </Box>
+                    </Box>
+                  ))}
+                </Stack>
+                <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1.5 }}>
+                  {trades.length} in-season trade{trades.length === 1 ? "" : "s"}, detected from week-to-week roster moves. Pre-season / draft-day trades aren&apos;t captured.
+                </Typography>
+              </>
             )}
           </Box>
         </Box>
