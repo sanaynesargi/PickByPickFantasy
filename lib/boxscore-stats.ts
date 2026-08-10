@@ -170,8 +170,11 @@ export type Trade = { season: number; week: number; a: string; b: string; aGot: 
 
 // Detect in-season trades from weekly roster snapshots: a reciprocal exchange
 // where, from one week to the next, team A gains a player last on team B AND
-// team B gains one last on A. A "stickiness" guard (received player stays on the
-// new roster >= 2 snapshots) filters out coincidental crossing waiver claims.
+// team B gains one last on A. A "stickiness" guard (a received player stays >= 2
+// snapshots) is used only to CONFIRM a trade happened (filtering coincidental
+// crossing waiver claims); once confirmed, ALL players that crossed directly
+// between the two teams that week are included as the trade's contents — so
+// throw-in players that were later dropped still show up.
 // Note: this is a heuristic — ESPN doesn't expose a transaction log, and it
 // cannot see pre-season/draft-day trades (no roster snapshot before week 1).
 // Validated against Sleeper's authoritative 2024 log: recovers both in-season
@@ -215,9 +218,14 @@ export function allTrades(): Trade[] {
       };
       for (let a = 0; a < teams.length; a++) for (let b = a + 1; b < teams.length; b++) {
         const A = teams[a], C = teams[b];
-        const aFromC = gained[A].filter((id) => prev[C].has(id) && sticks(A, id));
-        const cFromA = gained[C].filter((id) => prev[A].has(id) && sticks(C, id));
-        if (aFromC.length && cFromA.length) {
+        // all players that crossed directly between A and C this week (full contents)
+        const aFromCAll = gained[A].filter((id) => prev[C].has(id));
+        const cFromAAll = gained[C].filter((id) => prev[A].has(id));
+        // confirm it's a real trade (not coincidental waiver crossings): a sticky
+        // player each way.
+        const confirmed = aFromCAll.some((id) => sticks(A, id)) && cFromAAll.some((id) => sticks(C, id));
+        const aFromC = aFromCAll, cFromA = cFromAAll;
+        if (confirmed && aFromC.length && cFromA.length) {
           out.push({
             season, week: w,
             a: personForTeamWeek(season, A, w, tp.get(A) ?? ""),
