@@ -3,6 +3,41 @@
 Reproducible league analyses over the ESPN + Sleeper data the importers produce.
 No network calls — everything reads the committed data files.
 
+Two independent tools live here:
+- The **`.mjs` analyses** (below) — historical league stats + plots (Node).
+- **`analyze.py`** — the projection-gap tool for your live league (Python + pandas).
+
+## Projection-gap tool (`analyze.py`)
+
+Separates a weekly fantasy projection into stable **roster quality** (season
+average) and **schedule luck** (week projection − season average), then converts
+point gaps into standard deviations and win probabilities. Methodology and
+reasoning: `projection-gap.skill` (a zip; `SKILL.md` inside).
+
+Requires **pandas** (standard library otherwise). Paste your league's numbers by
+hand — no ESPN scraping.
+
+```bash
+python analyze.py                     # analyze this week (ships with sample data)
+python analyze.py --record --week 5   # append this week to the season history
+python analyze.py --drift             # roster-quality drift over the season
+python analyze.py --check             # run only the worked-example plumbing check
+```
+
+| File | Role |
+|---|---|
+| `league_week.csv` | this week's input — `team,week_proj,season_avg` (edit by hand) |
+| `projection_history.csv` | season history — `week,team,week_proj,season_avg,actual`; fill `actual` after each week is played |
+
+Once the history has **4+ weeks of actual scores**, the tool measures your
+league's own weekly standard deviation (spread of `actual − week_proj`) and uses
+it instead of the 17.0 default — printing which it used and why. The `--drift`
+view distinguishes a team *underrated at draft* (roster estimate climbs) from one
+that got *lucky early* (roster flat, positive early matchup luck). The shipped
+CSVs are synthetic samples; replace them with your league's numbers.
+
+---
+
 ## Data sources
 
 | File | Contents | Refreshed by |
