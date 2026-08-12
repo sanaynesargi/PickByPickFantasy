@@ -68,9 +68,10 @@ Plots (PNG @ 2x + SVG source) are written to `analysis/plots/`.
 
 | Script | Outputs | Headline |
 |---|---|---|
-| `win-vs-scoring.mjs` | `win-vs-ppg`, `win-vs-differential` | PPG explains ~63% of win%; PF+PA ~75%; Pythagorean γ≈5.3 |
+| `win-vs-scoring.mjs` | `win-vs-ppg`, `win-vs-differential`, `win-residuals` | PPG explains ~63% of win%; PF+PA ~75%; Pythagorean γ≈5.3 |
 | `activity.mjs` | `activity-vs-winpct` | Roster churn barely predicts winning (r≈0.2) |
-| `trades.mjs` | `trade-skill`, `best-trades` | Who wins their trades (net PPG); most fair trade |
+| `trades.mjs` | `trade-skill`, `best-trades`, `trade-before-after` | Who wins their trades (net PPG); most fair trade |
+| `skill-vs-luck.mjs` | `luck-adjusted-standings` | Standings are ~90% luck; scoring persists (r=0.36), winning doesn't (r=0.06); who won more than they deserved |
 
 ## Adding an analysis
 
