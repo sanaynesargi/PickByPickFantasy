@@ -73,6 +73,7 @@ Plots (PNG @ 2x + SVG source) are written to `analysis/plots/`.
 | `trades.mjs` | `trade-skill`, `best-trades`, `trade-before-after` | Who wins their trades (net PPG); most fair trade |
 | `skill-vs-luck.mjs` | `luck-adjusted-standings`, `scoring-vs-winning-persistence` | Standings are ~90% luck; scoring persists (r=0.36), winning doesn't (r=0.06); who won more than they deserved |
 | `projected-winner.mjs` | `projected-winner` | Higher-projected team won 63% overall — but close games (0-3 pt margin) are 40% coin flips; validates the binomial model |
+| `pa-vs-schedule.mjs` | `pa-vs-schedule` | Estimated PA (opponents' season-avg scores) vs actual PA — schedule strength explains only ~27% of Points Against; the rest is variance |
 
 ## Adding an analysis
 
