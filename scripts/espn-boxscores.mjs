@@ -80,11 +80,13 @@ async function main() {
             const pid = e.playerId ?? e.playerPoolEntry?.id;
             if (pid == null) continue;
             if (!players[pid] && pl.fullName) players[pid] = pl.fullName;
-            const stat = (pl.stats || []).find(
-              (x) => x.scoringPeriodId === wk && x.statSourceId === 0
-            );
-            const pts = stat?.appliedTotal ?? e.playerPoolEntry?.appliedStatTotal ?? 0;
-            rows.push([pid, e.lineupSlotId, round2(pts)]);
+            const stats = pl.stats || [];
+            const actual = stats.find((x) => x.scoringPeriodId === wk && x.statSourceId === 0);
+            const projected = stats.find((x) => x.scoringPeriodId === wk && x.statSourceId === 1);
+            const pts = actual?.appliedTotal ?? e.playerPoolEntry?.appliedStatTotal ?? 0;
+            // 4th element = pre-game projection (statSourceId 1); null if none.
+            const proj = projected?.appliedTotal ?? null;
+            rows.push([pid, e.lineupSlotId, round2(pts), proj == null ? null : round2(proj)]);
           }
           if (rows.length) { wkOut[box.teamId] = rows; entryCount += rows.length; }
         }

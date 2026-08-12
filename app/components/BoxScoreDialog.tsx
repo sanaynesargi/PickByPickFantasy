@@ -38,9 +38,9 @@ export default function BoxScoreDialog({ target, onClose }: { target: BoxTarget 
             <>
               {/* header with totals */}
               <Stack direction="row" alignItems="baseline" spacing={1} sx={{ mb: 1.5 }}>
-                <TeamHead person={target.homePerson} total={home.total} win={home.total >= away.total} />
+                <TeamHead person={target.homePerson} total={home.total} proj={home.projTotal} win={home.total >= away.total} />
                 <Typography sx={{ fontSize: 11, color: "text.secondary" }}>vs</Typography>
-                <TeamHead person={target.awayPerson} total={away.total} win={away.total > home.total} align="right" />
+                <TeamHead person={target.awayPerson} total={away.total} proj={away.projTotal} win={away.total > home.total} align="right" />
               </Stack>
 
               <Lineups home={home.starters} away={away.starters} />
@@ -49,6 +49,12 @@ export default function BoxScoreDialog({ target, onClose }: { target: BoxTarget 
                 <Typography sx={{ fontSize: 9.5, letterSpacing: "0.1em", color: "text.secondary", fontWeight: 700 }}>BENCH</Typography>
               </Divider>
               <Lineups home={home.bench} away={away.bench} dim />
+
+              {(home.projTotal != null || away.projTotal != null) && (
+                <Typography sx={{ mt: 1.5, fontSize: 9.5, color: "text.secondary", textAlign: "center" }}>
+                  small number = pre-game projection · <span style={{ color: "#46c48c" }}>beat it</span> / <span style={{ color: "#ec6650" }}>missed it</span>
+                </Typography>
+              )}
             </>
           )}
         </Box>
@@ -57,7 +63,7 @@ export default function BoxScoreDialog({ target, onClose }: { target: BoxTarget 
   );
 }
 
-function TeamHead({ person, total, win, align }: { person: string; total: number; win: boolean; align?: "right" }) {
+function TeamHead({ person, total, proj, win, align }: { person: string; total: number; proj: number | null; win: boolean; align?: "right" }) {
   return (
     <Box sx={{ flex: 1, textAlign: align === "right" ? "right" : "left", minWidth: 0 }}>
       <Typography noWrap sx={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 15, color: win ? GREEN : "text.primary" }}>
@@ -66,6 +72,11 @@ function TeamHead({ person, total, win, align }: { person: string; total: number
       <Typography className="num" sx={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 22, lineHeight: 1, color: win ? GREEN : "text.primary" }}>
         {total.toFixed(1)}
       </Typography>
+      {proj != null && (
+        <Typography className="num" sx={{ fontSize: 10, color: "text.secondary", display: "block", mt: 0.25 }}>
+          proj {proj.toFixed(1)}
+        </Typography>
+      )}
     </Box>
   );
 }
@@ -99,9 +110,15 @@ function PlayerCell({ p, align }: { p?: BoxPlayer; align?: "right" }) {
   const pts = (
     <Typography className="num" sx={{ fontSize: 12, fontWeight: 700, width: 34, flexShrink: 0, textAlign: right ? "left" : "right" }}>{p.pts.toFixed(1)}</Typography>
   );
+  // projection, small + muted, colored by whether the player beat or missed it
+  const proj = (
+    <Typography className="num" sx={{ fontSize: 9.5, fontWeight: 600, width: 30, flexShrink: 0, textAlign: right ? "left" : "right", color: p.proj == null ? "transparent" : p.pts >= p.proj ? "rgba(70,196,140,0.75)" : "rgba(236,102,80,0.7)" }}>
+      {p.proj == null ? "" : p.proj.toFixed(1)}
+    </Typography>
+  );
   return (
     <Box sx={{ flex: 1, minWidth: 0, display: "flex", alignItems: "center", gap: 0.5 }}>
-      {right ? <>{pts}{name}{slot}</> : <>{slot}{name}{pts}</>}
+      {right ? <>{pts}{proj}{name}{slot}</> : <>{slot}{name}{proj}{pts}</>}
     </Box>
   );
 }

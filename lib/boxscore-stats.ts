@@ -7,7 +7,9 @@ import boxData from "./boxscores.json";
 import { RICH_SEASONS, winPct } from "./history-data";
 import { personForTeamWeek } from "./history-stats";
 
-type Entry = [number, number, number]; // [playerId, lineupSlotId, points]
+// [playerId, lineupSlotId, points, projection?]. The 4th element is the pre-game
+// projection (ESPN seasons only); absent/null for Sleeper 2024.
+type Entry = [number, number, number, (number | null)?];
 const BX = boxData as unknown as { players: Record<string, string>; seasons: Record<string, Record<string, Record<string, Entry[]>>> };
 
 const SLOT_LABEL: Record<number, string> = {
@@ -21,25 +23,29 @@ export function hasBoxscores(season: number): boolean {
   return !!BX.seasons[season];
 }
 
-export type BoxPlayer = { name: string; slot: string; starter: boolean; pts: number };
-export type Boxscore = { starters: BoxPlayer[]; bench: BoxPlayer[]; total: number };
+export type BoxPlayer = { name: string; slot: string; starter: boolean; pts: number; proj: number | null };
+export type Boxscore = { starters: BoxPlayer[]; bench: BoxPlayer[]; total: number; projTotal: number | null };
 
 // One team's lineup for a given week. `null` if no boxscore data (e.g. 2024).
 export function boxscore(season: number, week: number, teamId: number): Boxscore | null {
   const rows = BX.seasons[season]?.[week]?.[teamId];
   if (!rows) return null;
-  const players: BoxPlayer[] = rows.map(([pid, slot, pts]) => ({
+  const players: BoxPlayer[] = rows.map(([pid, slot, pts, proj]) => ({
     name: BX.players[pid] || "?",
     slot: SLOT_LABEL[slot] ?? String(slot),
     starter: isStarter(slot),
     pts,
+    proj: proj ?? null,
   }));
   const starters = players
     .filter((p) => p.starter)
     .sort((a, b) => (SLOT_ORDER.indexOf(a.slot) - SLOT_ORDER.indexOf(b.slot)) || b.pts - a.pts);
   const bench = players.filter((p) => !p.starter).sort((a, b) => b.pts - a.pts);
   const total = starters.reduce((s, p) => s + p.pts, 0);
-  return { starters, bench, total };
+  // Projected team total = sum of starter projections, when the season has them.
+  const hasProj = starters.some((p) => p.proj != null);
+  const projTotal = hasProj ? starters.reduce((s, p) => s + (p.proj ?? 0), 0) : null;
+  return { starters, bench, total, projTotal };
 }
 
 // Team id -> person for a season, from RICH_SEASONS (finisher of the season).

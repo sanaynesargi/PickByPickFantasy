@@ -71,7 +71,8 @@ Plots (PNG @ 2x + SVG source) are written to `analysis/plots/`.
 | `win-vs-scoring.mjs` | `win-vs-ppg`, `win-vs-differential`, `win-residuals` | PPG explains ~63% of win%; PF+PA ~75%; Pythagorean γ≈5.3 |
 | `activity.mjs` | `activity-vs-winpct` | Roster churn barely predicts winning (r≈0.2) |
 | `trades.mjs` | `trade-skill`, `best-trades`, `trade-before-after` | Who wins their trades (net PPG); most fair trade |
-| `skill-vs-luck.mjs` | `luck-adjusted-standings` | Standings are ~90% luck; scoring persists (r=0.36), winning doesn't (r=0.06); who won more than they deserved |
+| `skill-vs-luck.mjs` | `luck-adjusted-standings`, `scoring-vs-winning-persistence` | Standings are ~90% luck; scoring persists (r=0.36), winning doesn't (r=0.06); who won more than they deserved |
+| `projected-winner.mjs` | `projected-winner` | Higher-projected team won 63% overall — but close games (0-3 pt margin) are 40% coin flips; validates the binomial model |
 
 ## Adding an analysis
 
