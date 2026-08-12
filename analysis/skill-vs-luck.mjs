@@ -10,7 +10,7 @@
 //   node analysis/skill-vs-luck.mjs
 
 import { SEASONS, teams, schedule, personOf, allTeamSeasons, pearson } from "./lib/data.mjs";
-import { svg, save, GREEN, RED, FG, esc } from "./lib/plot.mjs";
+import { svg, save, GREEN, RED, FG, ORANGE, MUTED, SEASON_COLOR, esc } from "./lib/plot.mjs";
 
 // ---- weekly points per team, per season ----
 function weeklyPoints(yr) {
@@ -83,14 +83,16 @@ const ts = allTeamSeasons();
 const byPerson = {};
 for (const r of ts) (byPerson[r.person] ||= {})[r.season] = r;
 const yrs = SEASONS.map((s) => s.season);
-const wX = [], wY = [], pX = [], pY = [];
+const pairs = [];
 for (const p of Object.keys(byPerson)) for (let i = 0; i < yrs.length - 1; i++) {
   const a = byPerson[p][yrs[i]], b = byPerson[p][yrs[i + 1]];
-  if (a && b) { wX.push(a.winPct); wY.push(b.winPct); pX.push(a.ppg); pY.push(b.ppg); }
+  if (a && b) pairs.push({ person: p, from: yrs[i], ppgA: a.ppg, ppgB: b.ppg, wpA: a.winPct, wpB: b.winPct });
 }
-console.log(`\nYear-over-year persistence (n=${wX.length} manager pairs, redraft = pure skill):`);
-console.log(`  win% : r=${pearson(wX, wY).r.toFixed(2)}  -- winning barely carries over`);
-console.log(`  PPG  : r=${pearson(pX, pY).r.toFixed(2)}  -- scoring (draft+management skill) carries over ~6x more`);
+const ppgR = pearson(pairs.map((x) => x.ppgA), pairs.map((x) => x.ppgB));
+const wpR = pearson(pairs.map((x) => x.wpA), pairs.map((x) => x.wpB));
+console.log(`\nYear-over-year persistence (n=${pairs.length} manager pairs, redraft = pure skill):`);
+console.log(`  win% : r=${wpR.r.toFixed(2)}  -- winning barely carries over`);
+console.log(`  PPG  : r=${ppgR.r.toFixed(2)}  -- scoring (draft+management skill) carries over ~6x more`);
 
 // ============================================================================
 // 2. LUCK-ADJUSTED STANDINGS (career: actual wins vs deserved)
@@ -137,4 +139,50 @@ active.forEach((r, i) => {
   s.text(pos ? X(r.luck) + 8 : X(r.luck) - 8, y + 4, `${pos ? "+" : ""}${r.luck.toFixed(1)}`, { fill: pos ? GREEN : RED, size: 12.5, weight: 800, anchor: pos ? "start" : "end", cls: "num" });
 });
 await save("luck-adjusted-standings", s.str());
-console.log("\nwrote analysis/plots/luck-adjusted-standings.png");
+
+// ---- plot: year-over-year persistence, scoring vs winning (two panels) ----
+async function plotPersistence() {
+  const W = 1020, H = 560, mt = 80, mb = 64, gap = 90, ph = H - mt - mb;
+  const pw = (W - 70 - 40 - gap) / 2; // two equal panels
+  const s2 = svg({ W, H, title: "Scoring is skill; winning is luck", subtitle: "Each dot = one manager, a season (x) vs the next (y). Redraft league — no roster carryover, so this is pure repeatability." });
+
+  // A panel: x = this year, y = next year, with the y=x diagonal ("same as last year").
+  function panel(x0, lo, hi, step, fmt, get, model, xlabel) {
+    const X = (v) => x0 + (v - lo) / (hi - lo) * pw;
+    const Y = (v) => mt + (1 - (v - lo) / (hi - lo)) * ph;
+    for (let t = lo; t <= hi + 1e-9; t += step) {
+      s2.line(X(t), mt, X(t), mt + ph, { opacity: 0.05 });
+      s2.line(x0, Y(t), x0 + pw, Y(t), { opacity: 0.05 });
+      s2.text(X(t), mt + ph + 18, fmt(t), { fill: MUTED, size: 10, anchor: "middle" });
+      s2.text(x0 - 8, Y(t) + 3, fmt(t), { fill: MUTED, size: 10, anchor: "end" });
+    }
+    // diagonal y = x: dots on it repeated exactly; above = improved, below = declined.
+    s2.line(X(lo), Y(lo), X(hi), Y(hi), { stroke: "#ffffff", opacity: 0.14, dash: "4 4" });
+    // regression line
+    s2.line(X(lo), Y(model.slope * lo + model.intercept), X(hi), Y(model.slope * hi + model.intercept), { stroke: ORANGE, width: 2, dash: "6 5", opacity: 0.85 });
+    for (const p of pairs) { const [x, y] = get(p); s2.circle(X(x), Y(y), 5, SEASON_COLOR[p.from], { opacity: 0.9, stroke: "#1a1611", sw: 0.8 }); }
+    s2.text(x0 + pw / 2, mt + ph + 40, xlabel, { fill: "#c9bfb2", size: 12.5, anchor: "middle", weight: 700 });
+    return { X, Y };
+  }
+
+  // left: PPG
+  const lx = 70;
+  panel(lx, 100, 145, 15, (t) => String(t), (p) => [p.ppgA, p.ppgB], ppgR, "Points/game");
+  s2.rect(lx + 8, mt + 8, 150, 46, "#242019", { rx: 8, stroke: "#ffffff", so: 0.1 });
+  s2.text(lx + 20, mt + 28, `SCORING: r = ${ppgR.r.toFixed(2)}`, { fill: GREEN, size: 13, weight: 800 });
+  s2.text(lx + 20, mt + 45, "skill — it carries over", { fill: MUTED, size: 10.5 });
+
+  // right: win%
+  const rx = lx + pw + gap;
+  panel(rx, 0, 0.85, 0.2, (t) => "." + (t * 1000).toFixed(0).padStart(3, "0"), (p) => [p.wpA, p.wpB], wpR, "Win%");
+  s2.rect(rx + 8, mt + 8, 150, 46, "#242019", { rx: 8, stroke: "#ffffff", so: 0.1 });
+  s2.text(rx + 20, mt + 28, `WINNING: r = ${wpR.r.toFixed(2)}`, { fill: RED, size: 13, weight: 800 });
+  s2.text(rx + 20, mt + 45, "luck — it resets", { fill: MUTED, size: 10.5 });
+
+  // shared axis note + season legend
+  s2.text(70, H - 14, "dashed diagonal = exactly as good as last year · orange = trend · n=" + pairs.length + " manager-pairs", { fill: MUTED, size: 10.5 });
+  let lxg = W - 250; for (const yr of [2022, 2023, 2024]) { s2.circle(lxg, 40, 5, SEASON_COLOR[yr]); s2.text(lxg + 10, 44, `${yr}→${yr + 1}`, { fill: "#c9bfb2", size: 11 }); lxg += 78; }
+  await save("scoring-vs-winning-persistence", s2.str());
+}
+await plotPersistence();
+console.log("\nwrote analysis/plots/luck-adjusted-standings.png, scoring-vs-winning-persistence.png");
