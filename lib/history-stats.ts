@@ -300,6 +300,100 @@ export function careers(): Career[] {
   return res.sort((a, b) => b.winPct - a.winPct || a.avgFinish - b.avgFinish);
 }
 
+export type LuckRecord = {
+  manager: string;
+  games: number;
+  wins: number;
+  losses: number;
+  ties: number;
+  actualWins: number; // wins + 0.5*ties
+  expWins: number; // all-play expected wins
+  actualPct: number;
+  expPct: number;
+  luck: number; // actualWins - expWins
+};
+
+// Available seasons for scoping the luck view, newest first.
+export function luckSeasons(): number[] {
+  return RICH_SEASONS.map((s) => s.season).sort((a, b) => b - a);
+}
+
+// Luck-adjusted record. Each week, replace the single head-to-head result with
+// the "all-play" expectation: the fraction of the WHOLE league a team outscored
+// that week. Summed up, that is the record a manager's SCORING earned,
+// independent of which lone opponent the schedule happened to draw. actualWins -
+// expWins = schedule luck. Regular season only; mid-season handoffs are credited
+// to whoever managed that week, so `wins/losses/ties` match the standings.
+// Pass a `season` to scope to a single year; omit for all-time.
+export function luckAdjusted(season?: number): LuckRecord[] {
+  const acc = new Map<string, { g: number; w: number; l: number; t: number; ew: number }>();
+  const bump = (p: string) => {
+    let e = acc.get(p);
+    if (!e) { e = { g: 0, w: 0, l: 0, t: 0, ew: 0 }; acc.set(p, e); }
+    return e;
+  };
+
+  const seasons = season == null ? RICH_SEASONS : RICH_SEASONS.filter((s) => s.season === season);
+  for (const s of seasons) {
+    const pById = new Map(s.teams.map((t) => [t.id, t.person]));
+    const who = (teamId: number, week: number) =>
+      personForTeamWeek(s.season, teamId, week, pById.get(teamId) ?? "?");
+
+    // this week's team scores, grouped so we can rank the whole slate (reg season)
+    const byWeek = new Map<number, { id: number; pts: number }[]>();
+    for (const g of s.schedule) {
+      if (g.isPlayoff || g.winner === "UNDECIDED") continue;
+      const wk = byWeek.get(g.week) ?? [];
+      wk.push({ id: g.homeId, pts: g.homePts }, { id: g.awayId, pts: g.awayPts });
+      byWeek.set(g.week, wk);
+    }
+
+    // actual record: head-to-head, credited to that week's manager
+    for (const g of s.schedule) {
+      if (g.isPlayoff || g.winner === "UNDECIDED") continue;
+      const h = bump(who(g.homeId, g.week));
+      const a = bump(who(g.awayId, g.week));
+      h.g++; a.g++;
+      if (g.homePts > g.awayPts) { h.w++; a.l++; }
+      else if (g.awayPts > g.homePts) { a.w++; h.l++; }
+      else { h.t++; a.t++; }
+    }
+
+    // expected wins: fraction of the OTHER teams you outscored that week
+    for (const [week, scores] of byWeek) {
+      const n = scores.length - 1;
+      if (n <= 0) continue;
+      for (const me of scores) {
+        let beaten = 0, tied = 0;
+        for (const o of scores) {
+          if (o === me) continue;
+          if (me.pts > o.pts) beaten++;
+          else if (me.pts === o.pts) tied++;
+        }
+        bump(who(me.id, week)).ew += (beaten + tied * 0.5) / n;
+      }
+    }
+  }
+
+  return [...acc.entries()]
+    .map(([manager, v]) => {
+      const actualWins = v.w + v.t * 0.5;
+      return {
+        manager,
+        games: v.g,
+        wins: v.w,
+        losses: v.l,
+        ties: v.t,
+        actualWins,
+        expWins: v.ew,
+        actualPct: v.g ? actualWins / v.g : 0,
+        expPct: v.g ? v.ew / v.g : 0,
+        luck: actualWins - v.ew,
+      };
+    })
+    .sort((a, b) => b.expPct - a.expPct || b.expWins - a.expWins);
+}
+
 export type PickAvg = {
   pick: number;
   n: number; // team-seasons drafted at this slot
