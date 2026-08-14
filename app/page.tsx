@@ -154,7 +154,7 @@ export default function Home() {
         {(loading || busy) && <LinearProgress color="primary" />}
       </AppBar>
 
-      <Container maxWidth="sm" sx={{ pt: 3 }}>
+      <Container maxWidth={false} sx={{ pt: 3, maxWidth: { xs: "100%", sm: 600, md: 900 }, mx: "auto" }}>
         {state && state.totalTeams === 0 && <EmptyState onSeed={seed} busy={busy} />}
 
         {showGate && (
@@ -245,7 +245,8 @@ export default function Home() {
               )
             )}
 
-            {/* Draft board */}
+            {/* Draft board + selection order — side by side on desktop */}
+            <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, gap: 3, alignItems: "start" }}>
             <Box>
               <Typography variant="h6" gutterBottom>Draft board</Typography>
               <Stack spacing={1}>
@@ -309,6 +310,7 @@ export default function Home() {
                 })}
               </Stack>
             </Box>
+            </Box>
 
             <Divider />
             <Stack direction="row" spacing={1}>
@@ -353,7 +355,7 @@ function JoinGate({
             Tap your team. You&apos;ll be able to pick when it&apos;s your turn.
           </Typography>
         </Box>
-        <Stack spacing={1}>
+        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" }, gap: 1 }}>
           {[...teams]
             .sort((a, b) => a.name.localeCompare(b.name))
             .map((t) => (
@@ -372,7 +374,7 @@ function JoinGate({
                 </Box>
               </Button>
             ))}
-        </Stack>
+        </Box>
         <Typography variant="caption" color="text.secondary"
           sx={{ display: "block", mt: 2, textAlign: "center" }}>
           Not on the list? Add teams on the settings screen.

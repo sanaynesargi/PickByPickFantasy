@@ -20,7 +20,8 @@ export default function HeadToHead({ people }: { people: string[] }) {
   }
 
   const cell = {
-    minWidth: 46, width: 46, height: 40, textAlign: "center" as const,
+    minWidth: { xs: 46, md: 58 }, width: { xs: 46, md: 58 }, height: { xs: 40, md: 50 },
+    textAlign: "center" as const,
     padding: 0, fontVariantNumeric: "tabular-nums" as const,
     borderBottom: "1px solid rgba(255,255,255,0.05)",
   };
@@ -34,13 +35,13 @@ export default function HeadToHead({ people }: { people: string[] }) {
       <Typography variant="caption" color="text.secondary" sx={{ display: "block", mb: 1 }}>
         Row&apos;s record vs column. Tap any cell for the full series. Seasons with game scores (2022 to 2025).
       </Typography>
-      <Box sx={{ overflowX: "auto", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 2 }}>
+      <Box sx={{ overflowX: "auto", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 2, width: "fit-content", maxWidth: "100%", mx: "auto" }}>
         <Box component="table" sx={{ borderCollapse: "collapse" }}>
           <Box component="thead">
             <Box component="tr">
-              <Box component="th" sx={{ ...cell, position: "sticky", left: 0, zIndex: 2, bgcolor: "#1a1611", textAlign: "left", pl: 1, minWidth: 64, width: 64 }} />
+              <Box component="th" sx={{ ...cell, position: "sticky", left: 0, zIndex: 2, bgcolor: "#1a1611", textAlign: "left", pl: 1, minWidth: { xs: 64, md: 88 }, width: { xs: 64, md: 88 } }} />
               {people.map((p) => (
-                <Box component="th" key={p} sx={{ ...cell, fontSize: 10, fontFamily: "var(--font-display)", fontWeight: 700, color: "text.secondary", letterSpacing: "0.04em" }}>
+                <Box component="th" key={p} sx={{ ...cell, fontSize: { xs: 10, md: 12 }, fontFamily: "var(--font-display)", fontWeight: 700, color: "text.secondary", letterSpacing: "0.04em" }}>
                   {short(p)}
                 </Box>
               ))}
@@ -49,7 +50,7 @@ export default function HeadToHead({ people }: { people: string[] }) {
           <Box component="tbody">
             {people.map((a) => (
               <Box component="tr" key={a}>
-                <Box component="th" sx={{ ...cell, position: "sticky", left: 0, zIndex: 1, bgcolor: "#1a1611", textAlign: "left", pl: 1, fontSize: 12, fontWeight: 700, minWidth: 64, width: 64 }}>
+                <Box component="th" sx={{ ...cell, position: "sticky", left: 0, zIndex: 1, bgcolor: "#1a1611", textAlign: "left", pl: 1, fontSize: { xs: 12, md: 14 }, fontWeight: 700, minWidth: { xs: 64, md: 88 }, width: { xs: 64, md: 88 } }}>
                   {a}
                 </Box>
                 {people.map((b) => {
@@ -60,7 +61,7 @@ export default function HeadToHead({ people }: { people: string[] }) {
                   const bg = diff > 0 ? "rgba(70,196,140,0.16)" : diff < 0 ? "rgba(236,102,80,0.16)" : "transparent";
                   return (
                     <Box component="td" key={b} onClick={() => setPair({ a, b })}
-                      sx={{ ...cell, cursor: "pointer", bgcolor: bg, fontSize: 12, fontWeight: 700,
+                      sx={{ ...cell, cursor: "pointer", bgcolor: bg, fontSize: { xs: 12, md: 14 }, fontWeight: 700,
                         color: diff > 0 ? GREEN : diff < 0 ? RED : "text.primary",
                         "&:hover": { outline: "1px solid rgba(255,106,26,0.6)", outlineOffset: -1 } }}>
                       {r.w}-{r.l}

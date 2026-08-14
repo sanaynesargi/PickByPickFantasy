@@ -137,7 +137,7 @@ export default function Admin() {
         {busy && <LinearProgress color="primary" />}
       </AppBar>
 
-      <Container maxWidth="sm" sx={{ pt: 3 }}>
+      <Container maxWidth={false} sx={{ pt: 3, maxWidth: { xs: "100%", sm: 600, md: 820 }, mx: "auto" }}>
         <Stack spacing={3}>
           <Card variant="outlined" sx={{ borderColor: "rgba(255,106,26,0.4)" }}>
             <CardContent sx={{ py: 2 }}>

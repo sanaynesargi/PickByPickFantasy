@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import { HISTORY, leagueSeason, recordStr, type StandingRow, type LeagueSeason } from "@/lib/history-data";
 import { hasBoxscores } from "@/lib/boxscore-stats";
-import { MEDAL } from "../theme";
+import { MEDAL, CONTENT_MAXW } from "../theme";
 import PageNav from "../components/PageNav";
 import PersonDialog from "./PersonDialog";
 import BoxScoreDialog, { type BoxTarget } from "../components/BoxScoreDialog";
@@ -82,7 +82,7 @@ export default function HistoryPage() {
         </Toolbar>
       </AppBar>
 
-      <Container maxWidth="sm" sx={{ pt: 3 }}>
+      <Container maxWidth={false} sx={{ pt: 3, maxWidth: CONTENT_MAXW, mx: "auto" }}>
         <Stack spacing={3}>
           <Box sx={{ overflowX: "auto", pb: 0.5, mx: -0.5, px: 0.5 }}>
             <ToggleButtonGroup exclusive value={season} color="primary"
@@ -179,7 +179,7 @@ function SeasonView({ data, onPerson }: { data: (typeof HISTORY)[number]; onPers
           <Typography variant="overline" sx={{ color: "primary.main" }}>Draft board</Typography>
           <Typography variant="caption" color="text.secondary">pick · reg / playoff finish</Typography>
         </Stack>
-        <Stack spacing={1}>
+        <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, gap: 1 }}>
           {rows.map(({ pick, team, manager, s, drafted }) => {
             const medal = medalColor(s?.playoffRank);
             return (
@@ -242,7 +242,7 @@ function SeasonView({ data, onPerson }: { data: (typeof HISTORY)[number]; onPers
               </Card>
             );
           })}
-        </Stack>
+        </Box>
       </Box>
 
       <Typography variant="caption" color="text.secondary">
@@ -285,7 +285,7 @@ function SeasonDraft({ season, onPerson }: { season: LeagueSeason; onPerson: (m:
         </ToggleButtonGroup>
       </Stack>
 
-      <Stack spacing={1}>
+      <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "repeat(3, 1fr)" }, gap: 1, alignItems: "start" }}>
         {by === "round"
           ? rounds.map((rd) => (
               <Card key={rd} sx={{ px: 1.75, py: 1.25 }}>
@@ -314,7 +314,7 @@ function SeasonDraft({ season, onPerson }: { season: LeagueSeason; onPerson: (m:
                 </Card>
               );
             })}
-      </Stack>
+      </Box>
     </Box>
   );
 }
@@ -363,7 +363,7 @@ function SeasonScores({ season, onPerson }: { season: LeagueSeason; onPerson: (m
         </Card>
       </Stack>
 
-      <Stack spacing={1}>
+      <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "repeat(3, 1fr)" }, gap: 1, alignItems: "start" }}>
         {weeks.map((wk) => {
           const games = played.filter((g) => g.week === wk);
           const isPo = games[0]?.isPlayoff;
@@ -395,7 +395,7 @@ function SeasonScores({ season, onPerson }: { season: LeagueSeason; onPerson: (m
             </Card>
           );
         })}
-      </Stack>
+      </Box>
 
       <BoxScoreDialog target={box} onClose={() => setBox(null)} />
     </Box>

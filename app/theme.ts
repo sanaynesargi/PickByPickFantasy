@@ -10,6 +10,12 @@ export const MEDAL = {
   bronze: "#c9824a",
 } as const;
 
+// Shared responsive page width: a phone-narrow column that opens up on desktop so
+// the stat grids can breathe. Used as `<Container maxWidth={false} sx={{ maxWidth: CONTENT_MAXW, mx: "auto" }}>`.
+export const CONTENT_MAXW = { xs: "100%", sm: 600, md: 900, lg: 1200 } as const;
+// Grid that lays out a list of stat cards: 1 column on phones, more as space allows.
+export const CARD_GRID = { xs: "1fr", md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" } as const;
+
 const display = 'var(--font-display), "Bricolage Grotesque", system-ui, sans-serif';
 const body = 'var(--font-body), "Hanken Grotesk", system-ui, sans-serif';
 

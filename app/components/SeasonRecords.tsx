@@ -23,11 +23,13 @@ export default function SeasonRecords() {
         The best years the league has ever seen — and the hardest falls. 2022 to 2025.
       </Typography>
 
+      <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" }, columnGap: 3 }}>
+      <Box>
       {/* Best regular season */}
       <Typography sx={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 14, mb: 0.75 }}>
         🏆 Best regular season
       </Typography>
-      <Stack spacing={0.75} sx={{ mb: 2.5 }}>
+      <Stack spacing={0.75} sx={{ mb: { xs: 2.5, md: 0 } }}>
         {bestRecord.map((r, i) => (
           <Box key={`${r.person}-${r.season}`}
             sx={{ display: "flex", alignItems: "center", gap: 1.25, px: 1.5, py: 1, borderRadius: 2,
@@ -53,7 +55,8 @@ export default function SeasonRecords() {
           </Box>
         ))}
       </Stack>
-
+      </Box>
+      <Box>
       {/* Biggest collapse */}
       <Typography sx={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 14, mb: 0.75 }}>
         💥 Biggest collapse
@@ -78,6 +81,8 @@ export default function SeasonRecords() {
           </Box>
         ))}
       </Stack>
+      </Box>
+      </Box>
     </Box>
   );
 }

@@ -5,6 +5,7 @@ import { careers } from "@/lib/history-stats";
 import { ACTIVE_MANAGERS } from "@/lib/history-data";
 import HeadToHead from "../components/HeadToHead";
 import PageNav from "../components/PageNav";
+import { CONTENT_MAXW } from "../theme";
 
 export default function HeadToHeadPage() {
   const activeSet = new Set(ACTIVE_MANAGERS);
@@ -21,7 +22,7 @@ export default function HeadToHeadPage() {
         </Toolbar>
       </AppBar>
 
-      <Container maxWidth="sm" sx={{ pt: 3 }}>
+      <Container maxWidth={false} sx={{ pt: 3, maxWidth: CONTENT_MAXW, mx: "auto" }}>
         <Stack spacing={3}>
           <Box>
             <Typography variant="h4" sx={{ mb: 0.5 }}>Head-to-Head</Typography>

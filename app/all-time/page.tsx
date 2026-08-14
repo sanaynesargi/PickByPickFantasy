@@ -11,6 +11,7 @@ import PickAverages from "../components/PickAverages";
 import SeasonRecords from "../components/SeasonRecords";
 import PageNav from "../components/PageNav";
 import PersonDialog from "../history/PersonDialog";
+import { CONTENT_MAXW, CARD_GRID } from "../theme";
 
 function pct3(n: number) {
   return n.toFixed(3).replace(/^0/, "");
@@ -47,7 +48,7 @@ export default function AllTimePage() {
         </Toolbar>
       </AppBar>
 
-      <Container maxWidth="sm" sx={{ pt: 3 }}>
+      <Container maxWidth={false} sx={{ pt: 3, maxWidth: CONTENT_MAXW, mx: "auto" }}>
         <Stack spacing={3.5}>
           <Box>
             <Typography variant="h4" sx={{ mb: 0.5 }}>All-Time</Typography>
@@ -73,7 +74,7 @@ export default function AllTimePage() {
                 <ToggleButton value="all">All-time</ToggleButton>
               </ToggleButtonGroup>
             </Stack>
-            <Stack spacing={1}>
+            <Box sx={{ display: "grid", gridTemplateColumns: CARD_GRID, gap: 1 }}>
               {people.map((c, i) => (
                 <Card key={c.manager} onClick={() => setPerson(c.manager)}
                   sx={{ display: "flex", alignItems: "center", gap: 1.5, px: 2, py: 1.2, cursor: "pointer",
@@ -103,7 +104,7 @@ export default function AllTimePage() {
                   </Box>
                 </Card>
               ))}
-            </Stack>
+            </Box>
             <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1 }}>
               reg fin = regular-season finish · PO fin = playoff finish · 🏆/🥈/🥉 = playoff podiums
             </Typography>
@@ -133,7 +134,7 @@ export default function AllTimePage() {
               Every week we swap the single opponent the schedule drew for the whole league: you get
               the fraction of all teams you outscored. Ranked by that expected win%.
             </Typography>
-            <Stack spacing={1}>
+            <Box sx={{ display: "grid", gridTemplateColumns: CARD_GRID, gap: 1 }}>
               {luckRows.map((l, i) => {
                 const robbed = l.luck < -0.05;
                 const boosted = l.luck > 0.05;
@@ -169,7 +170,7 @@ export default function AllTimePage() {
                   </Card>
                 );
               })}
-            </Stack>
+            </Box>
             <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1 }}>
               Last number = luck (actual − deserved wins).{" "}
               <Box component="span" sx={{ color: "success.main" }}>green</Box> = the schedule cost
@@ -189,7 +190,7 @@ export default function AllTimePage() {
             <Typography variant="caption" color="text.secondary" sx={{ display: "block", mb: 1.5 }}>
               Pearson r between draft-slot number and each stat. Negative means earlier picks tend to do better.
             </Typography>
-            <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1 }}>
+            <Box sx={{ display: "grid", gridTemplateColumns: { xs: "1fr 1fr", md: "repeat(4, 1fr)" }, gap: 1 }}>
               {corrs.map((c) => (
                 <Card key={c.label} sx={{ px: 1.75, py: 1.4 }}>
                   <Typography variant="caption" color="text.secondary" noWrap>{c.label}</Typography>
